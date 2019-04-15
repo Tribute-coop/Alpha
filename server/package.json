@@ -1,0 +1,29 @@
+{
+  "name": "tribute-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tribute API",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.11",
+    "ts-node": "^8.1.0",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "tslint": "^5.15.0",
+    "typescript": "^3.4.3"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "start": "nodemon --config \"./nodemon.json\"/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.13.4",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^1.6.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.17.1",
+    "yarn": "^1.15.2"
+  }
+}
