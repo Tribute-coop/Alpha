@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/main.scss';
+
 import { AppComponent } from './app/app.component';
+import './app/core/i18n';
+
 import * as serviceWorker from './serviceWorker';
+
+import './styles/main.scss';
 
 ReactDOM.render(<AppComponent />, document.getElementById('root'));
 
