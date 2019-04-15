@@ -5,7 +5,8 @@ module.exports =  {
     'plugin:@typescript-eslint/recommended',  // Uses the recommended rules from @typescript-eslint/eslint-plugin
   ],
   plugins: [
-    "react"
+    "react",
+    "react-hooks"
   ],
   parserOptions:  {
     ecmaVersion:  2018,  // Allows for the parsing of modern ECMAScript features
@@ -288,7 +289,9 @@ module.exports =  {
       10
     ],
     "no-bitwise": 0,
-    "no-plusplus": 0
+    "no-plusplus": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   },
   settings:  {
     react:  {
