@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import logo from '../images/logo.svg';
@@ -13,7 +13,7 @@ export function AppComponent(): JSX.Element {
         <img src={logo} className="app-logo" alt="logo" />
         <p>
           Edit <code>src/app.tsx</code> and save to reload.
-          </p>
+        </p>
         <a
           className="app-link"
           href="https://reactjs.org"
