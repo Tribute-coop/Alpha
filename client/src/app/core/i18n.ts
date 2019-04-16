@@ -6,7 +6,12 @@ import { initReactI18next } from 'react-i18next';
 const resources = {
   en: {
     translation: {
-      'Welcome to React': 'Welcome to React and react-i18next'
+      setup: {
+        header: {
+          'already_have_an_account': 'Welcome to React and react-i18next',
+          login: 'Log in.'
+        }
+      }
     }
   }
 };

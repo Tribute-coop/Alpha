@@ -1,28 +1,23 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { Route, Switch, BrowserRouter, RouteProps } from 'react-router-dom';
 
-import logo from '../images/logo.svg';
+import routes from './app.routes';
+
 import './app.component.scss';
 
 export function AppComponent(): JSX.Element {
-  const { t } = useTranslation();
-
   return (
-    <div className="app">
-      <header className="app-header">
-        <img src={logo} className="app-logo" alt="logo" />
-        <p>
-          Edit <code>src/app.tsx</code> and save to reload.
-        </p>
-        <a
-          className="app-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {t('Welcome to React')}
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        {routes.map((route: RouteProps, index: number): JSX.Element => (
+          <Route
+            exact={route.exact}
+            key={index}
+            path={route.path}
+            component={route.component}
+          />
+        ))}
+      </Switch>
+    </BrowserRouter>
   );
 }
