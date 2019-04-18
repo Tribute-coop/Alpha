@@ -1,7 +1,8 @@
 {
-  "name": "client",
+  "name": "tribute-client",
   "version": "0.1.0",
   "private": true,
+  "description": "Tribute Web App",
   "dependencies": {
     "@types/jest": "24.0.11",
     "@types/node": "11.13.4",
