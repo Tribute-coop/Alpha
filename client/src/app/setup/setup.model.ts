@@ -1,11 +1,11 @@
 export enum Custody {
-  BanckAccount,
-  SmartContract
+  BankAccount = '0',
+  SmartContract = '1'
 }
 
 export interface Setup {
   custody: Custody;
   projectName: string;
   symbol: string;
-  issuance: number;
+  issuance: string;
 }
