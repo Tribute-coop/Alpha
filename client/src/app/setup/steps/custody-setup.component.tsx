@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation, Trans } from 'react-i18next';
 
 export function CustodySetupComponent(): JSX.Element {
   const { t } = useTranslation();
@@ -10,7 +10,7 @@ export function CustodySetupComponent(): JSX.Element {
         {t('setup.custody.title')}
       </h3>
       <p className="lead">
-        {t('setup.custody.description')}
+        <Trans i18nKey="setup.custody.description"></Trans>
       </p>
       <p className="lead">
         <a href="#">
