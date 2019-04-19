@@ -1,30 +1,27 @@
 import {
-  WelcomeSetupComponent,
   ProjectNameSetupComponent,
   CustodySetupComponent,
   IssuanceSetupComponent,
   SymbolSetupComponent
-} from "./steps";
+} from './steps';
+
+const parentRoute = '/setup';
 
 export default [
   {
-    path: "/welcome",
-    component: WelcomeSetupComponent
-  },
-  {
-    path: "/project-name",
+    path: `${parentRoute}/project-name`,
     component: ProjectNameSetupComponent
   },
   {
-    path: "/custody",
+    path: `${parentRoute}/custody`,
     component: CustodySetupComponent
   },
   {
-    path: "/issuance",
+    path: `${parentRoute}/issuance`,
     component: IssuanceSetupComponent
   },
   {
-    path: "/symbol",
+    path: `${parentRoute}/symbol`,
     component: SymbolSetupComponent
   }
 ];

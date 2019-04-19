@@ -1,24 +1,25 @@
 import React from 'react';
-
-// export class SymbolSetupComponent extends Component<ISomething<string>, any> {
-//   constructor(props: ISomething<string>) {
-//     super(props);
-//     this.state = { value: '' };
-//     console.log('dsjldfajldfas ', props);
-//     this.handleChange = this.handleChange.bind(this);
-//   }
-
-//   handleChange(event: ChangeEvent<HTMLInputElement>) {
-//     this.setState({ value: event.target.value });
-//   }
-
-//   render() {
-//     return <h1>Symbol</h1>;
-//   }
-// }
-
-
+import { useTranslation } from 'react-i18next';
 
 export function SymbolSetupComponent(): JSX.Element {
-  return <h1>SymbolSetupComponent</h1>;
+  const { t } = useTranslation();
+
+  return (
+    <div>
+      <h3 className="mb-4">
+        {t('setup.symbol.title')}
+      </h3>
+      <p className="lead">
+        {t('setup.symbol.description1')}
+      </p>
+      <p className="lead">
+        {t('setup.symbol.description2')}
+      </p>
+      <p className="lead">
+        <a href="#">
+          {t('setup.symbol.help')}
+        </a>
+      </p>
+    </div>
+  );
 }

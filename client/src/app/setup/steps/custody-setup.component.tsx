@@ -1,23 +1,22 @@
 import React from 'react';
-
-/* export class CustodySetupComponent extends Component<ISomething<string>, any> {
-  constructor(props: ISomething<string>) {
-    super(props);
-    this.state = { value: '' };
-    console.log('dsjldfajldfas ', props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event: ChangeEvent<HTMLInputElement>) {
-    this.setState({ value: event.target.value });
-  }
-
-  render() {
-    return <h1>Custody</h1>;
-  }
-}
- */
+import { useTranslation } from 'react-i18next';
 
 export function CustodySetupComponent(): JSX.Element {
-  return <h1>Custody</h1>;
+  const { t } = useTranslation();
+
+  return (
+    <div>
+      <h3 className="mb-4">
+        {t('setup.custody.title')}
+      </h3>
+      <p className="lead">
+        {t('setup.custody.description')}
+      </p>
+      <p className="lead">
+        <a href="#">
+          {t('setup.custody.help')}
+        </a>
+      </p>
+    </div>
+  );
 }
