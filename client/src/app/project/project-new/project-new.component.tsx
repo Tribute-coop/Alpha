@@ -1,38 +1,38 @@
-import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { RouterProps } from 'react-router';
 
-import { TributeLogo } from '../core/tribute-logo/tribute-logo.component';
+import { TributeLogo } from '../../core/tribute-logo/tribute-logo.component';
 
-import { Setup, Custody } from './setup.model';
+import { Project } from '../project.model';
+import { Custody } from '../custody.enum';
 
-import routes from './setup.routes';
-import './setup.component.scss';
+import routes, { projectNewPath } from '../project.routes';
+import './project-new.component.scss';
 
-const defaultSetup: Setup = {
+const defaultProject: Project = {
   custody: Custody.BankAccount,
   projectName: '',
   symbol: '',
   issuance: ''
 };
 
-
-export function SetupComponent(props: RouterProps): JSX.Element {
-  const [setup, setSetup] = useState(defaultSetup);
+export function ProjectNewComponent(props: RouterProps): JSX.Element {
+  const [project, setProject] = useState(defaultProject);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
-    setSetup({ ...setup, [name]: value });
+    setProject({ ...project, [name]: value });
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log(setup);
+    console.log(project);
   };
 
   const handleFocus = (event: ChangeEvent<HTMLInputElement>): void => {
     const { name } = event.target;
-    props.history.push(`/setup/${name}`);
+    props.history.push(`${projectNewPath}/${name}`);
   };
 
   return (
@@ -43,28 +43,26 @@ export function SetupComponent(props: RouterProps): JSX.Element {
         </a>
       </nav>
 
-      <section className="setup__steps">
+      <section className="project-new__steps">
         <div className="row">
           <div className="col-md-12 col-lg-5 order-lg-last">
             <Switch>
               {routes.map(
-                ({ component: SetupChildComponent, path }, index: number): JSX.Element => (
+                ({ component: ProjectNewStepComponent, path }, index: number): JSX.Element => (
                   <Route exact key={index} path={path} render={
                     (childProps: RouterProps): JSX.Element =>
-                      (<SetupChildComponent {...childProps} setup={setup} />)
-                  }/>
+                      (<ProjectNewStepComponent {...childProps} project={project} />)
+                  } />
                 )
               )}
-              <Route
-                render={(): JSX.Element => <Redirect to={routes[0].path} />}
-              />
+              <Route render={(): JSX.Element => <Redirect to={routes[0].path} />} />
             </Switch>
           </div>
           <div className="col-md-12 col-lg-5 offset-lg-1">
-            <form className="setup__form" onSubmit={handleSubmit} autoComplete="off">
+            <form className="project-new__form" onSubmit={handleSubmit} autoComplete="off">
               <div className="form-group">
-                <label htmlFor="projectName">Project Name</label>
-                <input type="text" className="form-control" name="projectName" id="projectName" onChange={handleChange} onFocus={handleFocus} />
+                <label htmlFor="name">Project Name</label>
+                <input type="text" className="form-control" name="name" id="name" onChange={handleChange} onFocus={handleFocus} />
               </div>
 
               <div className="form-group">

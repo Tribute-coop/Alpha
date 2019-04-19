@@ -1,20 +1,20 @@
 import React from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 
-export function CustodySetupComponent(): JSX.Element {
+export function ProjectNewCustodyComponent(): JSX.Element {
   const { t } = useTranslation();
 
   return (
     <div>
       <h3 className="mb-4">
-        {t('setup.custody.title')}
+        {t('project.new.custody.title')}
       </h3>
       <p className="lead">
-        <Trans i18nKey="setup.custody.description"></Trans>
+        <Trans i18nKey="project.new.custody.description"></Trans>
       </p>
       <p className="lead">
         <a href="#">
-          {t('setup.custody.help')}
+          {t('project.new.custody.help')}
         </a>
       </p>
     </div>

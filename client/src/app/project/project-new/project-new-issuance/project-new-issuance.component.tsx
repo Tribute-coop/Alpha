@@ -2,28 +2,28 @@ import React from 'react';
 import { RouterProps } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
-import { Setup } from '../setup.model';
+import { Project } from '../../project.model';
 
 const defaultSymbol = '${SYMBOL}';
 
-export function IssuanceSetupComponent(props: RouterProps & { setup: Setup }): JSX.Element {
+export function ProjectNewIssuanceComponent(props: RouterProps & { project: Project }): JSX.Element {
   const { t } = useTranslation();
-  const symbol = props.setup.symbol || defaultSymbol;
+  const symbol = props.project.symbol || defaultSymbol;
 
   return (
     <div>
       <h3 className="mb-4">
-        {t('setup.issuance.title')}
+        {t('project.new.issuance.title')}
       </h3>
       <p className="lead">
-        {t('setup.issuance.description1', { symbol })}
+        {t('project.new.issuance.description1', { symbol })}
       </p>
       <p className="lead">
-        {t('setup.issuance.description2')}
+        {t('project.new.issuance.description2')}
       </p>
       <p className="lead">
         <a href="#">
-          {t('setup.issuance.help')}
+          {t('project.new.issuance.help')}
         </a>
       </p>
     </div>

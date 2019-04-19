@@ -1,15 +1,15 @@
-import { SetupComponent } from "./setup";
-import { HomeComponent } from "./home";
-import { NotFoundComponent } from "./shared";
+import { HomeComponent } from './home';
+import { NotFoundComponent } from './shared';
+import { ProjectNewComponent } from './project';
 
 export default [
   {
-    path: "/setup",
+    path: '/project/new',
     exact: false,
-    component: SetupComponent
+    component: ProjectNewComponent
   },
   {
-    path: "/",
+    path: '/',
     exact: true,
     component: HomeComponent
   },

@@ -1,25 +1,27 @@
 {
-  "setup": {
-    "projectName": {
-      "title": "What's the name of your project?",
-      "description": "This could be the name of our company, or any initiative or project you are leading."
-    },
-    "symbol": {
-      "title": "Name your contributive token.",
-      "description1": "Your tokens will be a new equity for rewarding people who contribute to your project.",
-      "description2": "Usually 3 to 5 letters. It's common to use abbreviation of your company or project.",
-      "help": "Learn more about contributive tokens"
-    },
-    "issuance": {
-      "title": "Mint your tokens.",
-      "description1": "Set the quantity of {{ symbol }} that you intend to give to your contributors.",
-      "description2": "Start with a small number, you can issue more tokens laters if needed",
-      "help": "How many tokens should I create?"
-    },
-    "custody": {
-      "title": "Who will keep your funds?",
-      "description": "The fund will hold the part of revenues or profits that you want to distribute to your contributors.<br/>Choose here who will control your fund.",
-      "help": "Who will keep your funds?"
+  "project": {
+    "new": {
+      "name": {
+        "title": "What's the name of your project?",
+        "description": "This could be the name of our company, or any initiative or project you are leading."
+      },
+      "symbol": {
+        "title": "Name your contributive token.",
+        "description1": "Your tokens will be a new equity for rewarding people who contribute to your project.",
+        "description2": "Usually 3 to 5 letters. It's common to use abbreviation of your company or project.",
+        "help": "Learn more about contributive tokens"
+      },
+      "issuance": {
+        "title": "Mint your tokens.",
+        "description1": "Set the quantity of {{ symbol }} that you intend to give to your contributors.",
+        "description2": "Start with a small number, you can issue more tokens laters if needed",
+        "help": "How many tokens should I create?"
+      },
+      "custody": {
+        "title": "Who will keep your funds?",
+        "description": "The fund will hold the part of revenues or profits that you want to distribute to your contributors.<br/>Choose here who will control your fund.",
+        "help": "Who will keep your funds?"
+      }
     }
   }
 }
