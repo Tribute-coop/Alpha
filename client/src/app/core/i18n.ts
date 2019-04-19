@@ -7,10 +7,7 @@ i18n
   .use(initReactI18next)
   .init({
     lng: 'en',
-    backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json'
-    },
-
+    fallbackLng: false,
     interpolation: {
       escapeValue: false
     },
