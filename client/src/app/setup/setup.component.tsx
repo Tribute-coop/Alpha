@@ -21,8 +21,11 @@ export function SetupComponent(): JSX.Element {
           <div className="col-md-12 col-lg-5 order-lg-last">
             <Switch>
               {routes.map(
-                ({ component, path }, index: number): JSX.Element => (
-                  <Route exact key={index} path={path} component={component} />
+                ({ component: SetupChildComponent, path }, index: number): JSX.Element => (
+                  <Route exact key={index} path={path} render={
+                    (childProps: RouterProps): JSX.Element =>
+                      (<SetupChildComponent {...childProps} setup={setup} />)
+                  }/>
                 )
               )}
               <Route

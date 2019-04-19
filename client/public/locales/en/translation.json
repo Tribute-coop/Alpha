@@ -12,7 +12,7 @@
     },
     "issuance": {
       "title": "Mint your tokens.",
-      "description1": "Set the quantity of GND that you intend to give to your contributors.",
+      "description1": "Set the quantity of {{ symbol }} that you intend to give to your contributors.",
       "description2": "Start with a small number, you can issue more tokens laters if needed",
       "help": "How many tokens should I create?"
     },
