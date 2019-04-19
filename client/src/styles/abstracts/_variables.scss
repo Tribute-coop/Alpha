@@ -1,4 +1,13 @@
 // Typography
 //
+$black: #000000;
+
 $font-family-base: 'Maison Neue', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-$body-color: #494949;
+$body-color:$black;
+$body-bg: #F8FCFD;
+
+$spacer: 1rem;
+$font-size-base: 1rem;
+
+$navbar-light-brand-color: #4A4A4A;
+$navbar-light-brand-hover-color: $black;
