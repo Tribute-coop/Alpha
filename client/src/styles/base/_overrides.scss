@@ -1,11 +1,12 @@
 $primary-gradient-left-color: #00C7E4;
 $primary-gradient-right-color: #00EFE2;
 
-
 .form-group > label {
-  font-weight: 300;
-  margin-bottom: .4rem;
+  font-weight: 200;
+  margin-bottom: .5rem;
   text-transform: uppercase;
+  font-size: 0.875rem;
+  color: #333333;
 }
 
 .btn {
@@ -15,5 +16,9 @@ $primary-gradient-right-color: #00EFE2;
   &.btn-primary {
     color: #FFF;
     background: linear-gradient(90deg, $primary-gradient-left-color, $primary-gradient-right-color);
+
+    &:disabled {
+      background: $gray-400;
+    }
   }
 }
