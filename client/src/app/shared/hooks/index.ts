@@ -4,21 +4,16 @@ export type FormValidator = (value: ControlValue) => FormErrors | null;
 
 export type ControlValue = boolean | string | number;
 
-export interface FormFieldsState { [key: string]: ControlState }
-
 export interface FormFieldsValue { [key: string]: ControlValue }
+
+export interface FormFieldsState { [key: string]: ControlState }
 
 export interface FormGroup {
   [key: string]: [ControlValue, FormValidator[]];
 }
 
-export interface FormState {
-  dirty: boolean;
-  valid: boolean;
-  fields: { [key: string]: ControlState };
-}
-
 export interface ControlState {
+  value: ControlValue;
   dirty: boolean;
   valid: boolean;
   errors: FormErrors | null;
@@ -29,38 +24,29 @@ export interface FormErrors {
   [key: string]: any;
 }
 
-const defaultControlState: ControlState = {
-  validators: [],
-  dirty: false,
-  errors: null,
-  valid: true
-};
-
-export class DefaultFormField {
-  public initState: FormState;
-  public initValue: FormFieldsValue;
+export class FormState {
+  public dirty: boolean = false;
+  public valid: boolean = true;
+  public fields: { [key: string]: ControlState };
 
   // eslint-disable-next-line
   constructor(formGroup: FormGroup) {
-    const fields: FormFieldsState = {};
-    const values: FormFieldsValue = {};
+    this.fields = Object.keys(formGroup)
+      .reduce((previous, name): FormFieldsState => {
+        const [value, validators] = formGroup[name];
 
-    Object.keys(formGroup).forEach((name: string): void => {
-      const [value, validators] = formGroup[name];
+        const controlState = {
+          value,
+          validators,
+          valid: true,
+          errors: null,
+          dirty: false
+        };
 
-      values[name] = value;
-      fields[name] = {
-        ...defaultControlState,
-        validators
-      };
-    });
-
-    this.initValue = values;
-
-    this.initState = {
-      valid: true,
-      dirty: false,
-      fields
-    };
+        return {
+          ...previous,
+          [name]: controlState
+        };
+      }, {});
   }
 }

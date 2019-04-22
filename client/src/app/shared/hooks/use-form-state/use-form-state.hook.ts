@@ -5,7 +5,8 @@ import {
   FormValidator,
   FormErrors,
   ControlState,
-  DefaultFormField
+  FormState,
+  FormFieldsValue
 } from '../';
 
 function validate(controlValue: ControlValue, validators: FormValidator[]): FormErrors | null {
@@ -18,47 +19,55 @@ function validate(controlValue: ControlValue, validators: FormValidator[]): Form
   return Object.keys(result).length === 0 ? null : result;
 }
 
-export function useFormState({ initValue, initState }: DefaultFormField): any {
-  const [value, setValue] = useState(initValue);
-  const [formState, setFormState] = useState(initState);
+export function useFormState(initialFormState: FormState): any {
+  const [formState, setFormState] = useState(initialFormState);
 
-  const checkFormState = useCallback((): void => {
+  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>): void => {
+    const { name, value } = event.target;
+
+    if (!(name in formState.fields)) {
+      throw new Error(`${name} field is not part of the FormGroup`);
+    }
+
     const { fields } = formState;
 
-    Object.keys(fields).forEach((name: string): void => {
-      const controlValue = value[name];
-      let controlState = fields[name];
+    fields[name].value = value;
+    fields[name].dirty = true;
+
+    Object.keys(fields).forEach((fieldName): void => {
+      const controlState = fields[fieldName];
 
       const errors = validate(
-        controlValue,
+        controlState.value,
         controlState.validators
       );
 
-      const dirty = true;
       const valid = errors === null;
 
-      fields[name] = { ...controlState, errors, dirty, valid };
+      fields[fieldName] = {
+        ...controlState,
+        errors,
+        valid
+      };
     });
 
     const valid = Object.values(fields)
       .every((control: ControlState): boolean => control.valid);
 
     setFormState({ valid, dirty: true, fields });
-  }, [formState, value]);
+  }, [formState]);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    const { name, value: currentValue } = event.target;
+  const getValue = useCallback((): FormFieldsValue => {
+    const { fields } = formState;
 
-    if (!(name in value)) {
-      throw new Error(`${name} field is not part of the FormGroup`);
-    }
+    return Object.keys(fields).reduce((previous, fieldName): FormFieldsValue => {
+      return { ...previous, [fieldName]: fields[fieldName].value };
+    }, {});
 
-    setValue({ ...value, [name]: currentValue });
-    checkFormState();
-  };
+  }, [formState]);
 
   return {
-    value,
+    getValue,
     formState,
     handleChange
   };

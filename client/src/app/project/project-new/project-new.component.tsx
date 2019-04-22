@@ -9,7 +9,7 @@ import { Custody } from '../custody.enum';
 import routes, { projectNewPath } from '../project.routes';
 import './project-new.component.scss';
 
-import { useFormState, FormGroup, DefaultFormField } from '../../shared/hooks';
+import { useFormState, FormGroup, FormState } from '../../shared/hooks';
 import { Validators } from '../../shared/hooks/use-form-state/validators/validators';
 
 const formGroup: FormGroup = {
@@ -19,14 +19,14 @@ const formGroup: FormGroup = {
   custody: [Custody.BankAccount, [Validators.required]]
 };
 
-const formField = new DefaultFormField(formGroup);
+const initialFormState = new FormState(formGroup);
 
 export function ProjectNewComponent(props: RouterProps): JSX.Element {
-  const { value, formState, handleChange } = useFormState(formField);
+  const { getValue, formState, handleChange } = useFormState(initialFormState);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    console.log(value);
+    console.log(getValue());
   };
 
   const handleFocus = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -50,7 +50,7 @@ export function ProjectNewComponent(props: RouterProps): JSX.Element {
                 ({ component: ProjectNewStepComponent, path }, index: number): JSX.Element => (
                   <Route exact key={index} path={path} render={
                     (childProps: RouterProps): JSX.Element =>
-                      (<ProjectNewStepComponent {...childProps} project={value} />)
+                      (<ProjectNewStepComponent {...childProps} project={getValue()} />)
                   } />
                 )
               )}
