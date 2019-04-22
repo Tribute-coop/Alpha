@@ -78,7 +78,7 @@ export function ProjectNewComponent(props: RouterProps): JSX.Element {
                 <label>Custody</label>
 
                 <div className="custom-control custom-radio">
-                  <input type="radio" id="bankAccount" name="custody" className="custom-control-input" defaultChecked />
+                  <input type="radio" id="bankAccount" name="custody" className="custom-control-input" defaultChecked onFocus={handleFocus}/>
                   <label className="custom-control-label" htmlFor="bankAccount">On your bank account</label>
                 </div>
                 <div className="custom-control custom-radio">
