@@ -11,6 +11,8 @@ import './project-new.component.scss';
 
 import { useFormState, FormGroup, FormState } from '../../shared/hooks';
 import { Validators } from '../../shared/hooks/use-form-state/validators/validators';
+import { Project } from '../project.model';
+import { useTranslation } from 'react-i18next';
 
 const formGroup: FormGroup = {
   projectName: ['', [Validators.required]],
@@ -23,6 +25,9 @@ const initialFormState = new FormState(formGroup);
 
 export function ProjectNewComponent(props: RouterProps): JSX.Element {
   const { getValue, formState, handleChange } = useFormState(initialFormState);
+  const { t } = useTranslation();
+
+  const project: Project = getValue();
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -50,7 +55,7 @@ export function ProjectNewComponent(props: RouterProps): JSX.Element {
                 ({ component: ProjectNewStepComponent, path }, index: number): JSX.Element => (
                   <Route exact key={index} path={path} render={
                     (childProps: RouterProps): JSX.Element =>
-                      (<ProjectNewStepComponent {...childProps} project={getValue()} />)
+                      (<ProjectNewStepComponent {...childProps} project={project} />)
                   } />
                 )
               )}
@@ -59,35 +64,34 @@ export function ProjectNewComponent(props: RouterProps): JSX.Element {
           </div>
           <div className="col-md-12 col-lg-5 offset-lg-1">
             <form className="project-new__form" onSubmit={handleSubmit} autoComplete="off">
-              <div className="form-group">
-                <label htmlFor="projectName">Project Name</label>
-                <input type="text" className="form-control" name="projectName" id="projectName" onChange={handleChange} onFocus={handleFocus} />
-              </div>
+              {['projectName', 'symbol', 'issuance'].map((fieldName, index): JSX.Element =>
+                <div className="form-group" key={index}>
+                  <label htmlFor={fieldName}> {t(`project.new.form.${fieldName}`)}</label>
+                  <div className="validatable-input">
+                    <input type="text" className="form-control validatable-input__data" name={fieldName} id={fieldName} onChange={handleChange} onFocus={handleFocus} />
+                    {
+                      formState.fields[fieldName].dirty &&
+                      formState.fields[fieldName].valid &&
+                      (<span className="checkmark validatable-input__status"></span>)
+                    }
+                  </div>
+                </div>
+              )}
 
               <div className="form-group">
-                <label htmlFor="symbol">Symbol</label>
-                <input type="text" className="form-control" name="symbol" id="symbol" onChange={handleChange} onFocus={handleFocus} />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="issuance">Supply</label>
-                <input type="text" className="form-control" name="issuance" id="issuance" onChange={handleChange} onFocus={handleFocus} />
-              </div>
-
-              <div className="form-group">
-                <label>Custody</label>
+                <label>{t('project.new.form.custody')}</label>
 
                 <div className="custom-control custom-radio">
                   <input type="radio" id="bankAccount" name="custody" className="custom-control-input" defaultChecked onFocus={handleFocus}/>
-                  <label className="custom-control-label" htmlFor="bankAccount">On your bank account</label>
+                  <label className="custom-control-label" htmlFor="bankAccount">{t('project.new.form.bankAccount')}</label>
                 </div>
                 <div className="custom-control custom-radio">
                   <input type="radio" id="smartContract" name="custody" className="custom-control-input" disabled />
-                  <label className="custom-control-label" htmlFor="smartContract">On a smart contract (coming soon)</label>
+                  <label className="custom-control-label" htmlFor="smartContract">{t('project.new.form.smartContract')}</label>
                 </div>
               </div>
 
-              <input disabled={!(formState.dirty && formState.valid)} className="btn btn-primary btn-block btn-lg" type="submit" value="Create your project" />
+              <input disabled={!(formState.dirty && formState.valid)} className="btn btn-primary btn-block btn-lg" type="submit" value={String(t('project.new.form.createProject'))} />
             </form>
           </div>
         </div>

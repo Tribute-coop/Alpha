@@ -1,0 +1,11 @@
+.validatable-input {
+  vertical-align: top;
+
+  &__data {
+    display: inline-block;
+    width: 90%;
+    + .validatable-input__status {
+      margin-left: $spacer;
+    }
+  }
+}
