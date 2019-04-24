@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FormEvent } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { RouterProps } from 'react-router';
 
 import { TributeLogo } from '../../core/tribute-logo/tribute-logo.component';
@@ -7,18 +8,29 @@ import { TributeLogo } from '../../core/tribute-logo/tribute-logo.component';
 import { Custody } from '../custody.enum';
 
 import routes, { projectNewPath } from '../project.routes';
+
+import { useFormState, FormGroup, FormState, Validators } from '../../shared/hooks';
+import { UpperCaseInput } from '../../shared/components';
+
+import { Project } from '../project.model';
+
 import './project-new.component.scss';
 
-import { useFormState, FormGroup, FormState } from '../../shared/hooks';
-import { Validators } from '../../shared/hooks/use-form-state/validators/validators';
-import { Project } from '../project.model';
-import { useTranslation } from 'react-i18next';
-
 const formGroup: FormGroup = {
-  projectName: ['', [Validators.required]],
-  symbol: ['', [Validators.required]],
-  issuance: ['', [Validators.required]],
-  custody: [Custody.BankAccount, [Validators.required]]
+  projectName: ['', [
+    Validators.required,
+    Validators.pattern(new RegExp(/^[\w-_.]*$/))
+  ]],
+  symbol: ['', [
+    Validators.required,
+    Validators.blacklist([])
+  ]],
+  issuance: ['', [
+    Validators.required
+  ]],
+  custody: [Custody.BankAccount, [
+    Validators.required
+  ]]
 };
 
 const initialFormState = new FormState(formGroup);
@@ -64,19 +76,44 @@ export function ProjectNewComponent(props: RouterProps): JSX.Element {
           </div>
           <div className="col-md-12 col-lg-5 offset-lg-1">
             <form className="project-new__form" onSubmit={handleSubmit} autoComplete="off">
-              {['projectName', 'symbol', 'issuance'].map((fieldName, index): JSX.Element =>
-                <div className="form-group" key={index}>
-                  <label htmlFor={fieldName}> {t(`project.new.form.${fieldName}`)}</label>
-                  <div className="validatable-input">
-                    <input type="text" className="form-control validatable-input__data" name={fieldName} id={fieldName} onChange={handleChange} onFocus={handleFocus} />
-                    {
-                      formState.fields[fieldName].dirty &&
-                      formState.fields[fieldName].valid &&
-                      (<span className="checkmark validatable-input__status"></span>)
-                    }
-                  </div>
+              <div className="form-group" >
+                <label htmlFor="projectName"> {t('project.new.form.projectName')}</label>
+                <div className="validatable-input">
+                  <input type="text" id="projectName" name="projectName" className="form-control validatable-input__data"
+                    onChange={handleChange} onFocus={handleFocus} />
+                  {
+                    formState.fields.projectName.dirty &&
+                    formState.fields.projectName.valid &&
+                    (<span className="checkmark validatable-input__status"></span>)
+                  }
                 </div>
-              )}
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="symbol"> {t('project.new.form.symbol')}</label>
+                <div className="validatable-input">
+                  <UpperCaseInput type="text" id="symbol" name="symbol" className="form-control validatable-input__data"
+                    onChange={handleChange} onFocus={handleFocus} minLength={3} maxLength={5}/>
+                  {
+                    formState.fields.symbol.dirty &&
+                    formState.fields.symbol.valid &&
+                    (<span className="checkmark validatable-input__status"></span>)
+                  }
+                </div>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="issuance"> {t('project.new.form.issuance')}</label>
+                <div className="validatable-input">
+                  <input type="text" id="issuance" name="issuance" className="form-control validatable-input__data"
+                    onChange={handleChange} onFocus={handleFocus} />
+                  {
+                    formState.fields.issuance.dirty &&
+                    formState.fields.issuance.valid &&
+                    (<span className="checkmark validatable-input__status"></span>)
+                  }
+                </div>
+              </div>
 
               <div className="form-group">
                 <label>{t('project.new.form.custody')}</label>

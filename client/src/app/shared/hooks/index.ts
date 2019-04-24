@@ -1,8 +1,11 @@
 export { useFormState } from './use-form-state/use-form-state.hook';
+export { Validators } from './use-form-state/validators/validators';
 
 export type FormValidator = (value: ControlValue) => FormErrors | null;
 
 export type ControlValue = boolean | string | number;
+
+export interface ValidatorFn { (control: ControlValue): FormErrors | null }
 
 export interface FormFieldsValue { [key: string]: ControlValue }
 

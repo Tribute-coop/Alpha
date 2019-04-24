@@ -1,6 +1,6 @@
 import { HomeComponent } from './home';
-import { NotFoundComponent } from './shared';
 import { ProjectNewComponent } from './project';
+import { NotFoundComponent } from './shared/components';
 
 export default [
   {
