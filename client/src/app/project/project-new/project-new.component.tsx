@@ -104,9 +104,10 @@ export function ProjectNewComponent(props: RouterProps): JSX.Element {
 
               <div className="form-group">
                 <label htmlFor="issuance"> {t('project.new.form.issuance')}</label>
-                <div className="validatable-input">
-                  <input type="text" id="issuance" name="issuance" className="form-control validatable-input__data"
+                <div className="validatable-input symbol">
+                  <input type="text" id="issuance" name="issuance" className="form-control validatable-input__data symbol__input"
                     onChange={handleChange} onFocus={handleFocus} />
+                  <div className="symbol__placeholder">{project.symbol}</div>
                   {
                     formState.fields.issuance.dirty &&
                     formState.fields.issuance.valid &&

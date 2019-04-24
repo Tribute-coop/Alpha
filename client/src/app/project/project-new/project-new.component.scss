@@ -30,3 +30,15 @@ $form-top-line-height: 5px;
   }
 }
 
+.symbol {
+  &__input {
+    width: 72%!important;
+  }
+
+  &__placeholder {
+    display: inline-block;
+    margin-left: $spacer/2;
+    width: 20%
+  }
+}
+
