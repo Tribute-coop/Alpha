@@ -1,0 +1,18 @@
+$checkmark-width: 12px;
+
+.checkmark {
+  display:inline-block;
+  vertical-align: top;
+  
+  &:after{
+    content: '';
+    display: block;
+
+    width: $checkmark-width;
+    height: $checkmark-width + 10;
+    border: solid $dark-emerald;
+    border-width: 0 2px 2px 0;
+    transform: rotate(50deg);
+    margin-left: $checkmark-width / 2;
+  }
+}

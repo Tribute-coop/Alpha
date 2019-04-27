@@ -1,0 +1,1 @@
+export { ProjectNewComponent } from './project-new/project-new.component';

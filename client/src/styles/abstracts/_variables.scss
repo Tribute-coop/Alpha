@@ -1,4 +1,76 @@
+@import './node_modules/bootstrap/scss/functions';
 // Typography
 //
-$font-family-base: 'Maison Neue', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-$body-color: #494949;
+$black: #000000;
+$primary: #1DD9D5;
+$secondary: #AEAEAE;
+
+$font-family-base: overpass, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+$body-color: #4A4A4A;
+$body-bg: #F8FCFD;
+
+$spacer: 1rem;
+$font-size-base: 1rem;
+
+$navbar-light-brand-color: #4A4A4A;
+$navbar-light-brand-hover-color: $black;
+
+$headings-font-weight: 700;
+
+$text-muted: $secondary;
+
+$border-radius: .2rem;
+$border-radius-lg: .15rem;
+
+$lead-font-size: $font-size-base * 1.125;
+
+$input-padding-y:        0.4375rem;
+
+$input-btn-padding-y-lg: 1rem;
+$input-btn-font-size-lg: 1.2rem;
+
+
+$btn-border-width: 0;
+$btn-font-weight: 700;
+
+
+
+
+
+
+
+
+// Colors
+//
+//
+$light-blue: #F3F9FB;
+$medium-blue: #DAEAEF;
+$dark-emerald: #2B6672;
+
+// Form
+//
+//
+$form-group-margin-bottom: 1.7rem;
+
+// Input
+//
+//
+$input-focus-bg: $medium-blue;
+$input-border-color: $medium-blue;
+$input-focus-box-shadow: none;
+$input-focus-border-color: $dark-emerald;
+
+// Custom Form Controls
+//
+//
+$custom-control-indicator-size: 1rem;
+$custom-control-indicator-bg-size: 62.5% 62.5%;
+$custom-control-indicator-checked-color: $primary;
+$custom-control-label-disabled-color: $text-muted; 
+$custom-control-indicator-bg: $light-blue;
+$custom-control-indicator-checked-bg: $light-blue;
+$custom-control-indicator-border-color: $medium-blue;
+$custom-control-indicator-checked-border-color: $medium-blue;
+$custom-control-indicator-disabled-bg: $light-blue;
+$custom-control-indicator-checked-disabled-bg: $light-blue;
+$custom-radio-indicator-icon-checked: str-replace(url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='4' fill='#{$custom-control-indicator-checked-color}'/%3e%3c/svg%3e"), "#", "%23");

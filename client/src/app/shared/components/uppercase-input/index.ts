@@ -1,0 +1,1 @@
+export { UpperCaseInput } from './uppercase-input.component';

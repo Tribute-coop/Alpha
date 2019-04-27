@@ -4,18 +4,16 @@
   "private": true,
   "description": "Tribute Web App",
   "dependencies": {
-    "@types/jest": "24.0.11",
-    "@types/node": "11.13.4",
-    "@types/react": "16.8.13",
-    "@types/react-dom": "16.8.4",
     "bootstrap": "^4.3.1",
     "i18next": "^15.0.9",
+    "i18next-xhr-backend": "^2.0.1",
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
     "react-i18next": "^10.7.0",
-    "react-scripts": "2.1.8",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.0",
     "typescript": "3.4.3"
   },
   "scripts": {
@@ -34,6 +32,12 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/i18next-xhr-backend": "^1.4.2",
+    "@types/jest": "24.0.11",
+    "@types/node": "11.13.4",
+    "@types/react": "16.8.13",
+    "@types/react-dom": "16.8.4",
+    "@types/react-router-dom": "^4.3.2",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@typescript-eslint/parser": "^1.6.0",
     "eslint": "5.12.0",
