@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-export function NotFoundComponent(): JSX.Element {
+export function NotFound(): JSX.Element {
   const { t } = useTranslation();
 
   return (

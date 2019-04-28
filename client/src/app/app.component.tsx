@@ -1,28 +1,32 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
-import logo from '../images/logo.svg';
-import './app.component.scss';
+import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
+
+import { ProjectLayout } from './project/layout';
+import { MainLayout } from './core/layout';
+import { MyLayout } from './my/layout';
+import { NotFound } from './shared';
+
+function SignIn(): JSX.Element {
+  return (<div>SignIn</div>);
+}
 
 export function AppComponent(): JSX.Element {
-  const { t } = useTranslation();
-
   return (
-    <div className="app">
-      <header className="app-header">
-        <img src={logo} className="app-logo" alt="logo" />
-        <p>
-          Edit <code>src/app.tsx</code> and save to reload.
-        </p>
-        <a
-          className="app-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {t('Welcome to React')}
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Redirect to="/signin" />
+        </Route>
+
+        <Route path="/signin" component={SignIn} />
+
+        <MainLayout>
+          <Route path="/project" component={ProjectLayout} />
+          <Route path="/my" component={MyLayout} />
+          <Route component={NotFound}/>
+        </MainLayout>
+      </Switch>
+    </BrowserRouter>
   );
 }
