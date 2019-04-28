@@ -22,9 +22,11 @@ export function AppComponent(): JSX.Element {
         <Route path="/signin" component={SignIn} />
 
         <MainLayout>
-          <Route path="/project" component={ProjectLayout} />
-          <Route path="/my" component={MyLayout} />
-          <Route component={NotFound}/>
+          <Switch>
+            <Route path="/project" component={ProjectLayout} />
+            <Route path="/my" component={MyLayout} />
+            <Route component={NotFound}/>
+          </Switch>
         </MainLayout>
       </Switch>
     </BrowserRouter>

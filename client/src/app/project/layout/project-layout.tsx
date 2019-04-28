@@ -21,8 +21,7 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
   const { path } = props.match;
 
   return (
-    <div>
-      <section>ProjectLayout</section>
+    <section>
       <Switch>
         <Route exact path={path} >
           <Redirect to={`${path}/contributions`}/>
@@ -33,6 +32,6 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
         <Route path={`${path}/tokens`} component={Tokens} />
         <Route path={`${path}/settings`} component={Settings} />
       </Switch>
-    </div>
+    </section>
   );
 }

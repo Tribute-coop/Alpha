@@ -1,0 +1,56 @@
+@import '../../../../styles/abstracts/variables';
+
+.nav-bar {
+  background: $white;
+  width: $nav-width;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 1px 0 15px $box-shadow-color;
+
+  &__group {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+
+    + .nav-bar__group {
+      border-top: 1px solid $border-color;
+    }
+  }
+
+  &__link {
+    position: relative;
+    color: $nav-item-color;
+    height: $nav-item-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: $gray-800;
+    }
+
+    &.is-active {
+      color: $gray-800;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        border-left: $nav-item-border-size solid $primary;
+      }
+    }
+
+    > svg {
+      max-height: $nav-item-svg-size;
+      width: $nav-item-svg-size;
+    }
+    
+    > img {
+      width: 33px;
+      height: 33px;
+    }
+  }
+}

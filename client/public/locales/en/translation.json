@@ -1,5 +1,33 @@
 {
   "notFound": {
     "somethingWentWrong": "Something went wrong."
+  },
+  "projects": {
+    "contributions": {
+      "title": "Contributions"
+    },
+    "members": {
+      "title": "Members"
+    },
+    "tokens": {
+      "title": "Tokens"
+    },
+    "settings": {
+      "title": "Settings"
+    }
+  },
+  "my": {
+    "wallet": {
+      "title": "Wallet"
+    },
+    "activity": {
+      "title": "Activity"
+    },
+    "notifications": {
+      "title": "Notifications"
+    },
+    "profile": {
+      "title": "Profile"
+    }
   }
 }

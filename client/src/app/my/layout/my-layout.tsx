@@ -13,6 +13,10 @@ function Profile(): JSX.Element {
   return (<div>Profile</div>);
 }
 
+function Notifications(): JSX.Element {
+  return (<div>Notifications</div>);
+}
+
 export function MyLayout(props: RouteComponentProps): JSX.Element {
   const { path } = props.match;
 
@@ -27,6 +31,7 @@ export function MyLayout(props: RouteComponentProps): JSX.Element {
         <Route path={`${path}/wallet`} component={Wallet} />
         <Route path={`${path}/activity`} component={Activity} />
         <Route path={`${path}/profile`} component={Profile} />
+        <Route path={`${path}/notifications`} component={Notifications} />
       </Switch>
     </div>
   );
