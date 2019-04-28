@@ -4,6 +4,7 @@
   background: $white;
   width: $nav-width;
   display: flex;
+  z-index: 1;
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 1px 0 15px $box-shadow-color;
