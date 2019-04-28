@@ -3,6 +3,11 @@
 $font-family-base: overpass, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 $body-color: #000000;
 
+// Grid
+//
+$spacer: 1rem;
+$grid-gutter-width: 2.5rem;
+
 // Colors
 //
 $white: #FFFFFF;
@@ -22,3 +27,10 @@ $nav-item-color: #979797;
 $nav-item-border-size: 4px;
 $nav-item-svg-size: 16px;
 
+// Table
+//
+$table-bg: transparent;
+$table-border-width: 0;
+$table-cell-padding: 1.25rem;
+$table-head-bg: transparent;
+$table-head-color: #6D777B;

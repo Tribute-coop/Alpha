@@ -1,0 +1,33 @@
+
+.cm-table {
+  font-weight: lighter;
+  font-size: .95rem;
+
+  &__body {
+    background: $white;
+  }
+
+  &__th {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: .75rem;
+    color: #6D777B;
+
+    padding-top: $table-cell-padding / 4!important;
+    padding-bottom: $table-cell-padding / 4!important;
+  }
+
+  &__td, &__th {
+    border-bottom: 1px solid $border-color!important;
+  }
+
+  &__td {
+    &:first-child {
+      border-left: 1px solid $border-color;
+    }
+
+    &:last-child {
+      border-right: 1px solid $border-color;
+    }
+  }
+}

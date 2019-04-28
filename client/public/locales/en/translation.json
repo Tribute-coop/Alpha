@@ -7,7 +7,13 @@
       "title": "Contributions"
     },
     "members": {
-      "title": "Members"
+      "title": "Members",
+      "member": "Member",
+      "name": "Name",
+      "role": "Role",
+      "lastSeen": "Last seen",
+      "jobs": "#Jobs",
+      "rewards": "Rewards"
     },
     "tokens": {
       "title": "Tokens"
