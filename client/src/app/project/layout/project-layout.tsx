@@ -55,9 +55,7 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
         </div>
         <h4 className="main-layout__title">{t(getTitleKeyFromLocation(location))}</h4>
       </header>
-      <section className="main-layout__section container-fluid ">
-        <div className="row">
-          <div className="col-9">
+      <section className="main-layout__section container-fluid">
             <Switch>
               <Route exact path={path} >
                 <Redirect to={`${path}/contributions`}/>
@@ -68,9 +66,6 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
               <Route path={`${path}/tokens`} component={Tokens} />
               <Route path={`${path}/settings`} component={Settings} />
             </Switch>
-          </div>
-          <aside className="col-3"></aside>
-        </div>
       </section>
     </div>
   );
