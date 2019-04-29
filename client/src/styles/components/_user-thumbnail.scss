@@ -9,4 +9,8 @@ $thumbnail-small-size: 34px;
     width: $thumbnail-small-size;
     height: $thumbnail-small-size;
   }
+
+  &--border {
+    border: 1px solid $blue;
+  }
 }
