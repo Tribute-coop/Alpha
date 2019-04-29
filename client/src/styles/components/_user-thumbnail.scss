@@ -1,0 +1,12 @@
+$thumbnail-size: 42px;
+$thumbnail-small-size: 34px;
+
+.user-thumb {
+  width: $thumbnail-size;
+  height: $thumbnail-size;
+
+  &--small {
+    width: $thumbnail-small-size;
+    height: $thumbnail-small-size;
+  }
+}

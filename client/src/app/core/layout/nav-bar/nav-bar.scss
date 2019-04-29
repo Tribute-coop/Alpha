@@ -3,6 +3,7 @@
 .nav-bar {
   background: $white;
   width: $nav-width;
+  min-width: $nav-width;
   display: flex;
   z-index: 1;
   flex-direction: column;

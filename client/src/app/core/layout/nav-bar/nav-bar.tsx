@@ -17,10 +17,10 @@ const navBar: NavBarGroup[] = [
   {
     path: '/project',
     children: [
-      { path: '/contributions', title: 'projects.contributions', icon: LikeIcon },
-      { path: '/members', title: 'projects.members', icon: UsersIcon },
-      { path: '/tokens', title: 'projects.tokens', icon: CoinsIcon },
-      { path: '/settings', title: 'projects.settings', icon: CogIcon }
+      { path: '/contributions', title: 'project.contributions', icon: LikeIcon },
+      { path: '/members', title: 'project.members', icon: UsersIcon },
+      { path: '/tokens', title: 'project.tokens', icon: CoinsIcon },
+      { path: '/settings', title: 'project.settings', icon: CogIcon }
     ]
   },
   {

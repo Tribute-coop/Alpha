@@ -1,3 +1,4 @@
+$cm-table-cell-padding: $table-cell-padding / 4;
 
 .cm-table {
   font-weight: lighter;
@@ -11,10 +12,10 @@
     text-transform: uppercase;
     font-weight: bold;
     font-size: .75rem;
-    color: #6D777B;
+    color: $gray-800;
 
-    padding-top: $table-cell-padding / 4!important;
-    padding-bottom: $table-cell-padding / 4!important;
+    padding-top: $cm-table-cell-padding!important;
+    padding-bottom: $cm-table-cell-padding!important;
   }
 
   &__td, &__th {
@@ -22,6 +23,8 @@
   }
 
   &__td {
+    vertical-align: middle!important;
+
     &:first-child {
       border-left: 1px solid $border-color;
     }

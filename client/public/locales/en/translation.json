@@ -2,7 +2,7 @@
   "notFound": {
     "somethingWentWrong": "Something went wrong."
   },
-  "projects": {
+  "project": {
     "contributions": {
       "title": "Contributions"
     },
