@@ -1,4 +1,4 @@
-$cm-table-cell-padding: $table-cell-padding / 4;
+$cm-table-cell-padding: $spacer / 2;
 
 .cm-table {
   font-weight: lighter;
@@ -12,8 +12,7 @@ $cm-table-cell-padding: $table-cell-padding / 4;
     text-transform: uppercase;
     font-weight: bold;
     font-size: .75rem;
-    color: $gray-800;
-
+    color: $gray-500;
     padding-top: $cm-table-cell-padding!important;
     padding-bottom: $cm-table-cell-padding!important;
   }

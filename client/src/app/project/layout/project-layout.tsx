@@ -26,6 +26,7 @@ function Settings(): JSX.Element {
 function getTitleKeyFromLocation(location: Location<void>): string {
   const routeChunks: string[] = location.pathname.split('/')
     .filter((subPath): boolean => !!subPath)
+    .slice(0, 2)
     .concat('title');
 
   if (routeChunks.length < 3) {
@@ -55,7 +56,7 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
         </div>
         <h4 className="main-layout__title">{t(getTitleKeyFromLocation(location))}</h4>
       </header>
-      <section className="main-layout__section container-fluid">
+      <section className="main-layout__section">
             <Switch>
               <Route exact path={path} >
                 <Redirect to={`${path}/contributions`}/>
