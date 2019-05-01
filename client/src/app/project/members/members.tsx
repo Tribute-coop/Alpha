@@ -1,6 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { RoundedImage } from '../../shared';
+
 import './members.scss';
 
 import { members } from '../mocks';
@@ -28,7 +30,7 @@ export function Members(): JSX.Element {
               { members.map((member): JSX.Element => (
                 <tr className="cm-table__tr" key={member.id}>
                   <td className="cm-table__td">
-                    <img src={member.thumbnail} alt={member.name} className="user-thumb user-thumb--border rounded-circle"/>
+                    <RoundedImage src={member.thumbnail} alt={member.name} />
                   </td>
                   <td className="cm-table__td">{member.id}</td>
                   <td className="cm-table__td">{member.name}</td>

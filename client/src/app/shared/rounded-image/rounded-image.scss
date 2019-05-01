@@ -1,16 +1,15 @@
+@import '../../../styles/abstracts/variables';
+
 $thumbnail-size: 42px;
 $thumbnail-small-size: 34px;
 
-.user-thumb {
+.rounded-image {
+  border: 1px solid $blue;
   width: $thumbnail-size;
   height: $thumbnail-size;
 
   &--small {
     width: $thumbnail-small-size;
     height: $thumbnail-small-size;
-  }
-
-  &--border {
-    border: 1px solid $blue;
   }
 }
