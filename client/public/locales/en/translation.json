@@ -4,7 +4,10 @@
   },
   "project": {
     "contributions": {
-      "title": "Contributions"
+      "title": "Contributions",
+      "assignments": "Assignments",
+      "calls": "Calls"
+    },
     },
     "members": {
       "title": "Members",
