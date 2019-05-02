@@ -1,0 +1,11 @@
+$left-offset: 30px;
+
+.stacked-rounded-image {
+  position: relative;
+  display: inline;
+
+  .rounded-image + .rounded-image {
+    position: relative;
+    margin-left: -$left-offset;
+  }
+}

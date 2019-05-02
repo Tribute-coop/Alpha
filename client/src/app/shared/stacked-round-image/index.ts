@@ -1,1 +1,0 @@
-export { StackedRoundImage } from './stacked-round-image';
