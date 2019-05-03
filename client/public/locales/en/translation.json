@@ -8,6 +8,17 @@
       "assignments": "Assignments",
       "calls": "Calls"
     },
+    "contributionsAssignment": {
+      "Title": "Title",
+      "Domain": "Domain",
+      "AssignedTo": "Assigned to",
+      "Reward": "Reward"
+    },
+    "contributionsAssignmentRow": {
+      "status": "Status",
+      "startedOn": "Started on",
+      "assignedOn": "Assigned on",
+      "approvedOn": "Approved on"
     },
     "members": {
       "title": "Members",

@@ -1,0 +1,1 @@
+export { ContributionsAssignmentDomain } from './contributions-assignment-domain';

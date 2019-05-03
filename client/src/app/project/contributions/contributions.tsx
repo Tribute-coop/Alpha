@@ -3,6 +3,8 @@ import { Route, Redirect, Switch, RouteComponentProps } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import { ContributionsAssignments } from './contributions-assignments';
+
 import './contributions.scss';
 
 function ContributionsNew(): JSX.Element {
@@ -11,10 +13,6 @@ function ContributionsNew(): JSX.Element {
 
 function ContributionsCalls(): JSX.Element {
   return (<div>ContributionsCalls</div>);
-}
-
-function ContributionsAssignments(): JSX.Element {
-  return (<div>ContributionsAssignments</div>);
 }
 
 export function Contributions(props: RouteComponentProps): JSX.Element {
