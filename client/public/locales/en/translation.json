@@ -1,5 +1,39 @@
 {
   "notFound": {
     "somethingWentWrong": "Something went wrong."
+  },
+  "project": {
+    "contributions": {
+      "title": "Contributions"
+    },
+    "members": {
+      "title": "Members",
+      "member": "Member",
+      "name": "Name",
+      "role": "Role",
+      "lastSeen": "Last seen",
+      "jobs": "#Jobs",
+      "rewards": "Rewards"
+    },
+    "tokens": {
+      "title": "Tokens"
+    },
+    "settings": {
+      "title": "Settings"
+    }
+  },
+  "my": {
+    "wallet": {
+      "title": "Wallet"
+    },
+    "activity": {
+      "title": "Activity"
+    },
+    "notifications": {
+      "title": "Notifications"
+    },
+    "profile": {
+      "title": "Profile"
+    }
   }
 }

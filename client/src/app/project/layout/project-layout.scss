@@ -1,0 +1,11 @@
+.project-layout {
+  display: flex;
+  align-items: center;
+  margin-right: 10rem;
+
+  &__name {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-left: 1rem;
+  }
+}
