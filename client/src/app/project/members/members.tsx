@@ -3,8 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import { RoundedImage } from '../../shared';
 
-import './members.scss';
-
 import { members } from '../mocks';
 
 export function Members(): JSX.Element {

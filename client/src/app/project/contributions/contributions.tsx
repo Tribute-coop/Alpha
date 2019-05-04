@@ -5,8 +5,6 @@ import { useTranslation } from 'react-i18next';
 
 import { Assignments } from './assignments';
 
-import './contributions.scss';
-
 function ContributionsNew(): JSX.Element {
   return (<div>ContributionsNew</div>);
 }

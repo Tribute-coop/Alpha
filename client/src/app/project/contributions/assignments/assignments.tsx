@@ -3,8 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import { AssignmentRow } from './assignment-row';
 
-import './assignments.scss';
-
 import { assignments as defaultAssignments } from '../../mocks';
 
 export function Assignments(): JSX.Element {
