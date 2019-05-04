@@ -1,10 +1,10 @@
-import { ContributionsAssignmentStatus } from './contributions-assignment-status.enum';
+import { AssignmentStatus } from './assignment-status.enum';
 import { Member } from '../../members/member.model';
 
-export interface ContributionsAssignment {
+export interface Assignment {
   id: string;
   title: string;
-  status: ContributionsAssignmentStatus;
+  status: AssignmentStatus;
   assignedOn?: string;
   approvedOn?: string;
   startedOn?: string;

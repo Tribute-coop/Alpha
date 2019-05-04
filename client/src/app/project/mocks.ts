@@ -1,6 +1,6 @@
 import { Member } from './members/member.model';
-import { ContributionsAssignmentStatus } from './contributions/contributions-assignments/contributions-assignment-status.enum';
-import { ContributionsAssignment } from './contributions/contributions-assignments/contributions-assignment.model';
+import { AssignmentStatus } from './contributions/assignments/assignment-status.enum';
+import { Assignment } from './contributions/assignments/assignment.model';
 
 export const members: Member[] = [
   { id: '@zunith', name: 'Zuna G.', role: 'Owner', jobs: 8, lastSeen: 'Today', rewards: '1,200 CTX', thumbnail: 'https://picsum.photos/id/1084/50/50' },
@@ -9,11 +9,11 @@ export const members: Member[] = [
   { id: '@AnnCapistrano', name: 'Ann Capistrano', role: 'Contributor', jobs: 3, lastSeen: '1 month ago', rewards: '270 CTX', thumbnail: 'https://picsum.photos/id/1/50/50' }
 ];
 
-export const assignments: ContributionsAssignment[] = [
+export const assignments: Assignment[] = [
   {
     id: '000001',
     title: 'Define brand guidelines',
-    status: ContributionsAssignmentStatus.InProgress,
+    status: AssignmentStatus.InProgress,
     assignedOn: 'Run twitter campaign March 2019',
     approvedOn: '',
     startedOn: '',
@@ -25,7 +25,7 @@ export const assignments: ContributionsAssignment[] = [
   {
     id: '000002',
     title: 'Update our slides deck',
-    status: ContributionsAssignmentStatus.Assigned,
+    status: AssignmentStatus.Assigned,
     assignedOn: '23/01/19',
     approvedOn: '02/02/19',
     startedOn: '',
@@ -37,7 +37,7 @@ export const assignments: ContributionsAssignment[] = [
   {
     id: '000003',
     title: 'Run twitter campaign March 2019',
-    status: ContributionsAssignmentStatus.Assigned,
+    status: AssignmentStatus.Assigned,
     assignedOn: '24/01/19',
     approvedOn: '',
     startedOn: '',
@@ -49,7 +49,7 @@ export const assignments: ContributionsAssignment[] = [
   {
     id: '000004',
     title: 'Write security paper',
-    status: ContributionsAssignmentStatus.InProgress,
+    status: AssignmentStatus.InProgress,
     assignedOn: '',
     approvedOn: '',
     startedOn: '12/02/19',

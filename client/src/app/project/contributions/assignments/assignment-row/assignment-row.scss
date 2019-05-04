@@ -2,14 +2,14 @@
 
 $cm-table-cell-padding: $spacer / 2;
 
-$contribution-margin-bottom: .85rem;
+$assignment-row-margin-bottom: .85rem;
 $reward-font-color: #00879B;
 $reward-amount-font-size: 1.4rem;
 $reward-symbol-font-size: .9rem;
 
-.contribution-object {
+.assignment-row {
   &:first-child {
-    margin-top: $contribution-margin-bottom;
+    margin-top: $assignment-row-margin-bottom;
   }
 
   &__head,
@@ -28,7 +28,7 @@ $reward-symbol-font-size: .9rem;
   &__body {
     border: 1px solid $border-color;
     padding: $spacer;
-    margin-bottom: $contribution-margin-bottom;
+    margin-bottom: $assignment-row-margin-bottom;
     align-items: center;
     background-color: $white;
     border-radius: $border-radius;

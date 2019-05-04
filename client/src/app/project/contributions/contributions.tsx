@@ -3,7 +3,7 @@ import { Route, Redirect, Switch, RouteComponentProps } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { ContributionsAssignments } from './contributions-assignments';
+import { Assignments } from './assignments';
 
 import './contributions.scss';
 
@@ -33,7 +33,7 @@ export function Contributions(props: RouteComponentProps): JSX.Element {
           <Redirect to={`${path}/assignments`}/>
         </Route>
 
-        <Route path={`${path}/assignments`} component={ContributionsAssignments} />
+        <Route path={`${path}/assignments`} component={Assignments} />
         <Route path={`${path}/calls`} component={ContributionsCalls} />
         <Route path={`${path}/new`} component={ContributionsNew} />
       </Switch>

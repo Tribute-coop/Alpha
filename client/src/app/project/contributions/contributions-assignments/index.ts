@@ -1,1 +1,0 @@
-export { ContributionsAssignments } from './contributions-assignments';
