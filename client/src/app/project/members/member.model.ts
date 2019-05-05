@@ -1,7 +1,9 @@
+import { Role } from './role.enum';
+
 export interface Member {
   id: string;
   name: string;
-  role: string;
+  role: Role;
   lastSeen: string;
   jobs: number;
   rewards: string;
