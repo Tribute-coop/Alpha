@@ -21,7 +21,7 @@ $gray-800: #333333;
 
 // Borders
 //
-$border-color: #D1D1D1;
+$border-color: #E8E8E8;
 $border-radius: .15rem;
 
 // Nav
@@ -43,3 +43,10 @@ $table-border-width: 0;
 $table-cell-padding: .65rem 1.25rem;
 $table-head-bg: transparent;
 $table-head-color: #6D777B;
+
+// Input
+//
+$input-border-color: $border-color;
+$input-padding-y: $spacer/5;
+$input-padding-x: $spacer;
+
