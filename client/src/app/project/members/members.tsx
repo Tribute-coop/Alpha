@@ -29,7 +29,12 @@ export function Members(props: RouteComponentProps): JSX.Element {
 
   useEffect((): void => {
     const search = queryString.parse(props.location.search);
-    const filteredMembers = applyQueryFilters(mockMembers, search, filters);
+    const filteredMembers = applyQueryFilters<Member>(
+      mockMembers,
+      search,
+      filters
+    );
+
     setMembers(filteredMembers);
   }, [props.location.search]);
 
