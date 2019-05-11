@@ -13,7 +13,7 @@ export function Assignments(): JSX.Element {
     <div className="container-fluid py-3">
       <div className="row">
         <div className="col-9">
-          <div className="assignment-row__head">
+          <div className="assignment-row__head uppercase-label">
             <div className="assignment-row__info">
               {t('project.contributions.assignment.title')}
             </div>

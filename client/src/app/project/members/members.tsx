@@ -15,13 +15,13 @@ export function Members(): JSX.Element {
           <table className="cm-table table">
             <thead className="cm-table__head">
               <tr className="cm-table__tr">
-                <th className="cm-table__th"></th>
-                <th className="cm-table__th">{t('project.members.member')}</th>
-                <th className="cm-table__th">{t('project.members.name')}</th>
-                <th className="cm-table__th">{t('project.members.role')}</th>
-                <th className="cm-table__th">{t('project.members.lastSeen')}</th>
-                <th className="cm-table__th">{t('project.members.jobs')}</th>
-                <th className="cm-table__th">{t('project.members.rewards')}</th>
+                <th className="cm-table__th uppercase-label"></th>
+                <th className="cm-table__th uppercase-label">{t('project.members.member')}</th>
+                <th className="cm-table__th uppercase-label">{t('project.members.name')}</th>
+                <th className="cm-table__th uppercase-label">{t('project.members.role')}</th>
+                <th className="cm-table__th uppercase-label">{t('project.members.lastSeen')}</th>
+                <th className="cm-table__th uppercase-label">{t('project.members.jobs')}</th>
+                <th className="cm-table__th uppercase-label">{t('project.members.rewards')}</th>
               </tr>
             </thead>
             <tbody className="cm-table__body">

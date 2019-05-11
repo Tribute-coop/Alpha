@@ -9,10 +9,6 @@ $cm-table-cell-padding: $spacer / 2;
   }
 
   &__th {
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: .75rem;
-    color: $gray-500;
     padding-top: $cm-table-cell-padding!important;
     padding-bottom: $cm-table-cell-padding!important;
   }
