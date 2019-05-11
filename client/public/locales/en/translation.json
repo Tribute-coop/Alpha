@@ -27,7 +27,11 @@
       "role": "Role",
       "lastSeen": "Last seen",
       "jobs": "#Jobs",
-      "rewards": "Rewards"
+      "rewards": "Rewards",
+      "filters": {
+        "owner": "Owner",
+        "contributor": "Contributor"
+      }
     },
     "tokens": {
       "title": "Tokens"
@@ -49,5 +53,8 @@
     "profile": {
       "title": "Profile"
     }
+  },
+  "select": {
+    "all": "All"
   }
 }
