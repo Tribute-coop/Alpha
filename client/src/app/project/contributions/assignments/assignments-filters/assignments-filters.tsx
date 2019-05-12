@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 
 import { useSearchQuery } from '../../../../shared/hooks';
-import { SearchSelect } from '../../../../shared';
+import { SearchSelect, SearchInput } from '../../../../shared';
 import { Assignment } from '../assignment.model';
 import { Member } from '../../../members/member.model';
 import { AssignmentStatus } from '../assignment-status.enum';
@@ -99,6 +99,10 @@ export function AssignmentsFilters(props: RouteComponentProps & { assignments: A
           </SearchSelect>
         </div>
       }
+
+      <div className="col-12 col-lg-3">
+        <SearchInput name="q" onChange={updateQuery} value={query.q} />
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 
 import { useSearchQuery } from '../../../shared/hooks';
-import { SearchSelect } from '../../../shared';
+import { SearchInput, SearchSelect } from '../../../shared';
 
 export function MembersFilters(props: RouteComponentProps): JSX.Element {
   const { location, history } = props;
@@ -23,6 +23,9 @@ export function MembersFilters(props: RouteComponentProps): JSX.Element {
           <option value="0">{t('project.members.filters.owner')}</option>
           <option value="1">{t('project.members.filters.contributor')}</option>
         </SearchSelect>
+      </div>
+      <div className="col-12 col-lg-3 offset-lg-5">
+        <SearchInput name="q" onChange={updateQuery} value={query.q} />
       </div>
     </div>
   );
