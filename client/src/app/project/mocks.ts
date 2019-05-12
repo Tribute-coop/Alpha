@@ -30,7 +30,7 @@ export const assignments: Assignment[] = [
     assignedOn: '23/01/19',
     approvedOn: '02/02/19',
     startedOn: '',
-    domain: 'marketing',
+    domain: 'development',
     assignedTo: members,
     rewardAmount: 9,
     rewardUnits: 'CTX'

@@ -9,7 +9,9 @@
       "calls": "Calls",
       "assignment": {
         "title": "Title",
+        "status": "Status",
         "domain": "Domain",
+        "who": "Who",
         "assignedTo": "Assigned to",
         "reward": "Reward",
         "row": {
@@ -17,6 +19,10 @@
           "startedOn": "Started on",
           "assignedOn": "Assigned on",
           "approvedOn": "Approved on"
+        },
+        "filters": {
+          "assigned": "Assigned",
+          "inProgress": "In Progress"
         }
       }
     },
@@ -56,5 +62,8 @@
   },
   "select": {
     "all": "All"
+  },
+  "generic": {
+    "no_matches_found": "No matches found"
   }
 }
