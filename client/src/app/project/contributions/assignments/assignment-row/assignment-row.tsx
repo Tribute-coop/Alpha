@@ -3,48 +3,52 @@ import { useTranslation } from 'react-i18next';
 
 import { Assignment } from '../assignment.model';
 import { AssignmentDomain } from '../assignment-domain';
+import { AssignmentStatus } from '../assignment-status.enum';
 
 import { StackedRoundedImage } from '../../../../shared';
 
 import './assignment-row.scss';
 
 const states: (keyof Assignment)[] = [
-  'status',
   'assignedOn',
   'approvedOn',
   'startedOn'
 ];
 
-export function AssignmentRow(contribution: Assignment): JSX.Element {
+export function AssignmentRow(assignment: Assignment): JSX.Element {
   const { t } = useTranslation();
 
   return (
     <div className="assignment-row__body">
       <div className="assignment-row__info">
         <div className="assignment-row__title">
-          {contribution.title}
+          {assignment.title}
         </div>
         <div className="assignment-row__states">
+          <span className="assignment-row__state">
+            {t('project.contributions.assignment.row.status') + ': ' +
+              t(`project.contributions.assignment.filters.${AssignmentStatus[assignment.status].toLowerCase()}`)}
+          </span>
           { states
-            .filter((state): boolean => !!contribution[state])
+            .filter((state): boolean => !!assignment[state])
             .map((state: keyof Assignment): JSX.Element => (
               <span key={state} className="assignment-row__state">
-                {t(`project.contributions.assignment.row.${state}`) + ': ' + contribution[state]}
+                {t(`project.contributions.assignment.row.${state}`) + ': ' + assignment[state]}
               </span>
             ))}
         </div>
       </div>
       <div className="assignment-row__domain">
-        <AssignmentDomain domain={contribution.domain} />
+        <AssignmentDomain domain={assignment.domain} />
       </div>
       <div className="assignment-row__assigned">
-        <StackedRoundedImage images={ contribution.assignedTo.map((user): any => {
+        <StackedRoundedImage images={ assignment.assignedTo.map((user): any => {
           return { src: user.thumbnail, alt: user.name };
         }) } />
       </div>
       <div className="assignment-row__reward reward">
-        <span className="reward__amount">{contribution.rewardAmount}</span>
-        <span className="reward__symbol">{contribution.rewardUnits}</span>
+        <span className="reward__amount">{assignment.rewardAmount}</span>
+        <span className="reward__symbol">{assignment.rewardUnits}</span>
       </div>
     </div>
   );

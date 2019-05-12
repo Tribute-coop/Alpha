@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 
@@ -6,6 +6,7 @@ import { useSearchQuery } from '../../../../shared/hooks';
 import { SearchSelect } from '../../../../shared';
 import { Assignment } from '../assignment.model';
 import { Member } from '../../../members/member.model';
+import { AssignmentStatus } from '../assignment-status.enum';
 
 export interface SelectOptions {
   key: string;
@@ -28,6 +29,7 @@ function uniqAssignmentsMembers(assignments: Assignment[]): SelectOptions[] {
 
 export function AssignmentsFilters(props: RouteComponentProps & { assignments: Assignment[] }): JSX.Element {
   const [domains, setDomain] = useState<SelectOptions[]>([]);
+  const [status, setStatus] = useState<SelectOptions[]>([]);
   const [who, setWho] = useState<SelectOptions[]>([]);
   const { assignments, location, history } = props;
   const { t } = useTranslation();
@@ -37,24 +39,45 @@ export function AssignmentsFilters(props: RouteComponentProps & { assignments: A
     history
   );
 
+  const loadAssignmentStatus = useCallback((): SelectOptions[] => {
+    const filterTrnsKey = 'project.contributions.assignment.filters';
+
+    return Object.keys(AssignmentStatus)
+      .filter((s): boolean => !isNaN(+s))
+      .map((key: string): SelectOptions =>
+        ({
+          key,
+          value: t(`${filterTrnsKey}.${AssignmentStatus[+key].toLowerCase()}`)
+        })
+      );
+  }, [t]);
+
   useEffect((): void => {
     setDomain(uniqAssignmentsDomains(assignments));
     setWho(uniqAssignmentsMembers(assignments));
   }, [assignments]);
 
+  useEffect((): void => {
+    setStatus(loadAssignmentStatus());
+  }, [loadAssignmentStatus]);
+
   return (
     <div className="row py-3">
-      <div className="col-12 col-lg-3">
-        <SearchSelect name="status" onChange={updateQuery} value={query.status}
-          label={t('project.contributions.assignment.status')}>
-          <option value="">{t('select.all')}</option>
-          <option value="0">{t('project.contributions.assignment.filters.assigned')}</option>
-          <option value="1">{t('project.contributions.assignment.filters.inProgress')}</option>
-        </SearchSelect>
-      </div>
+      {/* FIXME: Reuse duplicated structures  */}
+      { status.length > 1 &&
+        <div className="col-12 col-lg-3">
+          <SearchSelect name="status" onChange={updateQuery} value={query.status}
+            label={t('project.contributions.assignment.status')}>
+            <option value="">{t('select.all')}</option>
+            { status.map(({ key, value }): JSX.Element =>
+              <option value={key} key={key}>{value}</option>
+            )}
+          </SearchSelect>
+        </div>
+      }
 
       { domains.length > 1 &&
-        <div className="col-12 col-lg-3" >
+        <div className="col-12 col-lg-3">
           <SearchSelect name="domain" onChange={updateQuery} value={query.domain}
             label={t('project.contributions.assignment.domain')}>
             <option value="">{t('select.all')}</option>

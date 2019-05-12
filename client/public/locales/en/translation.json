@@ -21,8 +21,9 @@
           "approvedOn": "Approved on"
         },
         "filters": {
+          "approved": "Approved",
           "assigned": "Assigned",
-          "inProgress": "In Progress"
+          "inprogress": "In Progress"
         }
       }
     },

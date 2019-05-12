@@ -14,7 +14,7 @@ export const assignments: Assignment[] = [
   {
     id: '000001',
     title: 'Define brand guidelines',
-    status: AssignmentStatus.InProgress,
+    status: AssignmentStatus.Approved,
     assignedOn: 'Run twitter campaign March 2019',
     approvedOn: '',
     startedOn: '',
