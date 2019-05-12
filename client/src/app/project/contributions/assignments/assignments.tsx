@@ -10,6 +10,8 @@ import { AssignmentsFilters } from './assignments-filters';
 
 import { assignments as mockAssignments } from '../../mocks';
 
+import './assignments.scss';
+
 const filters: QueryFilters<Assignment> = {
   q: (assignment: Assignment, q: string): boolean =>
     assignment.title.toLowerCase().includes(q)
@@ -60,9 +62,14 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
               {t('project.contributions.assignment.reward')}
             </div>
           </div>
-          { assignments.map((assignment): JSX.Element =>(
-            <AssignmentRow key={assignment.id} {...assignment} />
-          ))}
+          { assignments.length === 0
+            ? (<div className="assignments__no-matches">
+              {t('generic.no_matches_found')}
+            </div>)
+            : assignments.map((assignment): JSX.Element =>(
+              <AssignmentRow key={assignment.id} {...assignment} />
+            ))
+          }
         </div>
       </div>
     </div>
