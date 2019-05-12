@@ -29,8 +29,10 @@ export function useSearchQuery(initialQuery: Search, history: History): SearchQu
     );
   }, []);
 
-  useEffect((): void =>
-    history.push({ search: queryString.stringify(query) }),
+  useEffect((): void => {
+    const search = queryString.stringify(query);
+    history.push({ search });
+  },
   [history, query]);
 
   return { query, updateQuery };
