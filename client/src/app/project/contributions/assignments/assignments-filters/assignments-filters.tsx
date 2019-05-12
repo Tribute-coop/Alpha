@@ -13,7 +13,7 @@ export interface SelectOptions {
   value: string;
 }
 
-// OPTIMIZE & REDUCE uniq functions
+// FIXME: Optimize uniq functions
 function uniqAssignmentsDomains(assignments: Assignment[]): SelectOptions[] {
   return assignments
     .filter((assignment, index, self): boolean => self.findIndex((a): boolean => a.domain === assignment.domain) === index)
