@@ -25,7 +25,7 @@ const filters: QueryFilters<Member> = {
 
 export function Members(props: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
-  const [members, setMembers] = useState(mockMembers);
+  const [members, setMembers] = useState<Member[]>([]);
 
   useEffect((): void => {
     const search = queryString.parse(props.location.search);

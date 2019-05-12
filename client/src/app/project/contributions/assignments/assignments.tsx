@@ -26,7 +26,7 @@ const filters: QueryFilters<Assignment> = {
 
 export function Assignments(props: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
-  const [assignments, setAssignments] = useState(mockAssignments);
+  const [assignments, setAssignments] = useState<Assignment[]>([]);
 
   useEffect((): void => {
     const search = queryString.parse(props.location.search);
