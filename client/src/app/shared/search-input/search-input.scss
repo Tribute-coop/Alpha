@@ -1,0 +1,9 @@
+@import '../../../styles/abstracts/variables';
+
+.search-input {
+  background-position: center right .6rem;
+  background-image: url(../../../images/search.svg);
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  padding-right: $spacer * 2.5!important;
+}

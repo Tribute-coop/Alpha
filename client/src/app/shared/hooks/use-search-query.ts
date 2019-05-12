@@ -1,22 +1,22 @@
-import { useState, ChangeEvent, useCallback, useEffect, FormEvent } from 'react';
+import { useState, ChangeEvent, useCallback, useEffect } from 'react';
 import { History, Search } from 'history';
 import queryString from 'query-string';
 
-type HTMLElement = HTMLSelectElement | HTMLInputElement;
+type AnyHTMLElement = HTMLSelectElement | HTMLInputElement;
 
-interface NonNullableParsedQuery { [key: string]: string | number | string[] | undefined }
+interface NonNullableParsedQuery { [key: string]: string | undefined }
 
 interface SearchQueryState {
   query: NonNullableParsedQuery;
-  updateQuery: (event: FormEvent<HTMLElement>) => void;
+  updateQuery: (event: ChangeEvent<AnyHTMLElement>) => void;
 }
 
 export function useSearchQuery(initialQuery: Search, history: History): SearchQueryState {
   const parsedQuery = queryString.parse(initialQuery) as NonNullableParsedQuery;
   const [query, setQuery] = useState(parsedQuery);
 
-  const updateQuery = useCallback((event: FormEvent<HTMLElement>): void => {
-    const { name, value } = (event as ChangeEvent<HTMLElement>).target;
+  const updateQuery = useCallback((event: ChangeEvent<AnyHTMLElement>): void => {
+    const { name, value } = event.target;
 
     setQuery((prevQuery): NonNullableParsedQuery =>
       ({

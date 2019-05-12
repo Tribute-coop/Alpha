@@ -1,8 +1,9 @@
-import React, { HTMLProps } from 'react';
+import React from 'react';
+import { FieldProps } from '../../core/models/field-props.model';
 
 import './search-select.scss';
 
-export function SearchSelect(props: HTMLProps<HTMLSelectElement>): JSX.Element {
+export function SearchSelect(props: FieldProps<HTMLSelectElement>): JSX.Element {
   const { name, value, onChange, children, label } = props;
 
   return (
