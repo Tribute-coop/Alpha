@@ -10,10 +10,7 @@ import './project-layout.scss';
 import PoiLogo from '../../../images/poi_logo2.png';
 
 import { Members } from '../members/members';
-
-function Contributions(): JSX.Element {
-  return (<div>Contributions</div>);
-}
+import { Contributions } from '../contributions/contributions';
 
 function Tokens(): JSX.Element {
   return (<div>Tokens</div>);
@@ -38,7 +35,6 @@ function getTitleKeyFromLocation(location: Location<void>): string {
 
 export function ProjectLayout(props: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
-
   const { match, location } = props;
   const { path } = match;
 
@@ -57,16 +53,16 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
         <h4 className="main-layout__title">{t(getTitleKeyFromLocation(location))}</h4>
       </header>
       <section className="main-layout__section">
-            <Switch>
-              <Route exact path={path} >
-                <Redirect to={`${path}/contributions`}/>
-              </Route>
+        <Switch>
+          <Route exact path={path} >
+            <Redirect to={`${path}/contributions`}/>
+          </Route>
 
-              <Route path={`${path}/contributions`} component={Contributions} />
-              <Route path={`${path}/members`} component={Members} />
-              <Route path={`${path}/tokens`} component={Tokens} />
-              <Route path={`${path}/settings`} component={Settings} />
-            </Switch>
+          <Route path={`${path}/contributions`} component={Contributions} />
+          <Route path={`${path}/members`} component={Members} />
+          <Route path={`${path}/tokens`} component={Tokens} />
+          <Route path={`${path}/settings`} component={Settings} />
+        </Switch>
       </section>
     </div>
   );

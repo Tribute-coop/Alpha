@@ -1,0 +1,33 @@
+.navigation-bar {
+  display: flex;
+  height: $header-height * .55;
+  min-height: $header-height * .55;
+  border-bottom: 1px solid $border-color;
+  background-color: $white;
+  font-weight: lighter;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-left: $spacer * 1.25;
+    margin-right: $spacer * 1.25;
+    position: relative;
+    height: 100%;
+    color: $black!important;
+    text-decoration: none!important;
+
+    &.is-active,
+    &:hover {
+      font-weight: bold;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-bottom: 3px solid $primary;
+      }
+    }
+  }
+}

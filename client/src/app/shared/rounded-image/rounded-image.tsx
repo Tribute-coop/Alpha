@@ -2,7 +2,7 @@ import React from 'react';
 
 import './rounded-image.scss';
 
-interface RoundedImageProps {
+export interface RoundedImageProps {
   src: string;
   alt: string;
 }

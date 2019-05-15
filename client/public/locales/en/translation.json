@@ -4,7 +4,28 @@
   },
   "project": {
     "contributions": {
-      "title": "Contributions"
+      "title": "Contributions",
+      "assignments": "Assignments",
+      "calls": "Calls",
+      "assignment": {
+        "title": "Title",
+        "status": "Status",
+        "domain": "Domain",
+        "who": "Who",
+        "assignedTo": "Assigned to",
+        "reward": "Reward",
+        "row": {
+          "status": "Status",
+          "startedOn": "Started on",
+          "assignedOn": "Assigned on",
+          "approvedOn": "Approved on"
+        },
+        "filters": {
+          "approved": "Approved",
+          "assigned": "Assigned",
+          "inprogress": "In Progress"
+        }
+      }
     },
     "members": {
       "title": "Members",
@@ -13,7 +34,11 @@
       "role": "Role",
       "lastSeen": "Last seen",
       "jobs": "#Jobs",
-      "rewards": "Rewards"
+      "rewards": "Rewards",
+      "filters": {
+        "owner": "Owner",
+        "contributor": "Contributor"
+      }
     },
     "tokens": {
       "title": "Tokens"
@@ -35,5 +60,11 @@
     "profile": {
       "title": "Profile"
     }
+  },
+  "select": {
+    "all": "All"
+  },
+  "generic": {
+    "no_matches_found": "No matches found"
   }
 }

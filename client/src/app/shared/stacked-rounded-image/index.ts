@@ -1,0 +1,1 @@
+export { StackedRoundedImage } from './stacked-rounded-image';
