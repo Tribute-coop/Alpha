@@ -1,0 +1,17 @@
+.assignments-empty {
+  margin-top: 4.5rem;
+  max-width: 35rem;
+  margin: 4.75rem auto 0 auto;
+  text-align: center;
+
+  &__text {
+    font-weight: 300;
+    line-height: 1.2;
+    font-size: 1.6rem;
+  }
+
+  &__image {
+    width: 17rem;
+    margin-top: 1.5rem;
+  }
+}

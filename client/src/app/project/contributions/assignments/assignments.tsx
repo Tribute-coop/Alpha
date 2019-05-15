@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 import queryString from 'query-string';
 
 import { QueryFilters, applyQueryFilters } from '../../../core/utils/filters';
 import { Assignment } from './assignment.model';
-import { AssignmentRow } from './assignment-row';
+import { AssignmentsList } from './assignments-list';
 import { AssignmentsFilters } from './assignments-filters';
+import { AssignmentsEmpty } from './assignments-empty';
 
 import { assignments as mockAssignments } from '../../mocks';
 
@@ -27,10 +27,21 @@ const filters: QueryFilters<Assignment> = {
 };
 
 export function Assignments(props: RouteComponentProps): JSX.Element {
-  const { t } = useTranslation();
+  const [loaded, setLoaded] = useState<boolean>(false);
+  const [isEmpty, setIsEmpty] = useState<boolean>(false);
   const [assignments, setAssignments] = useState<Assignment[]>([]);
 
   useEffect((): void => {
+    setLoaded(true);
+    setAssignments(mockAssignments);
+    setIsEmpty(mockAssignments.length === 0);
+  }, []);
+
+  useEffect((): void => {
+    if (!loaded) {
+      return;
+    }
+
     const search = queryString.parse(props.location.search);
     const filteredAssignments = applyQueryFilters<Assignment>(
       mockAssignments,
@@ -39,39 +50,23 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
     );
 
     setAssignments(filteredAssignments);
-  }, [props.location.search]);
+  }, [loaded, props.location.search]);
 
   return (
     <div className="container-fluid py-3">
-      <div className="row">
-        <div className="col-12 col-lg-9">
-
-          <AssignmentsFilters {...props } assignments={mockAssignments}/>
-
-          <div className="assignment-row__head uppercase-label">
-            <div className="assignment-row__info">
-              {t('project.contributions.assignment.title')}
-            </div>
-            <div className="assignment-row__domain">
-              {t('project.contributions.assignment.domain')}
-            </div>
-            <div className="assignment-row__assigned">
-              {t('project.contributions.assignment.assignedTo')}
-            </div>
-            <div className="assignment-row__reward">
-              {t('project.contributions.assignment.reward')}
-            </div>
-          </div>
-          { assignments.length === 0
-            ? (<div className="assignments__no-matches">
-              {t('generic.no_matches_found')}
+      { loaded && (
+        <div className="row">
+          { isEmpty ?
+            (<div className="col-12">
+              <AssignmentsEmpty />
+            </div>) :
+            (<div className="col-12 col-lg-9">
+              <AssignmentsFilters {...props } />
+              <AssignmentsList assignments={assignments} />
             </div>)
-            : assignments.map((assignment): JSX.Element =>(
-              <AssignmentRow key={assignment.id} {...assignment} />
-            ))
           }
         </div>
-      </div>
+      )}
     </div>
   );
 }
