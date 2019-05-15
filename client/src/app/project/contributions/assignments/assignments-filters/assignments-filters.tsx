@@ -8,6 +8,8 @@ import { Assignment } from '../assignment.model';
 import { Member } from '../../../members/member.model';
 import { AssignmentStatus } from '../assignment-status.enum';
 
+import { assignments as mockAssignments } from '../../../mocks';
+
 export interface SelectOptions {
   key: string;
   value: string;
@@ -27,11 +29,11 @@ function uniqAssignmentsMembers(assignments: Assignment[]): SelectOptions[] {
     .map(({ id, name }: Member): SelectOptions => ({ key: id, value: name }));
 }
 
-export function AssignmentsFilters(props: RouteComponentProps & { assignments: Assignment[] }): JSX.Element {
+export function AssignmentsFilters(props: RouteComponentProps): JSX.Element {
   const [domains, setDomain] = useState<SelectOptions[]>([]);
   const [status, setStatus] = useState<SelectOptions[]>([]);
   const [who, setWho] = useState<SelectOptions[]>([]);
-  const { assignments, location, history } = props;
+  const { location, history } = props;
   const { t } = useTranslation();
 
   const { updateQuery, query } = useSearchQuery(
@@ -53,9 +55,9 @@ export function AssignmentsFilters(props: RouteComponentProps & { assignments: A
   }, [t]);
 
   useEffect((): void => {
-    setDomain(uniqAssignmentsDomains(assignments));
-    setWho(uniqAssignmentsMembers(assignments));
-  }, [assignments]);
+    setDomain(uniqAssignmentsDomains(mockAssignments));
+    setWho(uniqAssignmentsMembers(mockAssignments));
+  }, []);
 
   useEffect((): void => {
     setStatus(loadAssignmentStatus());

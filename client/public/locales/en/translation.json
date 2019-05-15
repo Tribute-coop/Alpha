@@ -25,6 +25,10 @@
           "assigned": "Assigned",
           "inprogress": "In Progress"
         }
+      },
+      "empty": {
+        "noContributionRecorderYet": "No contribution is recorded yet.",
+        "addNewContribution": "Add a new contribution by clicking the button 'New Contribution' in the top right corner."
       }
     },
     "members": {
