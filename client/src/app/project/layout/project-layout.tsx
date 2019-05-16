@@ -44,7 +44,7 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
     if (inContribution) {
       nextNewContributionURL = (pathname.includes(newPath) ?
         pathname : pathname + newPath) + search;
-}
+    }
 
     setNewContributionURL(nextNewContributionURL);
   }, [pathname, search]);
@@ -67,14 +67,14 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
       </header>
       <section className="main-layout__section">
         <Switch>
-          <Route exact path={path} >
-            <Redirect to={`${path}/contributions`}/>
-          </Route>
-
           <Route path={`${path}/contributions`} component={Contributions} />
           <Route path={`${path}/members`} component={Members} />
           <Route path={`${path}/tokens`} component={Tokens} />
           <Route path={`${path}/settings`} component={Settings} />
+
+          <Route path={path} >
+            <Redirect to={`${path}/contributions`}/>
+          </Route>
         </Switch>
       </section>
     </div>
