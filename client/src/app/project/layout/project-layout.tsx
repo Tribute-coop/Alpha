@@ -1,16 +1,16 @@
-import React from 'react';
-import { Location } from 'history';
+import React, { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
 
 import { Project } from '../project.model';
-
-import './project-layout.scss';
+import { Members } from '../members/members';
+import { keyFromPathname } from '../../core/utils/helpers';
+import { Contributions } from '../contributions/contributions';
 
 import PoiLogo from '../../../images/poi_logo2.png';
 
-import { Members } from '../members/members';
-import { Contributions } from '../contributions/contributions';
+import './project-layout.scss';
 
 function Tokens(): JSX.Element {
   return (<div>Tokens</div>);
@@ -20,28 +20,34 @@ function Settings(): JSX.Element {
   return (<div>Settings</div>);
 }
 
-function getTitleKeyFromLocation(location: Location<void>): string {
-  const routeChunks: string[] = location.pathname.split('/')
-    .filter((subPath): boolean => !!subPath)
-    .slice(0, 2)
-    .concat('title');
-
-  if (routeChunks.length < 3) {
-    return '';
-  }
-
-  return routeChunks.join('.');
-}
+const newPath = '/new';
 
 export function ProjectLayout(props: RouteComponentProps): JSX.Element {
-  const { t } = useTranslation();
-  const { match, location } = props;
-  const { path } = match;
+  const {
+    match: { path },
+    location: { pathname, search }
+  } = props;
 
-  const project: Project = {
-    name: 'Poi',
-    logo: PoiLogo
-  };
+  const { t } = useTranslation();
+  const [ title, setTitle ] = useState('');
+  const [ project, setProject ] = useState<Project>({ name: '', logo: '' });
+  const [ newContributionURL, setNewContributionURL ] = useState('');
+
+  useEffect((): void => setProject({ name: 'Poi', logo: PoiLogo }), []);
+
+  useEffect((): void => setTitle(keyFromPathname(pathname)), [pathname]);
+
+  useEffect((): void => {
+    const inContribution = pathname.includes('contributions');
+    let nextNewContributionURL = '';
+
+    if (inContribution) {
+      nextNewContributionURL = (pathname.includes(newPath) ?
+        pathname : pathname + newPath) + search;
+}
+
+    setNewContributionURL(nextNewContributionURL);
+  }, [pathname, search]);
 
   return (
     <div className="main-layout">
@@ -50,7 +56,14 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
           <img src={project.logo} alt={project.name} />
           <div className="project-layout__name">{project.name}</div>
         </div>
-        <h4 className="main-layout__title">{t(getTitleKeyFromLocation(location))}</h4>
+
+        <h4 className="main-layout__title">{t(title)}</h4>
+
+        { !!newContributionURL &&
+          <NavLink className="btn btn-primary" to={newContributionURL}>
+            {t('project.contributions.new')}
+          </NavLink>
+        }
       </header>
       <section className="main-layout__section">
         <Switch>
