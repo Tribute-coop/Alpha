@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
 
@@ -60,9 +60,9 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
         <h4 className="main-layout__title">{t(title)}</h4>
 
         { !!newContributionURL &&
-          <NavLink className="btn btn-primary" to={newContributionURL}>
+          <Link className="btn btn-primary" to={newContributionURL}>
             {t('project.contributions.new')}
-          </NavLink>
+          </Link>
         }
       </header>
       <section className="main-layout__section">
