@@ -1,0 +1,13 @@
+$primary-gradient-left-color: #00C7E4;
+$primary-gradient-right-color: #00EFE2;
+
+.btn {
+  &.btn-primary {
+    color: $white;
+    background: linear-gradient(90deg, $primary-gradient-left-color, $primary-gradient-right-color);
+
+    &:disabled {
+      background: $gray-400;
+    }
+  }
+} 
