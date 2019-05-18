@@ -27,13 +27,13 @@ export function Contributions(props: RouteComponentProps): JSX.Element {
       </nav>
 
       <Switch>
-        <Route exact path={path} >
-          <Redirect to={`${path}/assignments`}/>
-        </Route>
-
         <Route path={`${path}/assignments`} component={Assignments} />
         <Route path={`${path}/calls`} component={ContributionsCalls} />
         <Route path={`${path}/new`} component={ContributionsNew} />
+
+        <Route path={path} >
+          <Redirect to={`${path}/assignments`}/>
+        </Route>
       </Switch>
     </div>
   );
