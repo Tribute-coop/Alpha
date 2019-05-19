@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Assignments } from './assignments';
 
+import { SlidePanel, useSlidePanel } from '../../shared/slide-panel';
+
 function ContributionsNew(): JSX.Element {
   return (<div>ContributionsNew</div>);
 }
@@ -16,6 +18,7 @@ function ContributionsCalls(): JSX.Element {
 export function Contributions(props: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
   const { path } = props.match;
+  const { opened, handleClose } = useSlidePanel(props, '/new');
 
   return (
     <div>
@@ -35,6 +38,10 @@ export function Contributions(props: RouteComponentProps): JSX.Element {
           <Redirect to={`${path}/assignments`}/>
         </Route>
       </Switch>
+
+      <SlidePanel opened={opened} close={handleClose}>
+        <ContributionsNew />
+      </SlidePanel>
     </div>
   );
 }
