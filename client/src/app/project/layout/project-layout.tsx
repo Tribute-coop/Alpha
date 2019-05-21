@@ -1,16 +1,15 @@
 import React from 'react';
-import { Location } from 'history';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
 
 import { Project } from '../project.model';
-
-import './project-layout.scss';
+import { Members } from '../members/members';
+import { Contributions } from '../contributions/contributions';
+import { useTitleFromPath } from '../../shared/hooks/use-title-from-pathname';
 
 import PoiLogo from '../../../images/poi_logo2.png';
 
-import { Members } from '../members/members';
-import { Contributions } from '../contributions/contributions';
+import './project-layout.scss';
 
 function Tokens(): JSX.Element {
   return (<div>Tokens</div>);
@@ -20,23 +19,11 @@ function Settings(): JSX.Element {
   return (<div>Settings</div>);
 }
 
-function getTitleKeyFromLocation(location: Location<void>): string {
-  const routeChunks: string[] = location.pathname.split('/')
-    .filter((subPath): boolean => !!subPath)
-    .slice(0, 2)
-    .concat('title');
-
-  if (routeChunks.length < 3) {
-    return '';
-  }
-
-  return routeChunks.join('.');
-}
-
 export function ProjectLayout(props: RouteComponentProps): JSX.Element {
+  const { match: { path }, location: { pathname } } = props;
+
   const { t } = useTranslation();
-  const { match, location } = props;
-  const { path } = match;
+  const title = useTitleFromPath(pathname);
 
   const project: Project = {
     name: 'Poi',
@@ -50,7 +37,7 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
           <img src={project.logo} alt={project.name} />
           <div className="project-layout__name">{project.name}</div>
         </div>
-        <h4 className="main-layout__title">{t(getTitleKeyFromLocation(location))}</h4>
+        <h4 className="main-layout__title">{t(title)}</h4>
       </header>
       <section className="main-layout__section">
         <Switch>
