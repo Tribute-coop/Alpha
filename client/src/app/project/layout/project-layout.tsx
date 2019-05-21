@@ -5,8 +5,8 @@ import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
 
 import { Project } from '../project.model';
 import { Members } from '../members/members';
-import { keyFromPathname } from '../../core/utils/helpers';
 import { Contributions } from '../contributions/contributions';
+import { useTitleFromPath } from '../../shared/hooks/use-title-from-pathname';
 
 import PoiLogo from '../../../images/poi_logo2.png';
 
@@ -29,13 +29,11 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
   } = props;
 
   const { t } = useTranslation();
-  const [ title, setTitle ] = useState('');
+  const title = useTitleFromPath(pathname);
   const [ project, setProject ] = useState<Project>({ name: '', logo: '' });
   const [ newContributionURL, setNewContributionURL ] = useState('');
 
   useEffect((): void => setProject({ name: 'Poi', logo: PoiLogo }), []);
-
-  useEffect((): void => setTitle(keyFromPathname(pathname)), [pathname]);
 
   useEffect((): void => {
     const inContribution = pathname.includes('contributions');

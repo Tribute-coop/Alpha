@@ -68,16 +68,16 @@
   },
   "my": {
     "wallet": {
-      "title": "Wallet"
+      "title": "My Wallet"
     },
     "activity": {
-      "title": "Activity"
+      "title": "My Activity"
     },
     "notifications": {
-      "title": "Notifications"
+      "title": "My Notifications"
     },
     "profile": {
-      "title": "Profile"
+      "title": "My Profile"
     }
   },
   "select": {
