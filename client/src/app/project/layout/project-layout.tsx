@@ -61,7 +61,7 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
 
         { !!newContributionURL &&
           <Link className="btn btn-primary" to={newContributionURL}>
-            {t('project.contributions.new')}
+            {t('project.contributions.newContribution')}
           </Link>
         }
       </header>
