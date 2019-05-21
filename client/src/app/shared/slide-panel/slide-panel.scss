@@ -2,6 +2,7 @@
 
 $slide-panel-width: 475px;
 $slide-panel-z-index: 1035;
+$slide-padding: 1.5rem;
 
 .slide-panel {
   &__backdrop,
@@ -24,6 +25,7 @@ $slide-panel-z-index: 1035;
     height: 100%;
     background: $white;
     width: $slide-panel-width;
+    padding: $slide-padding 3.5rem $slide-padding $slide-padding;
     z-index: $slide-panel-z-index + 1;
     transition: transform .5s ease-in-out;
 
@@ -41,6 +43,16 @@ $slide-panel-z-index: 1035;
 
     .slide-panel--exit-active & {
       transform: translateX($slide-panel-width);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: $slide-padding;
+    padding: 0!important;
+
+    img {
+      width: 14px;
     }
   }
 }
