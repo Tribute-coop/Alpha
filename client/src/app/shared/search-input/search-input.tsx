@@ -9,7 +9,7 @@ export function SearchInput({ name, value, onChange }: FieldProps<HTMLInputEleme
   const [debounceSearchTerm] = useDebounce(searchTerm, 300);
 
   useEffect((): void => {
-    onChange({ target: { name, value: debounceSearchTerm } });
+    onChange({ target: { name, value: debounceSearchTerm.toLowerCase() } });
   }, [debounceSearchTerm, name, onChange]);
 
   return (
