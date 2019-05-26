@@ -3,14 +3,24 @@ import React, { useEffect, useState, FormEvent } from 'react';
 import './contributions-new.scss';
 import { useTranslation } from 'react-i18next';
 
+import { SelectOptions } from '../../../core/models/select-options.model';
+import { toSelectables } from '../../../core/utils/helpers';
+import { Domain } from '../assignments/domain.model';
+import { Member } from '../../members/member.model';
+
+import {
+  domains as mockDomains,
+  members as mockMembers
+} from '../../mocks';
+
 interface ContributionsNewProps {
   close: () => void;
 }
 
 export function ContributionsNew({ close }: ContributionsNewProps): JSX.Element {
   const { t } = useTranslation();
-  const [ users, setUsers ] = useState<any>([]);
-  const [ domains, setDomains ] = useState<any>([]);
+  const [ users, setUsers ] = useState<SelectOptions[]>([]);
+  const [ domains, setDomains ] = useState<SelectOptions[]>([]);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
@@ -22,16 +32,11 @@ export function ContributionsNew({ close }: ContributionsNewProps): JSX.Element 
   };
 
   useEffect((): void => {
-    setDomains([
-      { key: 'MKT', value: 'Marketing' },
-      { key: 'DEV', value: 'Development' }
-    ]);
+    const selectableMembers = toSelectables<Member>(mockMembers, 'id', 'name');
+    const selectableDomains = toSelectables<Domain>(mockDomains, 'name', 'name');
 
-    setUsers([
-      { key: 'Bob', value: 'Bob example' },
-      { key: 'Alice', value: 'Alice example' },
-      { key: 'Carol', value: 'Carol example' }
-    ]);
+    setDomains(selectableDomains);
+    setUsers(selectableMembers);
   }, []);
 
   return (
@@ -55,7 +60,7 @@ export function ContributionsNew({ close }: ContributionsNewProps): JSX.Element 
         </label>
         <select id="contributionDomain" name="contributionDomain" className="search-select__select form-control"
           onChange={handleChange}>
-          { domains.map(({ key, value }: any): JSX.Element => (
+          { domains.map(({ key, value }: SelectOptions): JSX.Element => (
             <option value={key} key={key}>
               {value}
             </option>
@@ -105,7 +110,7 @@ export function ContributionsNew({ close }: ContributionsNewProps): JSX.Element 
         </label>
         <select id="assignTo" name="assignTo" className="search-select__select form-control"
           onChange={handleChange}>
-          { users.map(({ key, value }: any): JSX.Element => (
+          { users.map(({ key, value }: SelectOptions): JSX.Element => (
             <option value={key} key={key}>
               {value}
             </option>
