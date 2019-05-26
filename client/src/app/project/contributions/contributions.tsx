@@ -3,11 +3,10 @@ import { Route, Redirect, Switch, RouteComponentProps } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import { ContributionsNew } from './contributions-new';
 import { Assignments } from './assignments';
 
-function ContributionsNew(): JSX.Element {
-  return (<div>ContributionsNew</div>);
-}
+import { SlidePanel, useSlidePanel } from '../../shared/slide-panel';
 
 function ContributionsCalls(): JSX.Element {
   return (<div>ContributionsCalls</div>);
@@ -16,6 +15,7 @@ function ContributionsCalls(): JSX.Element {
 export function Contributions(props: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
   const { path } = props.match;
+  const { opened, handleClose } = useSlidePanel(props, '/new');
 
   return (
     <div>
@@ -27,14 +27,17 @@ export function Contributions(props: RouteComponentProps): JSX.Element {
       </nav>
 
       <Switch>
-        <Route exact path={path} >
-          <Redirect to={`${path}/assignments`}/>
-        </Route>
-
         <Route path={`${path}/assignments`} component={Assignments} />
         <Route path={`${path}/calls`} component={ContributionsCalls} />
-        <Route path={`${path}/new`} component={ContributionsNew} />
+
+        <Route path={path} >
+          <Redirect to={`${path}/assignments`}/>
+        </Route>
       </Switch>
+
+      <SlidePanel opened={opened} close={handleClose}>
+        <ContributionsNew close={handleClose}/>
+      </SlidePanel>
     </div>
   );
 }

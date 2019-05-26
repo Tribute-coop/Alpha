@@ -10,11 +10,14 @@
 
 // 3. Base stuff
 @import
-  'base/typography';
+  'base/typography',
+  'base/overrides';
 
 // 4. Components
 @import
   'components/layout',
+  'components/bordered-box',
+  'components/input-inline',
   'components/custom-table',
   'components/navigation-bar',
   'components/uppercase-label';

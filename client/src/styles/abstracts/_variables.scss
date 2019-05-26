@@ -1,23 +1,29 @@
+// Colors
+//
+$white: #FFFFFF;
+$blue: #5B6CEF;
+$primary: #00E7E2;
+$light-blue: #F3F9FB;
+$medium-blue: #DAEAEF;
+$dark-emerald: #2B6672;
+
+$gray-500: #9FA9AB;
+$gray-600: #6D777B;
+$gray-800: #333333;
+
+$box-shadow-color: #E8E8E8;
+
 // Typography
 //
 $font-family-base: overpass, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 $body-color: #494949;
+$text-muted: $gray-600;
 $small-font-size: .85rem;
 
 // Grid
 //
 $spacer: 1rem;
 $grid-gutter-width: 2.5rem;
-
-// Colors
-//
-$white: #FFFFFF;
-$blue: #5B6CEF;
-$primary: #00E7E2;
-$box-shadow-color: #E8E8E8;
-$gray-500: #9FA9AB;
-$gray-600: #6D777B;
-$gray-800: #333333;
 
 // Borders
 //
@@ -46,7 +52,33 @@ $table-head-color: #6D777B;
 
 // Input
 //
-$input-border-color: $border-color;
-$input-padding-y: $spacer/5;
-$input-padding-x: $spacer;
+$btn-border-width: 0;
+$btn-font-weight: 700;
+$input-btn-padding-y: .55rem;
+$input-btn-padding-x: .85rem;
+$input-btn-font-size: .95rem;
+$input-focus-bg: $medium-blue;
+$input-border-color: $medium-blue;
+$input-focus-box-shadow: none;
+$input-focus-border-color: $dark-emerald;
 
+// Custom Form Controls
+//
+$custom-control-indicator-size: 1rem;
+$custom-control-indicator-bg-size: 75% 75%;
+$custom-control-indicator-checked-color: $primary;
+$custom-control-label-disabled-color: $text-muted; 
+$custom-control-indicator-bg: $light-blue;
+$custom-control-indicator-checked-bg: $light-blue;
+$custom-control-indicator-border-color: $medium-blue;
+$custom-control-indicator-checked-border-color: $medium-blue;
+$custom-control-indicator-disabled-bg: $light-blue;
+$custom-control-indicator-checked-disabled-bg: $light-blue;
+
+// Box
+$box-margin-bottom: .85rem;
+
+// Slide Panel
+$slide-panel-width: 475px;
+$slide-panel-z-index: 1035;
+$slide-padding: 1.5rem;

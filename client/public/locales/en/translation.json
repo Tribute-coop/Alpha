@@ -7,6 +7,7 @@
       "title": "Contributions",
       "assignments": "Assignments",
       "calls": "Calls",
+      "newContribution": "New Contribution",
       "assignment": {
         "title": "Title",
         "status": "Status",
@@ -29,6 +30,20 @@
       "empty": {
         "noContributionRecorderYet": "No contribution is recorded yet.",
         "addNewContribution": "Add a new contribution by clicking the button 'New Contribution' in the top right corner."
+      },
+      "new": {
+        "name": "New Contribution",
+        "domain": "Domain",
+        "description": "Description",
+        "descriptionPlaceholder": "Type here the description of the contribution. Select a text where you want to shape it up.",
+        "rewardWhen": "Reward when",
+        "rewardAmount": "Reward amount",
+        "fixedAmount": "Fixed",
+        "variableBasedAmount": "Variable-based",
+        "assignedWhen": "Contribution is assigned (no approval step)",
+        "approvedWhen": "Contribution is approved",
+        "addContribution": "Add contribution",
+        "assignTo": "Assign to"
       }
     },
     "members": {
@@ -69,6 +84,7 @@
     "all": "All"
   },
   "generic": {
-    "no_matches_found": "No matches found"
+    "no_matches_found": "No matches found",
+    "cancel": "Cancel"
   }
 }

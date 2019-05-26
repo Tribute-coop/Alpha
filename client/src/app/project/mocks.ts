@@ -1,7 +1,8 @@
 import { Member } from './members/member.model';
-import { AssignmentStatus } from './contributions/assignments/assignment-status.enum';
-import { Assignment } from './contributions/assignments/assignment.model';
 import { Role } from './members/role.enum';
+import { AssignmentStates } from './contributions/assignments/assignment-status.enum';
+import { Assignment } from './contributions/assignments/assignment.model';
+import { Domain } from './contributions/assignments/domain.model';
 
 export const members: Member[] = [
   { id: '@zunith', name: 'Zuna G.', role: Role.Owner, jobs: 8, lastSeen: 'Today', rewards: '1,200 CTX', thumbnail: 'https://picsum.photos/id/1084/50/50' },
@@ -14,7 +15,7 @@ export const assignments: Assignment[] = [
   {
     id: '000001',
     title: 'Define brand guidelines',
-    status: AssignmentStatus.Approved,
+    status: AssignmentStates.Approved,
     assignedOn: 'Run twitter campaign March 2019',
     approvedOn: '',
     startedOn: '',
@@ -26,7 +27,7 @@ export const assignments: Assignment[] = [
   {
     id: '000002',
     title: 'Update our slides deck',
-    status: AssignmentStatus.Assigned,
+    status: AssignmentStates.Assigned,
     assignedOn: '23/01/19',
     approvedOn: '02/02/19',
     startedOn: '',
@@ -38,7 +39,7 @@ export const assignments: Assignment[] = [
   {
     id: '000003',
     title: 'Run twitter campaign March 2019',
-    status: AssignmentStatus.Assigned,
+    status: AssignmentStates.Assigned,
     assignedOn: '24/01/19',
     approvedOn: '',
     startedOn: '',
@@ -50,7 +51,7 @@ export const assignments: Assignment[] = [
   {
     id: '000004',
     title: 'Write security paper',
-    status: AssignmentStatus.InProgress,
+    status: AssignmentStates.InProgress,
     assignedOn: '',
     approvedOn: '',
     startedOn: '12/02/19',
@@ -59,4 +60,9 @@ export const assignments: Assignment[] = [
     rewardAmount: 18,
     rewardUnits: 'CTX'
   }
+];
+
+export const domains: Domain[] = [
+  { id: 'MKT', name: 'marketing' },
+  { id: 'DEV', name: 'development' }
 ];

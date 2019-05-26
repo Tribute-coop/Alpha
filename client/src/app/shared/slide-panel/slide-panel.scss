@@ -1,0 +1,62 @@
+@import '../../../styles/abstracts/variables';
+
+.slide-panel {
+  &__backdrop,
+  &__content {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &__backdrop {
+    left: 0;
+    display: block;
+    overflow: hidden;
+    z-index: $slide-panel-z-index;
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  &__content {
+    height: 100%;
+    overflow-y: auto;
+    background: $white;
+    width: $slide-panel-width;
+    padding: $slide-padding 3.5rem $slide-padding $slide-padding;
+    z-index: $slide-panel-z-index + 1;
+    transition: transform .5s ease-in-out;
+
+    &:after {
+      content: '';
+      display: block;
+      height: 3rem;
+      width: 100%;
+    }
+
+    .slide-panel--enter & {
+      transform: translateX($slide-panel-width);
+    }
+
+    .slide-panel--enter-active & {
+      transform: translateX(0);
+    }
+
+    .slide-panel--exit & {
+      transform: translateX(0);
+    }
+
+    .slide-panel--exit-active & {
+      transform: translateX($slide-panel-width);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: $slide-padding;
+    padding: 0!important;
+
+    img {
+      width: 14px;
+    }
+  }
+}
