@@ -11,17 +11,17 @@ export function AssignmentsList({ assignments }: AssignmentsListProps): JSX.Elem
 
   return (
     <div>
-      <div className="assignment-row__head uppercase-label">
-        <div className="assignment-row__info">
+      <div className="assignment__head uppercase-label">
+        <div className="assignment__info">
           {t('project.contributions.assignment.title')}
         </div>
-        <div className="assignment-row__domain">
+        <div className="assignment__domain">
           {t('project.contributions.assignment.domain')}
         </div>
-        <div className="assignment-row__assigned">
+        <div className="assignment__assigned">
           {t('project.contributions.assignment.assignedTo')}
         </div>
-        <div className="assignment-row__reward">
+        <div className="assignment__reward">
           {t('project.contributions.assignment.reward')}
         </div>
       </div>
