@@ -93,8 +93,8 @@ export function ContributionsNew({ close }: ContributionsNewProps): JSX.Element 
           <label className="custom-control-label" htmlFor="fixedAmount">
             {t('project.contributions.new.fixedAmount')}
           </label>
-            <input type="number" id="quantity" name="quantity" className="input-inline form-control" onChange={handleChange}/>
-            <span>CTX</span>
+          <input type="number" id="quantity" name="quantity" className="input-inline form-control" onChange={handleChange}/>
+          <span>CTX</span>
         </div>
         <div className="custom-control custom-radio">
           <input type="radio" id="variableBasedAmount" name="amount" className="custom-control-input" disabled />

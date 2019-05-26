@@ -1,12 +1,14 @@
+@import '../../../../styles/abstracts/variables';
+
 .contribution-new {
   &__actions {
     display: flex;
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
+    background: $white;
   }
-  
+
   &__action {
     padding: 1rem 1.5rem; 
 

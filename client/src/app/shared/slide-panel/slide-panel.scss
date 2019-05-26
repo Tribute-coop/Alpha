@@ -1,9 +1,5 @@
 @import '../../../styles/abstracts/variables';
 
-$slide-panel-width: 475px;
-$slide-panel-z-index: 1035;
-$slide-padding: 1.5rem;
-
 .slide-panel {
   &__backdrop,
   &__content {
@@ -23,11 +19,19 @@ $slide-padding: 1.5rem;
 
   &__content {
     height: 100%;
+    overflow-y: auto;
     background: $white;
     width: $slide-panel-width;
     padding: $slide-padding 3.5rem $slide-padding $slide-padding;
     z-index: $slide-panel-z-index + 1;
     transition: transform .5s ease-in-out;
+
+    &:after {
+      content: '';
+      display: block;
+      height: 3rem;
+      width: 100%;
+    }
 
     .slide-panel--enter & {
       transform: translateX($slide-panel-width);
