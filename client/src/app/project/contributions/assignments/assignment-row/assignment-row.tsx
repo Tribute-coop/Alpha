@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Assignment } from '../assignment.model';
 import { AssignmentDomain } from '../assignment-domain';
-import { AssignmentStatus } from '../assignment-status.enum';
+import { AssignmentStates } from '../assignment-status.enum';
 
 import { StackedRoundedImage } from '../../../../shared';
 
@@ -27,7 +27,7 @@ export function AssignmentRow(assignment: Assignment): JSX.Element {
         <div className="assignment-row__states">
           <span className="assignment-row__state">
             {t('project.contributions.assignment.row.status') + ': ' +
-              t(`project.contributions.assignment.filters.${AssignmentStatus[assignment.status].toLowerCase()}`)}
+              t(`project.contributions.assignment.filters.${AssignmentStates[assignment.status].toLowerCase()}`)}
           </span>
           { states
             .filter((state): boolean => !!assignment[state])
