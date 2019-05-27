@@ -15,7 +15,7 @@ export function MembersFilters(props: RouteComponentProps): JSX.Element {
   );
 
   return (
-    <div className="row py-3">
+    <div className="row pt-3">
       <div className="col-12 col-lg-4">
         <SearchSelect name="role" onChange={updateQuery} value={query.role}
           label={t('project.members.role')}>

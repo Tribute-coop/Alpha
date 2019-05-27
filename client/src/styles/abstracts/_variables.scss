@@ -50,13 +50,16 @@ $table-cell-padding: .65rem 1.25rem;
 $table-head-bg: transparent;
 $table-head-color: #6D777B;
 
+// Buttons
+$input-btn-padding-y: .55rem;
+$input-btn-padding-x: .85rem;
+$input-btn-font-size: .95rem;
 // Input
 //
 $btn-border-width: 0;
 $btn-font-weight: 700;
-$input-btn-padding-y: .55rem;
-$input-btn-padding-x: .85rem;
-$input-btn-font-size: .95rem;
+$input-padding-y: .25rem;
+$input-padding-x: .9rem;
 $input-focus-bg: $medium-blue;
 $input-border-color: $medium-blue;
 $input-focus-box-shadow: none;

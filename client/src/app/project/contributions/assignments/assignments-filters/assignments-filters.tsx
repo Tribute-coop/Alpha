@@ -45,7 +45,7 @@ export function AssignmentsFilters(props: RouteComponentProps): JSX.Element {
   }, []);
 
   return (
-    <div className="row py-3">
+    <div className="row pt-3">
       { Object.keys(filters).map((filterName: string): JSX.Element => (
         <div className="col-12 col-lg-3" key={filterName}>
           <SearchSelect name={filterName} onChange={updateQuery} value={query[filterName]}

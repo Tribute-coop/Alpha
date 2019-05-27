@@ -53,7 +53,7 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
   }, [loaded, props.location.search]);
 
   return (
-    <div className="container-fluid py-3">
+    <div className="container-fluid">
       { loaded && (
         <div className="row">
           { isEmpty ?
