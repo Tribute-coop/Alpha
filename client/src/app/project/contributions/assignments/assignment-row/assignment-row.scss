@@ -17,7 +17,7 @@ $reward-symbol-font-size: .9rem;
   }
 
   &__head {
-    padding: $cm-table-cell-padding $spacer;
+    padding: $cm-table-cell-padding $spacer $cm-table-cell-padding / 2 $spacer;
   }
 
   &__info {

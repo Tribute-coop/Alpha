@@ -10,7 +10,7 @@ $cm-table-cell-padding: $spacer / 2;
 
   &__th {
     padding-top: $cm-table-cell-padding!important;
-    padding-bottom: $cm-table-cell-padding!important;
+    padding-bottom: $cm-table-cell-padding / 2!important;
   }
 
   &__td, &__th {
