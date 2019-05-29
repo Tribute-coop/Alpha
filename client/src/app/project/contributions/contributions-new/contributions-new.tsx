@@ -40,82 +40,84 @@ export function ContributionsNew({ close }: ContributionsNewProps): JSX.Element 
   }, []);
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
-      <div className="form-group">
-        <input type="text" id="name" name="name" placeholder={t('project.contributions.new.name')}
-          className="form-control" onChange={handleChange}/>
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="description" className="uppercase-label">
-          {t('project.contributions.new.description')}
-        </label>
-        <textarea id="description" name="description" placeholder={t('project.contributions.new.descriptionPlaceholder')}
-          className="form-control" onChange={handleChange} rows={5} />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="contributionDomain" className="uppercase-label">
-          {t('project.contributions.new.domain')}
-        </label>
-        <select id="contributionDomain" name="contributionDomain" className="search-select__select form-control"
-          onChange={handleChange}>
-          { domains.map(({ key, value }: SelectOptions): JSX.Element => (
-            <option value={key} key={key}>
-              {value}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="form-group">
-        <label className="uppercase-label">{t('project.contributions.new.rewardWhen')}</label>
-
-        <div className="custom-control custom-radio">
-          <input type="radio" id="whenAssigned" name="when" className="custom-control-input" />
-          <label className="custom-control-label" htmlFor="whenAssigned">
-            {t('project.contributions.new.assignedWhen')}
-          </label>
+    <form className="contribution-new" onSubmit={handleSubmit} autoComplete="off">
+      <div className="contribution-new__fields">
+        <div className="form-group">
+          <input type="text" id="name" name="name" placeholder={t('project.contributions.new.name')}
+            className="form-control" onChange={handleChange}/>
         </div>
-        <div className="custom-control custom-radio">
-          <input type="radio" id="whenApproved" name="when" className="custom-control-input" defaultChecked />
-          <label className="custom-control-label" htmlFor="whenApproved">
-            {t('project.contributions.new.approvedWhen')}
-          </label>
-        </div>
-      </div>
 
-      <div className="form-group">
-        <label className="uppercase-label">{t('project.contributions.new.rewardAmount')}</label>
-
-        <div className="custom-control custom-radio">
-          <input type="radio" id="fixedAmount" name="amount" className="custom-control-input" defaultChecked />
-          <label className="custom-control-label" htmlFor="fixedAmount">
-            {t('project.contributions.new.fixedAmount')}
+        <div className="form-group">
+          <label htmlFor="description" className="uppercase-label">
+            {t('project.contributions.new.description')}
           </label>
-          <input type="number" id="quantity" name="quantity" className="input-inline form-control" onChange={handleChange}/>
-          <span>CTX</span>
+          <textarea id="description" name="description" placeholder={t('project.contributions.new.descriptionPlaceholder')}
+            className="form-control" onChange={handleChange} rows={5} />
         </div>
-        <div className="custom-control custom-radio">
-          <input type="radio" id="variableBasedAmount" name="amount" className="custom-control-input" disabled />
-          <label className="custom-control-label" htmlFor="variableBasedAmount">
-            {t('project.contributions.new.variableBasedAmount')}
-          </label>
-        </div>
-      </div>
 
-      <div className="form-group">
-        <label htmlFor="assignTo" className="uppercase-label">
-          {t('project.contributions.new.assignTo')}
-        </label>
-        <select id="assignTo" name="assignTo" className="search-select__select form-control"
-          onChange={handleChange}>
-          { users.map(({ key, value }: SelectOptions): JSX.Element => (
-            <option value={key} key={key}>
-              {value}
-            </option>
-          ))}
-        </select>
+        <div className="form-group">
+          <label htmlFor="contributionDomain" className="uppercase-label">
+            {t('project.contributions.new.domain')}
+          </label>
+          <select id="contributionDomain" name="contributionDomain" className="search-select__select form-control"
+            onChange={handleChange}>
+            { domains.map(({ key, value }: SelectOptions): JSX.Element => (
+              <option value={key} key={key}>
+                {value}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label className="uppercase-label">{t('project.contributions.new.rewardWhen')}</label>
+
+          <div className="custom-control custom-radio">
+            <input type="radio" id="whenAssigned" name="when" className="custom-control-input" />
+            <label className="custom-control-label" htmlFor="whenAssigned">
+              {t('project.contributions.new.assignedWhen')}
+            </label>
+          </div>
+          <div className="custom-control custom-radio">
+            <input type="radio" id="whenApproved" name="when" className="custom-control-input" defaultChecked />
+            <label className="custom-control-label" htmlFor="whenApproved">
+              {t('project.contributions.new.approvedWhen')}
+            </label>
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label className="uppercase-label">{t('project.contributions.new.rewardAmount')}</label>
+
+          <div className="custom-control custom-radio">
+            <input type="radio" id="fixedAmount" name="amount" className="custom-control-input" defaultChecked />
+            <label className="custom-control-label" htmlFor="fixedAmount">
+              {t('project.contributions.new.fixedAmount')}
+            </label>
+            <input type="number" id="quantity" name="quantity" className="input-inline form-control" onChange={handleChange}/>
+            <span>CTX</span>
+          </div>
+          <div className="custom-control custom-radio">
+            <input type="radio" id="variableBasedAmount" name="amount" className="custom-control-input" disabled />
+            <label className="custom-control-label" htmlFor="variableBasedAmount">
+              {t('project.contributions.new.variableBasedAmount')}
+            </label>
+          </div>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="assignTo" className="uppercase-label">
+            {t('project.contributions.new.assignTo')}
+          </label>
+          <select id="assignTo" name="assignTo" className="search-select__select form-control"
+            onChange={handleChange}>
+            { users.map(({ key, value }: SelectOptions): JSX.Element => (
+              <option value={key} key={key}>
+                {value}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div className="contribution-new__actions border-top">

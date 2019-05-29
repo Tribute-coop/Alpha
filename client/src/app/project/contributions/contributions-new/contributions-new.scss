@@ -1,12 +1,17 @@
 @import '../../../../styles/abstracts/variables';
 
 .contribution-new {
+  flex-direction: column;
+  display: flex;
+  flex-grow: 1;
+
+  &__fields {
+    flex-grow: 1;
+    padding: $slide-padding-box;
+  }
+
   &__actions {
     display: flex;
-    position: absolute;
-    left: 0;
-    right: 0;
-    background: $white;
   }
 
   &__action {
