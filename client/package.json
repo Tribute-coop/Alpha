@@ -5,8 +5,8 @@
   "description": "Tribute Web App",
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "i18next": "^15.1.2",
-    "i18next-xhr-backend": "^2.0.1",
+    "i18next": "^16.0.0",
+    "i18next-xhr-backend": "^3.0.0",
     "node-sass": "^4.11.0",
     "query-string": "^6.5.0",
     "react": "^16.8.6",
