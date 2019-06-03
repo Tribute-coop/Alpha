@@ -17,7 +17,8 @@ i18n
 
     react: {
       useSuspense: false
-    }
+    },
+    fallbackLng: 'en'
   });
 
 export default i18n;
