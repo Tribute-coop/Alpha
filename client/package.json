@@ -5,18 +5,18 @@
   "description": "Tribute Web App",
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "i18next": "^16.0.0",
+    "i18next": "^17.0.3",
     "i18next-xhr-backend": "^3.0.0",
     "node-sass": "^4.11.0",
-    "query-string": "^6.5.0",
+    "query-string": "^6.6.0",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
     "react-i18next": "^10.10.0",
-    "react-router-dom": "^5.0.0",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
-    "react-transition-group": "^4.0.1",
-    "use-debounce": "^2.0.1"
+    "react-transition-group": "^4.1.0",
+    "use-debounce": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,16 +36,16 @@
   "devDependencies": {
     "@types/i18next-xhr-backend": "^1.4.2",
     "@types/jest": "^24.0.13",
-    "@types/node": "^12.0.4",
+    "@types/node": "^12.0.7",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.2",
-    "@types/react-transition-group": "^2.9.1",
+    "@types/react-transition-group": "^2.9.2",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.6.0",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.1"
   }
 }
