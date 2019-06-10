@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
 
 import { Project } from '../project.model';
+import { Tokens } from '../tokens/tokens';
 import { Members } from '../members/members';
 import { Contributions } from '../contributions/contributions';
 import { useTitleFromPath } from '../../shared/hooks/use-title-from-pathname';
@@ -12,9 +13,6 @@ import PoiLogo from '../../../images/poi_logo2.png';
 
 import './project-layout.scss';
 
-function Tokens(): JSX.Element {
-  return (<div>Tokens</div>);
-}
 
 function Settings(): JSX.Element {
   return (<div>Settings</div>);

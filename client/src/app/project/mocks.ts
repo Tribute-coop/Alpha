@@ -1,4 +1,5 @@
 import { Member } from './members/member.model';
+import { TokenOperation, TokenOperationType } from './tokens/token.model';
 import { Role } from './members/role.enum';
 import { AssignmentStates } from './contributions/assignments/assignment-status.enum';
 import { Assignment } from './contributions/assignments/assignment.model';
@@ -65,4 +66,13 @@ export const assignments: Assignment[] = [
 export const domains: Domain[] = [
   { id: 'MKT', name: 'marketing' },
   { id: 'DEV', name: 'development' }
+];
+
+export const tokens: TokenOperation[] = [
+  { id: '0xb4bc263278d3f77a652a8d73a6bfd8ec0ba1a63923bbb4f38147fb8a943da26d', operation: TokenOperationType.Redeem, createdAt: new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }), amount: -500, units: 'CTX', creator: members[0] },
+  { id: '0xb4bc263278d3f77a652a8d73a6bfd8ec0ba1a63923bbb4f38147fb8a943da26c', operation: TokenOperationType.Budget, createdAt: new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }), amount: 30000, units: 'CTX', creator: members[1] },
+  { id: '0xb4bc263278d3f77a652a8d73a6bfd8ec0ba1a63923bbb4f38147fb8a943da26e', operation: TokenOperationType.AddFunds, createdAt: new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }), amount: 230, units: 'ETH', creator: members[3] },
+  { id: '0xb4bc263278d3f77a652a8d73a6bfd8ec0ba1a63923bbb4f38147fb8a943da26f', operation: TokenOperationType.Redeem, createdAt: new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }), amount: -150, units: 'CTX', creator: members[0] },
+  { id: '0xb4bc263278d3f77a652a8d73a6bfd8ec0ba1a63923bbb4f38147fb8a943da26g', operation: TokenOperationType.BudgetLegal, createdAt: new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }), amount: 25000, units: 'CTX', creator: members[1] },
+  { id: '0xb4bc263278d3f77a652a8d73a6bfd8ec0ba1a63923bbb4f38147fb8a943da26h', operation: TokenOperationType.AddFunds, createdAt: new Date().toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' }), amount: 8000, units: 'EUR', creator: members[3] }
 ];

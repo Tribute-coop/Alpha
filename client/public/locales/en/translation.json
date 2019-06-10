@@ -60,7 +60,26 @@
       }
     },
     "tokens": {
-      "title": "Tokens"
+      "title": "Tokens",
+      "date": "Date",
+      "dateRange": "Date Range",
+      "operation": "Operation",
+      "operations": "Operations",
+      "by": "By",
+      "amount": "Amount",
+      "tx": "TX",
+      "filters": {
+        "redeem": "Redeem",
+        "budget": "Budget (R&D)",
+        "budgetlegal": "Budget (Legal)",
+        "addfunds": "Add Funds"
+      },
+      "contributiveTokens": "Contributive Tokens",
+      "reserveFund": "Reserve Fund",
+      "outstanding": "Outstanding",
+      "rewarded": "Rewarded",
+      "redeemed": "Redeemed",
+      "issued": "Issued"
     },
     "settings": {
       "title": "Settings"

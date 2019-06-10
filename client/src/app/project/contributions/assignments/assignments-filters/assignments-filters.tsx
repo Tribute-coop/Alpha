@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 
-import { SelectOptions } from '../../../../core/models/select-options.model';
+import { SelectableFilters } from '../../../../core/models/selectable-filters.model';
 import { toSelectables } from '../../../../core/utils/helpers';
 import { useSearchQuery } from '../../../../shared/hooks';
 import { SearchSelect, SearchInput } from '../../../../shared';
@@ -16,23 +16,13 @@ import {
 } from '../../../mocks';
 
 export function AssignmentsFilters(props: RouteComponentProps): JSX.Element {
-  const [ filters, setFilters ] = useState< {[filterName: string]: SelectOptions[]}>({
-    who: [],
-    status: [],
-    domain: []
-  });
-
-  const { location, history } = props;
   const { t } = useTranslation();
-
-  const { updateQuery, query } = useSearchQuery(
-    location.search,
-    history
-  );
+  const { location: { search }, history } = props;
+  const { updateQuery, query } = useSearchQuery(search, history);
+  const [ filters, setFilters ] = useState<SelectableFilters>({ who: [], status: [], domain: [] });
 
   useEffect((): void => {
     const status = getAssignmentStatus();
-
     const selectableMembers = toSelectables<Member>(mockMembers, 'id', 'name');
     const selectableDomains = toSelectables<Domain>(mockDomains, 'name', 'name');
     const selectableStatus = toSelectables<AssignmentState>(status, 'id', 'name', true);

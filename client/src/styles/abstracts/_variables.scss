@@ -1,5 +1,6 @@
 // Colors
 //
+$black: #000000;
 $white: #FFFFFF;
 $blue: #5B6CEF;
 $primary: #00E7E2;
@@ -7,9 +8,16 @@ $light-blue: #F3F9FB;
 $medium-blue: #DAEAEF;
 $dark-emerald: #2B6672;
 
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
 $gray-500: #9FA9AB;
 $gray-600: #6D777B;
 $gray-800: #333333;
+
+$success: #21D48E;
+$danger: #FB7777;
+
+$light: $gray-500;
 
 $box-shadow-color: #E8E8E8;
 
