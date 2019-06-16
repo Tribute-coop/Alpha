@@ -8,12 +8,13 @@ import { SlidePanel } from '../../../shared/slide-panel';
 import { Assignment } from './assignment.model';
 import { AssignmentsList } from './assignments-list';
 import { AssignmentsFilters } from './assignments-filters';
+import { AssignmentsDetail } from './assignments-detail';
 import { AssignmentsEmpty } from './assignments-empty';
-import { AssignmentsNew } from './assignments-new';
-
-import { assignments as mockAssignments } from '../../mocks';
+import { AssignmentsEdit } from './assignments-edit';
 
 import './assignments.scss';
+
+import { assignments as mockAssignments } from '../../mocks';
 
 const filters: QueryFilters<Assignment> = {
   q: (assignment: Assignment, q: string): boolean =>
@@ -80,9 +81,15 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
       </div>
 
       <Switch>
-        <Route exact path={`${path}/new`} render={(): JSX.Element =>
+        <Route exact path={`${path}/new`} render={(routeProps): JSX.Element =>
           <SlidePanel onExit={handleClose} render={(close: () => void): JSX.Element =>
-            <AssignmentsNew onClose={close} />
+            <AssignmentsDetail onClose={close} routeProps={routeProps} />
+          } />
+        } />
+
+        <Route exact path={`${path}/:id`} render={(routeProps): JSX.Element =>
+          <SlidePanel onExit={handleClose} render={(close: () => void): JSX.Element =>
+            <AssignmentsEdit onClose={close} routeProps={routeProps}/>
           } />
         } />
       </Switch>
