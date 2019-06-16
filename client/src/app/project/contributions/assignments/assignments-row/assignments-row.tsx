@@ -21,7 +21,7 @@ export function AssignmentsRow(assignment: Assignment): JSX.Element {
   const { t } = useTranslation();
 
   return (
-    <Link className="assignment__body bordered-box" to={`/project/contributions/assignments/${assignment.id}`}>
+    <Link className="assignment__body bordered-box" to={`assignments/${assignment.id}`}>
       <div className="assignment__info">
         <div className="assignment__title">
           {assignment.title}
