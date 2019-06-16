@@ -1,7 +1,4 @@
-import { ReactNode } from 'react';
-
 export interface SlidePanelProps {
-  opened: boolean;
-  close: () => void;
-  children: ReactNode;
+  onExit: () => void;
+  render: ((close: () => void) => React.ReactNode);
 }

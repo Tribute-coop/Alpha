@@ -14,17 +14,17 @@ import {
 } from '../../mocks';
 
 interface ContributionsNewProps {
-  close: () => void;
+  onClose: () => void;
 }
 
-export function ContributionsNew({ close }: ContributionsNewProps): JSX.Element {
+export function ContributionsNew({ onClose }: ContributionsNewProps): JSX.Element {
   const { t } = useTranslation();
   const [ users, setUsers ] = useState<SelectOptions[]>([]);
   const [ domains, setDomains ] = useState<SelectOptions[]>([]);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    close();
+    onClose();
   };
 
   const handleChange = (): void => {
@@ -122,7 +122,7 @@ export function ContributionsNew({ close }: ContributionsNewProps): JSX.Element 
 
       <div className="contribution-new__actions border-top">
         <div className="contribution-new__action contribution-new__action--left">
-          <button type="button" className="btn btn-link btn-block" onClick={close}>
+          <button type="button" className="btn btn-link btn-block" onClick={onClose}>
             {t('generic.cancel')}
           </button>
         </div>

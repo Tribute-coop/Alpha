@@ -36,7 +36,7 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
   useEffect((): void => setProject({ name: 'Poi', logo: PoiLogo }), []);
 
   useEffect((): void => {
-    const inContribution = pathname.includes('contributions');
+    const inContribution = pathname.includes('assignments');
     let nextNewContributionURL = '';
 
     if (inContribution) {
