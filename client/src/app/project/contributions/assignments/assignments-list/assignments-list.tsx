@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { AssignmentsListProps } from './assignments-list-props';
-import { AssignmentRow } from '../assignment-row';
+import { AssignmentsRow } from '../assignments-row';
 
 import './assignments-list.scss';
 
@@ -31,7 +31,7 @@ export function AssignmentsList({ assignments }: AssignmentsListProps): JSX.Elem
           {t('generic.no_matches_found')}
         </div>)
         : assignments.map((assignment): JSX.Element =>(
-          <AssignmentRow key={assignment.id} {...assignment} />
+          <AssignmentsRow key={assignment.id} {...assignment} />
         ))
       }
     </div>

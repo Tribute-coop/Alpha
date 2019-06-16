@@ -7,7 +7,7 @@ import { Project } from '../project.model';
 import { Tokens } from '../tokens/tokens';
 import { Members } from '../members/members';
 import { Contributions } from '../contributions/contributions';
-import { useTitleFromPath } from '../../shared/hooks/use-title-from-pathname';
+import { useTitleFromPath } from '../../shared/hooks';
 
 import PoiLogo from '../../../images/poi_logo2.png';
 
@@ -34,7 +34,7 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
   useEffect((): void => setProject({ name: 'Poi', logo: PoiLogo }), []);
 
   useEffect((): void => {
-    const inContribution = pathname.includes('contributions');
+    const inContribution = pathname.includes('assignments');
     let nextNewContributionURL = '';
 
     if (inContribution) {

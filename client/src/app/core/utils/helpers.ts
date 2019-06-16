@@ -1,4 +1,5 @@
 import { SelectOptions } from '../models/select-options.model';
+import { Location } from 'history';
 
 export function toSelectables<T>(
   items: T[],
@@ -32,4 +33,11 @@ export function toEuros(amount: number): string {
     currency: 'EUR',
     minimumFractionDigits: 3
   });
+}
+
+export function getParentRoute(location: Location): string {
+  const { pathname, search } = location;
+  const parentRoute = pathname.substring(0, pathname.lastIndexOf('/'));
+
+  return parentRoute + search;
 }

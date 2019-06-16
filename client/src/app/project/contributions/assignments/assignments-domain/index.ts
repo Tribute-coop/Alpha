@@ -1,0 +1,1 @@
+export { AssignmentsDomain } from './assignments-domain';
