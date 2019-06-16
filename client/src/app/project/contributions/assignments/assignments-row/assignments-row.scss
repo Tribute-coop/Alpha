@@ -20,6 +20,15 @@ $reward-symbol-font-size: .9rem;
     padding: $cm-table-cell-padding $spacer $cm-table-cell-padding / 2 $spacer;
   }
 
+  &__body {
+    color: $body-color;
+
+    &:hover {
+      color: $body-color;
+      text-decoration: none;
+    }
+  }
+
   &__info {
     flex: 1;
   }

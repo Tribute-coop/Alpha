@@ -1,4 +1,5 @@
 import { SelectOptions } from '../models/select-options.model';
+import { Location } from 'history';
 
 export function toSelectables<T>(
   items: T[],
@@ -11,3 +12,9 @@ export function toSelectables<T>(
   );
 }
 
+export function getParentRoute(location: Location): string {
+  const { pathname, search } = location;
+  const parentRoute = pathname.substring(0, pathname.lastIndexOf('/'));
+
+  return parentRoute + search;
+}

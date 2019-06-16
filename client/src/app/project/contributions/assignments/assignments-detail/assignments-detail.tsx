@@ -1,35 +1,48 @@
-import React, { useEffect, useState, FormEvent } from 'react';
-
-import './contributions-new.scss';
+import React, { useEffect, useState, FormEvent, ChangeEvent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { SelectOptions } from '../../../core/models/select-options.model';
-import { toSelectables } from '../../../core/utils/helpers';
-import { Domain } from '../assignments/domain.model';
-import { Member } from '../../members/member.model';
+import { SelectOptions } from '../../../../core/models/select-options.model';
+import { toSelectables } from '../../../../core/utils/helpers';
+import { AssignmentsDetailProps } from './assignments-detail-props';
+import { AssignmentStates } from '../assignment-status.enum';
+import { Member } from '../../../members/member.model';
+import { Assignment } from '../assignment.model';
+import { Domain } from '../domain.model';
+
+import './assignments-detail.scss';
 
 import {
   domains as mockDomains,
   members as mockMembers
-} from '../../mocks';
+} from '../../../mocks';
 
-interface ContributionsNewProps {
-  close: () => void;
-}
+const defaultAssignment: Partial<Assignment> = {
+  title: '',
+  description: '',
+  status: AssignmentStates.InProgress,
+  domain: '',
+  assignedTo: [],
+  rewardAmount: 0,
+  rewardUnits: 'CTX'
+};
 
-export function ContributionsNew({ close }: ContributionsNewProps): JSX.Element {
+export function AssignmentsDetail(props: AssignmentsDetailProps): JSX.Element {
   const { t } = useTranslation();
   const [ users, setUsers ] = useState<SelectOptions[]>([]);
   const [ domains, setDomains ] = useState<SelectOptions[]>([]);
+  const [ assignment, setAssignment ] = useState<Partial<Assignment>>(defaultAssignment);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    close();
+    props.onClose();
   };
 
-  const handleChange = (): void => {
+  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>): void => {
+    const { name, value } = event.target;
 
-  };
+    setAssignment((prevAssignment): Partial<Assignment> =>
+      ({ ...prevAssignment, [name]: value }));
+  }, []);
 
   useEffect((): void => {
     const selectableMembers = toSelectables<Member>(mockMembers, 'id', 'name');
@@ -39,28 +52,34 @@ export function ContributionsNew({ close }: ContributionsNewProps): JSX.Element 
     setUsers(selectableMembers);
   }, []);
 
+  useEffect((): void => {
+    if (props.assignment) {
+      setAssignment(props.assignment);
+    }
+  }, [props.assignment]);
+
   return (
-    <form className="contribution-new" onSubmit={handleSubmit} autoComplete="off">
-      <div className="contribution-new__fields">
+    <form className="assignments-detail" onSubmit={handleSubmit} autoComplete="off">
+      <div className="assignments-detail__fields">
         <div className="form-group">
-          <input type="text" id="name" name="name" placeholder={t('project.contributions.new.name')}
-            className="form-control" onChange={handleChange}/>
+          <input type="text" id="title" name="title" value={assignment.title}
+            placeholder={t('project.contributions.new.name')} className="form-control" onChange={handleChange}/>
         </div>
 
         <div className="form-group">
           <label htmlFor="description" className="uppercase-label">
             {t('project.contributions.new.description')}
           </label>
-          <textarea id="description" name="description" placeholder={t('project.contributions.new.descriptionPlaceholder')}
-            className="form-control" onChange={handleChange} rows={5} />
+          <textarea id="description" name="description" value={assignment.description}
+            placeholder={t('project.contributions.new.descriptionPlaceholder')} className="form-control" onChange={handleChange} rows={5} />
         </div>
 
         <div className="form-group">
-          <label htmlFor="contributionDomain" className="uppercase-label">
+          <label htmlFor="domain" className="uppercase-label">
             {t('project.contributions.new.domain')}
           </label>
-          <select id="contributionDomain" name="contributionDomain" className="search-select__select form-control"
-            onChange={handleChange}>
+          <select id="domain" name="domain" className="search-select__select form-control"
+            value={assignment.domain} onChange={handleChange}>
             { domains.map(({ key, value }: SelectOptions): JSX.Element => (
               <option value={key} key={key}>
                 {value}
@@ -94,8 +113,9 @@ export function ContributionsNew({ close }: ContributionsNewProps): JSX.Element 
             <label className="custom-control-label" htmlFor="fixedAmount">
               {t('project.contributions.new.fixedAmount')}
             </label>
-            <input type="number" id="quantity" name="quantity" className="input-inline form-control" onChange={handleChange}/>
-            <span>CTX</span>
+            <input type="number" id="rewardAmount" name="rewardAmount" className="input-inline form-control"
+              value={assignment.rewardAmount} onChange={handleChange}/>
+            <span>{assignment.rewardUnits}</span>
           </div>
           <div className="custom-control custom-radio">
             <input type="radio" id="variableBasedAmount" name="amount" className="custom-control-input" disabled />
@@ -120,13 +140,13 @@ export function ContributionsNew({ close }: ContributionsNewProps): JSX.Element 
         </div>
       </div>
 
-      <div className="contribution-new__actions border-top">
-        <div className="contribution-new__action contribution-new__action--left">
-          <button type="button" className="btn btn-link btn-block" onClick={close}>
+      <div className="assignments-detail__actions border-top">
+        <div className="assignments-detail__action assignments-detail__action--left">
+          <button type="button" className="btn btn-link btn-block" onClick={props.onClose}>
             {t('generic.cancel')}
           </button>
         </div>
-        <div className="contribution-new__action contribution-new__action--right">
+        <div className="assignments-detail__action assignments-detail__action--right">
           <input disabled={false} className="btn btn-primary btn-block" type="submit"
             value={String(t('project.contributions.new.addContribution'))} />
         </div>
