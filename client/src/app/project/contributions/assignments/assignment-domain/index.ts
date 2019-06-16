@@ -1,1 +1,0 @@
-export { AssignmentDomain } from './assignment-domain';

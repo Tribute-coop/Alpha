@@ -2,12 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Assignment } from '../assignment.model';
-import { AssignmentDomain } from '../assignment-domain';
+import { AssignmentsDomain } from '../assignments-domain';
 import { AssignmentStates } from '../assignment-status.enum';
 
 import { StackedRoundedImage } from '../../../../shared';
 
-import './assignment-row.scss';
+import './assignments-row.scss';
 
 const states: (keyof Assignment)[] = [
   'assignedOn',
@@ -15,7 +15,7 @@ const states: (keyof Assignment)[] = [
   'startedOn'
 ];
 
-export function AssignmentRow(assignment: Assignment): JSX.Element {
+export function AssignmentsRow(assignment: Assignment): JSX.Element {
   const { t } = useTranslation();
 
   return (
@@ -39,7 +39,7 @@ export function AssignmentRow(assignment: Assignment): JSX.Element {
         </div>
       </div>
       <div className="assignment__domain">
-        <AssignmentDomain domain={assignment.domain} />
+        <AssignmentsDomain domain={assignment.domain} />
       </div>
       <div className="assignment__assigned">
         <StackedRoundedImage images={ assignment.assignedTo.map((user): any => {

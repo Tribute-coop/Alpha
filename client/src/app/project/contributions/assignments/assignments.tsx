@@ -9,7 +9,7 @@ import { Assignment } from './assignment.model';
 import { AssignmentsList } from './assignments-list';
 import { AssignmentsFilters } from './assignments-filters';
 import { AssignmentsEmpty } from './assignments-empty';
-import { ContributionsNew } from '../contributions-new';
+import { AssignmentsNew } from './assignments-new';
 
 import { assignments as mockAssignments } from '../../mocks';
 
@@ -82,7 +82,7 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
       <Switch>
         <Route exact path={`${path}/new`} render={(): JSX.Element =>
           <SlidePanel onExit={handleClose} render={(close: () => void): JSX.Element =>
-            <ContributionsNew onClose={close} />
+            <AssignmentsNew onClose={close} />
           } />
         } />
       </Switch>

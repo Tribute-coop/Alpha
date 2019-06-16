@@ -1,23 +1,23 @@
 import React, { useEffect, useState, FormEvent } from 'react';
-
-import './contributions-new.scss';
 import { useTranslation } from 'react-i18next';
 
-import { SelectOptions } from '../../../core/models/select-options.model';
-import { toSelectables } from '../../../core/utils/helpers';
-import { Domain } from '../assignments/domain.model';
-import { Member } from '../../members/member.model';
+import { SelectOptions } from '../../../../core/models/select-options.model';
+import { toSelectables } from '../../../../core/utils/helpers';
+import { Domain } from '../domain.model';
+import { Member } from '../../../members/member.model';
+
+import './assignments-new.scss';
 
 import {
   domains as mockDomains,
   members as mockMembers
-} from '../../mocks';
+} from '../../../mocks';
 
-interface ContributionsNewProps {
+interface AssignmentsNewProps {
   onClose: () => void;
 }
 
-export function ContributionsNew({ onClose }: ContributionsNewProps): JSX.Element {
+export function AssignmentsNew({ onClose }: AssignmentsNewProps): JSX.Element {
   const { t } = useTranslation();
   const [ users, setUsers ] = useState<SelectOptions[]>([]);
   const [ domains, setDomains ] = useState<SelectOptions[]>([]);
@@ -40,8 +40,8 @@ export function ContributionsNew({ onClose }: ContributionsNewProps): JSX.Elemen
   }, []);
 
   return (
-    <form className="contribution-new" onSubmit={handleSubmit} autoComplete="off">
-      <div className="contribution-new__fields">
+    <form className="assignments-new" onSubmit={handleSubmit} autoComplete="off">
+      <div className="assignments-new__fields">
         <div className="form-group">
           <input type="text" id="name" name="name" placeholder={t('project.contributions.new.name')}
             className="form-control" onChange={handleChange}/>
@@ -120,13 +120,13 @@ export function ContributionsNew({ onClose }: ContributionsNewProps): JSX.Elemen
         </div>
       </div>
 
-      <div className="contribution-new__actions border-top">
-        <div className="contribution-new__action contribution-new__action--left">
+      <div className="assignments-new__actions border-top">
+        <div className="assignments-new__action assignments-new__action--left">
           <button type="button" className="btn btn-link btn-block" onClick={onClose}>
             {t('generic.cancel')}
           </button>
         </div>
-        <div className="contribution-new__action contribution-new__action--right">
+        <div className="assignments-new__action assignments-new__action--right">
           <input disabled={false} className="btn btn-primary btn-block" type="submit"
             value={String(t('project.contributions.new.addContribution'))} />
         </div>
