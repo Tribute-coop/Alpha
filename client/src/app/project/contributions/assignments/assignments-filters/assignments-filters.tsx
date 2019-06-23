@@ -46,7 +46,7 @@ export function AssignmentsFilters({ location, history }: RouteComponentProps): 
   return (
     <div className="row pt-3">
       { Object.keys(filters).map((filterName: string): JSX.Element => (
-        <div className="col-12 col-lg-3" key={filterName}>
+        <div className="col-12 col-xl-3" key={filterName}>
           <SearchSelect name={filterName} onChange={updateQuery} value={query[filterName]}
             label={t(`project.contributions.assignment.${filterName}`)}>
             <option value="">{t('select.all')}</option>
@@ -57,7 +57,7 @@ export function AssignmentsFilters({ location, history }: RouteComponentProps): 
         </div>
       ))}
 
-      <div className="col-12 col-lg-3">
+      <div className="col-12 col-xl-3">
         <SearchInput name="q" onChange={updateQuery} value={query.q} />
       </div>
     </div>
