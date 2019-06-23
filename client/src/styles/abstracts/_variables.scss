@@ -8,24 +8,25 @@ $light-blue: #F3F9FB;
 $medium-blue: #DAEAEF;
 $dark-emerald: #2B6672;
 
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #9FA9AB;
+$gray-300: #DEE2E6;
+$gray-400: #CED4DA;
+$gray-500: #939FA1;
 $gray-600: #6D777B;
 $gray-800: #333333;
 
 $success: #21D48E;
 $danger: #FB7777;
 
-$light: $gray-500;
+$light: #B5B5B5;
 
 $box-shadow-color: #E8E8E8;
 
 // Typography
 //
 $font-family-base: overpass, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-$body-color: #494949;
-$text-muted: $gray-600;
+$body-color: #404040;
+$headings-font-weight: 700;
+$text-muted: #B5B5B5;
 $small-font-size: .85rem;
 
 // Grid
@@ -42,7 +43,7 @@ $border-radius: .15rem;
 //
 $nav-width: 58px;
 $nav-item-height: 41px;
-$nav-item-color: #979797;
+$nav-item-color: $gray-600;
 $nav-item-border-size: 4px;
 $nav-item-svg-size: 16px;
 
@@ -56,7 +57,7 @@ $table-bg: transparent;
 $table-border-width: 0;
 $table-cell-padding: .65rem 1.25rem;
 $table-head-bg: transparent;
-$table-head-color: #6D777B;
+$table-head-color: $gray-600;
 
 // Buttons
 $input-btn-padding-y: .55rem;
