@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, useCallback, useEffect } from 'react';
+import { useState, ChangeEvent, useCallback, useEffect, useRef } from 'react';
 import { History, Search } from 'history';
 import queryString from 'query-string';
 
@@ -13,25 +13,31 @@ interface SearchQueryState {
 
 export function useSearchQuery(initialQuery: Search, history: History): SearchQueryState {
   const parsedQuery = queryString.parse(initialQuery) as NonNullableParsedQuery;
-  const [query, setQuery] = useState(parsedQuery);
+  const [query, setQuery] = useState<NonNullableParsedQuery>(parsedQuery);
+  const isFirstTime = useRef<boolean>(true);
 
   const updateQuery = useCallback((event: ChangeEvent<AnyHTMLElement>): void => {
     const { name, value } = event.target;
 
-    setQuery((prevQuery): NonNullableParsedQuery =>
-      ({
+    setQuery((prevQuery): NonNullableParsedQuery => {
+      if (value === prevQuery[name] || (!value && !prevQuery[name])) {
+        return prevQuery;
+      }
+
+      return {
         ...prevQuery,
-        ...{
-          [name]: value ?
-            value : undefined
-        }
-      })
-    );
+        ...{ [name]: value ? value : undefined }
+      };
+    });
   }, []);
 
   useEffect((): void => {
-    const search = queryString.stringify(query);
-    history.push({ search });
+    if (isFirstTime.current) {
+      isFirstTime.current = false;
+      return;
+    }
+
+    history.push({ search: queryString.stringify(query) });
   },
   [history, query]);
 

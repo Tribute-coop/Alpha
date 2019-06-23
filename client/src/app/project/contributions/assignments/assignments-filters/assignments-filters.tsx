@@ -15,10 +15,9 @@ import {
   members as mockMembers
 } from '../../../mocks';
 
-export function AssignmentsFilters(props: RouteComponentProps): JSX.Element {
+export function AssignmentsFilters({ location, history }: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
-  const { location: { search }, history } = props;
-  const { updateQuery, query } = useSearchQuery(search, history);
+  const { updateQuery, query } = useSearchQuery(location.search, history);
   const [ filters, setFilters ] = useState<SelectableFilters>({ who: [], status: [], domain: [] });
 
   useEffect((): void => {
@@ -37,7 +36,7 @@ export function AssignmentsFilters(props: RouteComponentProps): JSX.Element {
   return (
     <div className="row pt-3">
       { Object.keys(filters).map((filterName: string): JSX.Element => (
-        <div className="col-12 col-lg-3" key={filterName}>
+        <div className="col-12 col-xl-3" key={filterName}>
           <SearchSelect name={filterName} onChange={updateQuery} value={query[filterName]}
             label={t(`project.contributions.assignment.${filterName}`)}>
             <option value="">{t('select.all')}</option>
@@ -48,7 +47,7 @@ export function AssignmentsFilters(props: RouteComponentProps): JSX.Element {
         </div>
       ))}
 
-      <div className="col-12 col-lg-3">
+      <div className="col-12 col-xl-3">
         <SearchInput name="q" onChange={updateQuery} value={query.q} />
       </div>
     </div>

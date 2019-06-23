@@ -18,32 +18,17 @@ function Settings(): JSX.Element {
   return (<div>Settings</div>);
 }
 
-const newPath = '/new';
-
-export function ProjectLayout(props: RouteComponentProps): JSX.Element {
-  const {
-    match: { path },
-    location: { pathname, search }
-  } = props;
-
+export function ProjectLayout({ match: { path }, location: { pathname } }: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
   const title = useTitleFromPath(pathname);
   const [ project, setProject ] = useState<Project>({ name: '', logo: '' });
-  const [ newContributionURL, setNewContributionURL ] = useState('');
+  const [ showNewContribution, setShowNewContribution ] = useState<boolean>(false);
 
   useEffect((): void => setProject({ name: 'Poi', logo: PoiLogo }), []);
 
   useEffect((): void => {
-    const inContribution = pathname.includes('assignments');
-    let nextNewContributionURL = '';
-
-    if (inContribution) {
-      nextNewContributionURL = (pathname.includes(newPath) ?
-        pathname : pathname + newPath) + search;
-    }
-
-    setNewContributionURL(nextNewContributionURL);
-  }, [pathname, search]);
+    setShowNewContribution(pathname.includes('assignments'));
+  }, [pathname]);
 
   return (
     <div className="main-layout">
@@ -55,8 +40,8 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
 
         <h4 className="main-layout__title">{t(title)}</h4>
 
-        { !!newContributionURL &&
-          <Link className="btn btn-primary" to={newContributionURL}>
+        { showNewContribution &&
+          <Link className="btn btn-primary" to={`${path}/contributions/assignments/new`}>
             {t('project.contributions.newContribution')}
           </Link>
         }
@@ -68,7 +53,7 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
           <Route path={`${path}/tokens`} component={Tokens} />
           <Route path={`${path}/settings`} component={Settings} />
 
-          <Route path={path} >
+          <Route exact path={path} >
             <Redirect to={`${path}/contributions`}/>
           </Route>
         </Switch>
