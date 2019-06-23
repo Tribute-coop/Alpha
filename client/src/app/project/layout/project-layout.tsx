@@ -56,7 +56,7 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
           <Route path={`${path}/tokens`} component={Tokens} />
           <Route path={`${path}/settings`} component={Settings} />
 
-          <Route path={path} >
+          <Route exact path={path} >
             <Redirect to={`${path}/contributions`}/>
           </Route>
         </Switch>

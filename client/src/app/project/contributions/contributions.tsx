@@ -26,7 +26,7 @@ export function Contributions(props: RouteComponentProps): JSX.Element {
         <Route path={`${path}/assignments`} component={Assignments} />
         <Route path={`${path}/calls`} component={Calls} />
 
-        <Route path={path} >
+        <Route exact path={path} >
           <Redirect to={`${path}/assignments`}/>
         </Route>
       </Switch>

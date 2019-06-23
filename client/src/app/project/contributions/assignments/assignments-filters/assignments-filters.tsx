@@ -15,14 +15,13 @@ import {
   members as mockMembers
 } from '../../../mocks';
 
-export function AssignmentsFilters(props: RouteComponentProps): JSX.Element {
+export function AssignmentsFilters({ location, history }: RouteComponentProps): JSX.Element {
   const [ filters, setFilters ] = useState< {[filterName: string]: SelectOptions[]}>({
     who: [],
     status: [],
     domain: []
   });
 
-  const { location, history } = props;
   const { t } = useTranslation();
 
   const { updateQuery, query } = useSearchQuery(

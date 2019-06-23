@@ -32,14 +32,14 @@ export function MyLayout(props: RouteComponentProps): JSX.Element {
       </header>
       <section className="main-layout__section">
         <Switch>
-          <Route exact path={path} >
-            <Redirect to={`${path}/wallet`}/>
-          </Route>
-
           <Route path={`${path}/wallet`} component={Wallet} />
           <Route path={`${path}/activity`} component={Activity} />
           <Route path={`${path}/profile`} component={Profile} />
           <Route path={`${path}/notifications`} component={Notifications} />
+
+          <Route exact path={path} >
+            <Redirect to={`${path}/wallet`}/>
+          </Route>
         </Switch>
       </section>
     </div>
