@@ -3,15 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 
 import { SelectableFilters } from '../../../core/models/selectable-filters.model';
+import { dateSeparator } from '../../../core/utils/constants';
 import { toSelectables } from '../../../core/utils/helpers';
 import { useSearchQuery } from '../../../shared/hooks';
-import { SearchSelect } from '../../../shared';
+import { SearchSelect, SearchDateInput } from '../../../shared';
 import { getTokenOperations } from '../token.model';
 import { Member } from '../../members/member.model';
 
 import { members as mockMembers } from '../../mocks';
 
-export function TokenFilters(props: RouteComponentProps): JSX.Element {
+export function TokensFilters(props: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
   const { location: { search }, history } = props;
   const [ filters, setFilters ] = useState<SelectableFilters>({ by: [], operation: [] });
@@ -30,12 +31,17 @@ export function TokenFilters(props: RouteComponentProps): JSX.Element {
 
   return (
     <div className="row py-3">
-      <div className="col-12 col-lg-6 d-flex align-items-center">
+      <div className="col-12 col-xl-2 d-flex align-items-center">
         <h6 className="mb-3">{t('project.tokens.operations')}</h6>
       </div>
 
+      <div className="col-12 col-xl-4">
+        <SearchDateInput name='dateRange' onChange={updateQuery} value={query.dateRange}
+          label={t('project.tokens.dateRange')} separator={dateSeparator} />
+      </div>
+
       { Object.keys(filters).map((filterName: string): JSX.Element => (
-        <div className="col-12 col-lg-3" key={filterName}>
+        <div className="col-12 col-xl-3" key={filterName}>
           <SearchSelect name={filterName} onChange={updateQuery} value={query[filterName]}
             label={t(`project.tokens.${filterName}`)}>
             <option value="">{t('select.all')}</option>

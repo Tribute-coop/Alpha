@@ -3,16 +3,15 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
 
-import { Project } from '../project.model';
-import { Tokens } from '../tokens/tokens';
-import { Members } from '../members/members';
-import { Contributions } from '../contributions/contributions';
 import { useTitleFromPath } from '../../shared/hooks';
+import { Project } from '../project.model';
+import { Contributions } from '../contributions/contributions';
+import { Members } from '../members/members';
+import { Tokens } from '../tokens/tokens';
 
 import PoiLogo from '../../../images/poi_logo2.png';
 
 import './project-layout.scss';
-
 
 function Settings(): JSX.Element {
   return (<div>Settings</div>);

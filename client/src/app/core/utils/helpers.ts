@@ -35,6 +35,11 @@ export function toEuros(amount: number): string {
   });
 }
 
+export function toShortDate(date: Date): string {
+  const options = { year: '2-digit', month: '2-digit', day: '2-digit' };
+  return date.toLocaleDateString('en-US', options);
+}
+
 export function getParentRoute(location: Location): string {
   const { pathname, search } = location;
   const parentRoute = pathname.substring(0, pathname.lastIndexOf('/'));

@@ -1189,6 +1189,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-flatpickr@^3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@types/react-flatpickr/-/react-flatpickr-3.8.0.tgz#27bdbb8e5409f2dcd7358db619466f0c1f94e3f4"
+  dependencies:
+    "@types/react" "*"
+    flatpickr "^4.0.6"
+
 "@types/react-router-dom@^4.3.2":
   version "4.3.4"
   resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-4.3.4.tgz#63a7a8558129d2f4ff76e4bdd099bf4b98e25a0d"
@@ -3719,6 +3726,10 @@ flat-cache@^2.0.1:
     flatted "^2.0.0"
     rimraf "2.6.3"
     write "1.0.3"
+
+flatpickr@^4.0.6, flatpickr@^4.5.7:
+  version "4.5.7"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.5.7.tgz#6efc0d93c65547aa77294205c67830ebabe3565c"
 
 flatted@^2.0.0:
   version "2.0.0"
@@ -7159,7 +7170,7 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^3.0.0"
 
-prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   dependencies:
@@ -7383,6 +7394,13 @@ react-dom@^16.8.6:
 react-error-overlay@^5.1.6:
   version "5.1.6"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-5.1.6.tgz#0cd73407c5d141f9638ae1e0c63e7b2bf7e9929d"
+
+react-flatpickr@^3.9.0:
+  version "3.9.0"
+  resolved "https://registry.yarnpkg.com/react-flatpickr/-/react-flatpickr-3.9.0.tgz#25f3b1ad5f86915bed74f62a71cfe4b57f8b74df"
+  dependencies:
+    flatpickr "^4.5.7"
+    prop-types "^15.5.10"
 
 react-i18next@^10.10.0:
   version "10.11.0"

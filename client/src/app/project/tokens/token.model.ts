@@ -3,7 +3,7 @@ import { Member } from '../members/member.model';
 export interface TokenOperation {
   id: string;
   operation: TokenOperationType;
-  createdAt: string;
+  createdAt: Date;
   amount: number;
   units: string;
   creator: Member;

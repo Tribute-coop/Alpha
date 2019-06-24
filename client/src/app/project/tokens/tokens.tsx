@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
-import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
 
 import { QueryFilters, applyQueryFilters } from '../../core/utils/filters';
-import { TokenFilters } from './token-filters';
+import { dateSeparator } from '../../core/utils/constants';
+import { TokensSummary } from './tokens-summary';
+import { TokensFilters } from './tokens-filters';
 import { TokensList } from './tokens-list';
 import { TokenOperation } from './token.model';
 
-import { tokens as mockTokens } from '../mocks';
-import { CurrencyColumn } from '../shared/currency-column/currency-column';
-import { Currency } from '../../core/models/currency.enum';
+import { tokenOperations as mockTokenOperations } from '../mocks';
+import { toShortDate } from '../../core/utils/helpers';
 
 const filters: QueryFilters<TokenOperation> = {
   operation: (token: TokenOperation, operation: string): boolean =>
@@ -18,15 +18,21 @@ const filters: QueryFilters<TokenOperation> = {
   ,
   by: (token: TokenOperation, userId: string): boolean =>
     token.creator.id === userId
+  ,
+  dateRange: (token: TokenOperation, dateRange: string): boolean => {
+    const [from, to] = dateRange.split(dateSeparator);
+    const createdAt = toShortDate(token.createdAt);
+
+    return from <= createdAt && createdAt <= to;
+  }
 };
 
 export function Tokens(props: RouteComponentProps): JSX.Element {
-  const { t } = useTranslation();
   const [tokens, setTokens] = useState<TokenOperation[]>([]);
   const [loaded, setLoaded] = useState<boolean>(false);
 
   useEffect((): void => {
-    setTokens(mockTokens);
+    setTokens(mockTokenOperations);
     setLoaded(true);
   }, []);
 
@@ -37,7 +43,7 @@ export function Tokens(props: RouteComponentProps): JSX.Element {
 
     const search = queryString.parse(props.location.search);
     const filteredMembers = applyQueryFilters<TokenOperation>(
-      mockTokens,
+      mockTokenOperations,
       search,
       filters
     );
@@ -50,7 +56,8 @@ export function Tokens(props: RouteComponentProps): JSX.Element {
       <div className="row">
         { loaded && (
           <div className="col-12 col-lg-9">
-            <TokenFilters {...props } />
+            <TokensSummary />
+            <TokensFilters {...props } />
             <TokensList tokens={tokens} />
           </div>
         )}

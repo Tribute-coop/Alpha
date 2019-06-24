@@ -27,9 +27,9 @@ export function AssignmentsFilters({ location, history }: RouteComponentProps): 
     const selectableStatus = toSelectables<AssignmentState>(status, 'id', 'name', true);
 
     setFilters({
-      who: selectableMembers,
       status: selectableStatus,
-      domain: selectableDomains
+      domain: selectableDomains,
+      who: selectableMembers
     });
   }, []);
 
