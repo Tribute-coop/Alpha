@@ -14,7 +14,7 @@ interface SearchQueryState {
 export function useSearchQuery(initialQuery: Search, history: History): SearchQueryState {
   const parsedQuery = queryString.parse(initialQuery) as NonNullableParsedQuery;
   const [query, setQuery] = useState<NonNullableParsedQuery>(parsedQuery);
-  const didMountRef = useRef<boolean>(false);
+  const isFirstTime = useRef<boolean>(true);
 
   const updateQuery = useCallback((event: ChangeEvent<AnyHTMLElement>): void => {
     const { name, value } = event.target;
@@ -32,8 +32,8 @@ export function useSearchQuery(initialQuery: Search, history: History): SearchQu
   }, []);
 
   useEffect((): void => {
-    if (!didMountRef.current) {
-      didMountRef.current = true;
+    if (isFirstTime.current) {
+      isFirstTime.current = false;
       return;
     }
 

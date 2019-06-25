@@ -1,0 +1,14 @@
+@import '../../../../styles/abstracts/variables';
+
+.currency-group {
+  padding: 0 1rem;
+
+  &__amount {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: $black;
+    margin-top: .1rem;
+    margin-bottom: .1rem;
+  }
+}

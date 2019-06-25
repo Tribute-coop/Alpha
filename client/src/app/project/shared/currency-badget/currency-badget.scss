@@ -1,0 +1,21 @@
+.currency-badget {
+  &__symbol {
+    width: 16px;
+    height: 16px;
+    background-color: #627DEA;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: .3rem;
+    color: white;
+    font-size: .5625rem;
+    line-height: 1rem;
+    vertical-align: top;
+  }
+
+  &__name {
+    display: inline-block;
+    vertical-align: top;
+    font-size: .9rem;
+  }
+}

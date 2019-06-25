@@ -6,13 +6,9 @@ import { useSearchQuery } from '../../../shared/hooks';
 import { SearchInput, SearchSelect } from '../../../shared';
 
 export function MembersFilters(props: RouteComponentProps): JSX.Element {
-  const { location, history } = props;
   const { t } = useTranslation();
-
-  const { updateQuery, query } = useSearchQuery(
-    location.search,
-    history
-  );
+  const { location: { search }, history } = props;
+  const { updateQuery, query } = useSearchQuery(search, history);
 
   return (
     <div className="row pt-3">

@@ -3,25 +3,21 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
 
-import { Project } from '../project.model';
-import { Members } from '../members/members';
-import { Contributions } from '../contributions/contributions';
 import { useTitleFromPath } from '../../shared/hooks';
+import { Project } from '../project.model';
+import { Contributions } from '../contributions/contributions';
+import { Members } from '../members/members';
+import { Tokens } from '../tokens/tokens';
 
 import PoiLogo from '../../../images/poi_logo2.png';
 
 import './project-layout.scss';
 
-function Tokens(): JSX.Element {
-  return (<div>Tokens</div>);
-}
-
 function Settings(): JSX.Element {
   return (<div>Settings</div>);
 }
 
-export function ProjectLayout(props: RouteComponentProps): JSX.Element {
-  const { match: { path }, location: { pathname } } = props;
+export function ProjectLayout({ match: { path }, location: { pathname } }: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
   const title = useTitleFromPath(pathname);
   const [ project, setProject ] = useState<Project>({ name: '', logo: '' });

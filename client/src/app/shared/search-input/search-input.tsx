@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDebounce } from 'use-debounce';
+
 import { FieldProps } from '../../core/models/field-props.model';
 
 import './search-input.scss';
