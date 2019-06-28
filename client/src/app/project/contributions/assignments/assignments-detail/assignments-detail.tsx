@@ -1,8 +1,8 @@
 import React, { useEffect, useState, FormEvent, ChangeEvent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { SelectOptions } from '../../../../core/models/select-options.model';
-import { toSelectables } from '../../../../core/utils/helpers';
+import { SelectOptions } from 'app/core/models/select-options.model';
+import { toSelectables } from 'app/core/utils/helpers';
 import { AssignmentsDetailProps } from './assignments-detail-props';
 import { AssignmentStates } from '../assignment-status.enum';
 import { Member } from '../../../members/member.model';
@@ -14,7 +14,7 @@ import './assignments-detail.scss';
 import {
   domains as mockDomains,
   members as mockMembers
-} from '../../../mocks';
+} from 'app/mocks';
 
 const defaultAssignment: Partial<Assignment> = {
   title: '',

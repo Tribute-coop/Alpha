@@ -2,9 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { RouteComponentProps, Switch, Route } from 'react-router';
 import queryString from 'query-string';
 
-import { QueryFilters, applyQueryFilters } from '../../../core/utils/filters';
-import { getParentRoute } from '../../../core/utils/helpers';
-import { SlidePanel } from '../../../shared/components';
+import { QueryFilters, applyQueryFilters } from 'app/core/utils/filters';
+import { getParentRoute } from 'app/core/utils/helpers';
+import { SlidePanel } from 'app/shared/components';
 import { Assignment } from './assignment.model';
 import { AssignmentsList } from './assignments-list';
 import { AssignmentsFilters } from './assignments-filters';
@@ -14,7 +14,7 @@ import { AssignmentsEdit } from './assignments-edit';
 
 import './assignments.scss';
 
-import { assignments as mockAssignments } from '../../mocks';
+import { assignments as mockAssignments } from 'app/mocks';
 
 const filters: QueryFilters<Assignment> = {
   q: (assignment: Assignment, q: string): boolean =>

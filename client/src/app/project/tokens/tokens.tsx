@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import queryString from 'query-string';
 
-import { QueryFilters, applyQueryFilters } from '../../core/utils/filters';
-import { dateSeparator } from '../../core/utils/constants';
+import { QueryFilters, applyQueryFilters } from 'app/core/utils/filters';
+import { dateSeparator } from 'app/core/utils/constants';
+import { toShortDate } from 'app/core/utils/helpers';
 import { TokensSummary } from './tokens-summary';
 import { TokensFilters } from './tokens-filters';
 import { TokensList } from './tokens-list';
 import { TokenOperation } from './token.model';
 
-import { tokenOperations as mockTokenOperations } from '../mocks';
-import { toShortDate } from '../../core/utils/helpers';
+import { tokenOperations as mockTokenOperations } from 'app/mocks';
 
 const filters: QueryFilters<TokenOperation> = {
   operation: (token: TokenOperation, operation: string): boolean =>

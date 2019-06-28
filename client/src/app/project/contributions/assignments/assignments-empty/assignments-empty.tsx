@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import NoContributionYet from '../../../../../images/no-contributions-yet.png';
+import NoContributionYet from 'images/no-contributions-yet.png';
 
 import './assignments-empty.scss';
 

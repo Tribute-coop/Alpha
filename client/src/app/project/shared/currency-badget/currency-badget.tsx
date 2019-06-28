@@ -1,5 +1,6 @@
 import React from 'react';
-import { Currency } from '../../../core/models/currency.model';
+
+import { Currency } from 'app/core/models/currency.model';
 
 import './currency-badget.scss';
 

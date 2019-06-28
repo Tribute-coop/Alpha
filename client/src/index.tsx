@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { AppComponent } from './app/app.component';
-import './app/core/i18n';
+import 'app/core/i18n';
+import { AppComponent } from 'app/app.component';
 
 import * as serviceWorker from './serviceWorker';
 
-import './styles/main.scss';
+import 'styles/main.scss';
 
 ReactDOM.render(<AppComponent />, document.getElementById('root'));
 

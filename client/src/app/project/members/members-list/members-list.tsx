@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { RoundedImage } from '../../../shared/components';
+import { RoundedImage } from 'app/shared/components';
 import { MembersListProps } from './members-list-prop';
 
 export function MembersList({ members }: MembersListProps): JSX.Element {

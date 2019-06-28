@@ -7,7 +7,7 @@ import { LikeIcon, UsersIcon, CoinsIcon, CogIcon, BoltIcon, WalletIcon, BellIcon
 
 import './nav-bar.scss';
 
-import avatar from '../../../../images/avatar.svg';
+import avatar from 'images/avatar.svg';
 
 function Avatar(): JSX.Element {
   return (<img src={avatar} alt="Avatar User"/>);

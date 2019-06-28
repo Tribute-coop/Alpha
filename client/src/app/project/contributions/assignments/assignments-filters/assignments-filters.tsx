@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 
-import { SelectableFilters } from '../../../../core/models/selectable-filters.model';
-import { toSelectables } from '../../../../core/utils/helpers';
-import { useSearchQuery } from '../../../../shared/hooks';
-import { SearchSelect, SearchInput } from '../../../../shared/components';
+import { SelectableFilters } from 'app/core/models/selectable-filters.model';
+import { toSelectables } from 'app/core/utils/helpers';
+import { useSearchQuery } from 'app/shared/hooks';
+import { SearchSelect, SearchInput } from 'app/shared/components';
+
 import { Member } from '../../../members/member.model';
 import { Domain } from '../domain.model';
 import { getAssignmentStatus, AssignmentState } from '../assignment-status.enum';
@@ -13,7 +14,7 @@ import { getAssignmentStatus, AssignmentState } from '../assignment-status.enum'
 import {
   domains as mockDomains,
   members as mockMembers
-} from '../../../mocks';
+} from 'app/mocks';
 
 export function AssignmentsFilters({ location, history }: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import queryString from 'query-string';
 
-import { QueryFilters, applyQueryFilters } from '../../core/utils/filters';
+import { QueryFilters, applyQueryFilters } from 'app/core/utils/filters';
 import { MembersFilters } from './members-filters';
 import { MembersList } from './members-list';
 import { Member } from './member.model';
 
-import { members as mockMembers } from '../mocks';
+import { members as mockMembers } from 'app/mocks';
 
 function contains(text: string, searchString: string): boolean {
   return text.toLowerCase().includes(searchString);

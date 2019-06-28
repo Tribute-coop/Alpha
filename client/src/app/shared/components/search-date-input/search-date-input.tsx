@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Flatpickr from 'react-flatpickr';
 import { BaseOptions } from 'flatpickr/dist/types/options';
 
-import { FieldProps } from '../../../core/models/field-props.model';
-import { toShortDate } from '../../../core/utils/helpers';
+import { FieldProps } from 'app/core/models/field-props.model';
+import { toShortDate } from 'app/core/utils/helpers';
 
 import 'flatpickr/dist/themes/light.css';
 import './search-date-input.scss';

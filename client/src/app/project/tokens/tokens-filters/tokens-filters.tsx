@@ -2,15 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 
-import { SelectableFilters } from '../../../core/models/selectable-filters.model';
-import { dateSeparator } from '../../../core/utils/constants';
-import { toSelectables } from '../../../core/utils/helpers';
-import { useSearchQuery } from '../../../shared/hooks';
-import { SearchSelect, SearchDateInput } from '../../../shared/components';
+import { SelectableFilters } from 'app/core/models/selectable-filters.model';
+import { dateSeparator } from 'app/core/utils/constants';
+import { toSelectables } from 'app/core/utils/helpers';
+import { useSearchQuery } from 'app/shared/hooks';
+import { SearchSelect, SearchDateInput } from 'app/shared/components';
 import { getTokenOperations } from '../token.model';
 import { Member } from '../../members/member.model';
 
-import { members as mockMembers } from '../../mocks';
+import { members as mockMembers } from 'app/mocks';
 
 export function TokensFilters(props: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();

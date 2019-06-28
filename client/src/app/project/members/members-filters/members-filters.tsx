@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 
-import { useSearchQuery } from '../../../shared/hooks';
-import { SearchInput, SearchSelect } from '../../../shared/components';
+import { useSearchQuery } from 'app/shared/hooks';
+import { SearchInput, SearchSelect } from 'app/shared/components';
 
 export function MembersFilters(props: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();

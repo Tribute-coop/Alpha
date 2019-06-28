@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 
+import { NotFound } from 'app/shared/components';
+import { MainLayout } from 'app/core/layout';
 import { ProjectLayout } from './project/layout';
-import { MainLayout } from './core/layout';
-import { NotFound } from './shared/components';
 import { MyLayout } from './my/layout';
 import { Login } from './login';
 

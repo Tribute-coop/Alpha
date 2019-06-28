@@ -2,7 +2,7 @@ import React from 'react';
 import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
-import { useTitleFromPath } from '../../shared/hooks';
+import { useTitleFromPath } from 'app/shared/hooks';
 
 function Wallet(): JSX.Element {
   return (<div>Wallet</div>);

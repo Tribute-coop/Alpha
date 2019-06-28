@@ -1,9 +1,9 @@
-import { Member } from './members/member.model';
-import { TokenOperation, TokenOperationType } from './tokens/token.model';
-import { Role } from './members/role.enum';
-import { AssignmentStates } from './contributions/assignments/assignment-status.enum';
-import { Assignment } from './contributions/assignments/assignment.model';
-import { Domain } from './contributions/assignments/domain.model';
+import { Member } from './project/members/member.model';
+import { TokenOperation, TokenOperationType } from './project/tokens/token.model';
+import { Role } from './project/members/role.enum';
+import { AssignmentStates } from './project/contributions/assignments/assignment-status.enum';
+import { Assignment } from './project/contributions/assignments/assignment.model';
+import { Domain } from './project/contributions/assignments/domain.model';
 
 export const members: Member[] = [
   { id: '@zunith', name: 'Zuna G.', role: Role.Owner, jobs: 8, lastSeen: 'Today', rewards: '1,200 CTX', thumbnail: 'https://picsum.photos/id/1084/50/50' },

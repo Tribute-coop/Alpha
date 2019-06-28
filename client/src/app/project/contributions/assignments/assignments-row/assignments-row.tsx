@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
 
+import { StackedRoundedImage } from 'app/shared/components';
 import { Assignment } from '../assignment.model';
 import { AssignmentsDomain } from '../assignments-domain';
 import { AssignmentStates } from '../assignment-status.enum';
-import { StackedRoundedImage } from '../../../../shared/components';
 
 import './assignments-row.scss';
 
