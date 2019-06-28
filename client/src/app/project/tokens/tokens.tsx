@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import queryString from 'query-string';
 
-import { QueryFilters, applyQueryFilters } from 'app/core/utils/filters';
-import { dateSeparator } from 'app/core/utils/constants';
-import { toShortDate } from 'app/core/utils/helpers';
+import { QueryFilters, applyQueryFilters } from 'app/shared/utils/filters';
+import { dateSeparator } from 'app/shared/utils/constants';
+import { toShortDate } from 'app/shared/utils/helpers';
 import { TokensSummary } from './tokens-summary';
 import { TokensFilters } from './tokens-filters';
 import { TokensList } from './tokens-list';

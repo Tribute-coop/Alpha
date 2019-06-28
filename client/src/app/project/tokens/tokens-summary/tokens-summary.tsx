@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ethereumCurrency, euroCurrency, customCurrency } from 'app/core/utils/currencies';
-import { toDecimal, toEuros } from 'app/core/utils/helpers';
+import { ethereumCurrency, euroCurrency, customCurrency } from 'app/shared/utils/currencies';
+import { toDecimal, toEuros } from 'app/shared/utils/helpers';
 import { CurrencyGroup } from '../../shared/currency-group/currency-group';
 
 import './token-summary.scss';

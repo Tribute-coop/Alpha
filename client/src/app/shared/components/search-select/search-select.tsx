@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FieldProps } from 'app/core/models/field-props.model';
+import { FieldProps } from 'app/shared/models/field-props.model';
 
 import './search-select.scss';
 

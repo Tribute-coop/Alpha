@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { RouteComponentProps, Switch, Route } from 'react-router';
 import queryString from 'query-string';
 
-import { QueryFilters, applyQueryFilters } from 'app/core/utils/filters';
-import { getParentRoute } from 'app/core/utils/helpers';
+import { QueryFilters, applyQueryFilters } from 'app/shared/utils/filters';
+import { getParentRoute } from 'app/shared/utils/helpers';
 import { SlidePanel } from 'app/shared/components';
 import { Assignment } from './assignment.model';
 import { AssignmentsList } from './assignments-list';

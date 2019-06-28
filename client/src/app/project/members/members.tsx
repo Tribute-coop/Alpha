@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import queryString from 'query-string';
 
-import { QueryFilters, applyQueryFilters } from 'app/core/utils/filters';
+import { QueryFilters, applyQueryFilters } from 'app/shared/utils/filters';
 import { MembersFilters } from './members-filters';
 import { MembersList } from './members-list';
 import { Member } from './member.model';

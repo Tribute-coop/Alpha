@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 
-import { SelectableFilters } from 'app/core/models/selectable-filters.model';
-import { dateSeparator } from 'app/core/utils/constants';
-import { toSelectables } from 'app/core/utils/helpers';
+import { SelectableFilters } from 'app/shared/models/selectable-filters.model';
+import { dateSeparator } from 'app/shared/utils/constants';
+import { toSelectables } from 'app/shared/utils/helpers';
 import { useSearchQuery } from 'app/shared/hooks';
 import { SearchSelect, SearchDateInput } from 'app/shared/components';
 import { getTokenOperations } from '../token.model';

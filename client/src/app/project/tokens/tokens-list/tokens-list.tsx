@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { RoundedImage } from 'app/shared/components';
-import { smartTrim, toDecimal, toShortDate } from 'app/core/utils/helpers';
+import { smartTrim, toDecimal, toShortDate } from 'app/shared/utils/helpers';
 import { TokensListProps } from './tokens-list-prop';
 import { TokenOperationType } from '../token.model';
 
