@@ -1,4 +1,4 @@
-@import '../../../styles/abstracts/variables';
+@import '../../../../styles/abstracts/variables';
 
 .search-select {
   display: flex;
@@ -11,7 +11,7 @@
 
   &__select {
     background-position: center right .6rem;
-    background-image: url(../../../images/arrow-down.svg);
+    background-image: url(../../../../images/arrow-down.svg);
     background-repeat: no-repeat;
     background-size: 10px auto;
     appearance: none;

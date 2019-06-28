@@ -4,7 +4,7 @@ import queryString from 'query-string';
 
 import { QueryFilters, applyQueryFilters } from '../../../core/utils/filters';
 import { getParentRoute } from '../../../core/utils/helpers';
-import { SlidePanel } from '../../../shared/slide-panel';
+import { SlidePanel } from '../../../shared/components';
 import { Assignment } from './assignment.model';
 import { AssignmentsList } from './assignments-list';
 import { AssignmentsFilters } from './assignments-filters';

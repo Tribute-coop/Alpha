@@ -4,8 +4,8 @@ import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 
 import { ProjectLayout } from './project/layout';
 import { MainLayout } from './core/layout';
+import { NotFound } from './shared/components';
 import { MyLayout } from './my/layout';
-import { NotFound } from './shared';
 import { Login } from './login';
 
 export function AppComponent(): JSX.Element {

@@ -6,7 +6,7 @@ import { SelectableFilters } from '../../../core/models/selectable-filters.model
 import { dateSeparator } from '../../../core/utils/constants';
 import { toSelectables } from '../../../core/utils/helpers';
 import { useSearchQuery } from '../../../shared/hooks';
-import { SearchSelect, SearchDateInput } from '../../../shared';
+import { SearchSelect, SearchDateInput } from '../../../shared/components';
 import { getTokenOperations } from '../token.model';
 import { Member } from '../../members/member.model';
 

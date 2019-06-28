@@ -5,7 +5,7 @@ import { AssignmentsDetail } from '../assignments-detail';
 import { Assignment } from '../assignment.model';
 
 import { assignments as mockAssignments } from '../../../mocks';
-import { NotFound } from '../../../../shared';
+import { NotFound } from '../../../../shared/components';
 
 export function AssignmentsEdit({ onClose, routeProps }: AssignmentsEditProps): JSX.Element {
   const [ assignment, setAssignment ] = useState<Assignment>();

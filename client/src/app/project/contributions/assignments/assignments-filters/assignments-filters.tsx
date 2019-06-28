@@ -5,7 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import { SelectableFilters } from '../../../../core/models/selectable-filters.model';
 import { toSelectables } from '../../../../core/utils/helpers';
 import { useSearchQuery } from '../../../../shared/hooks';
-import { SearchSelect, SearchInput } from '../../../../shared';
+import { SearchSelect, SearchInput } from '../../../../shared/components';
 import { Member } from '../../../members/member.model';
 import { Domain } from '../domain.model';
 import { getAssignmentStatus, AssignmentState } from '../assignment-status.enum';

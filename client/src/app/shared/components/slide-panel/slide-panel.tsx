@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import { SlidePanelProps } from './slide-panel-props';
 import { slidePanelAnimation } from './slide-panel-animation';
 
-import CrossIcon from '../../../images/cross.svg';
+import CrossIcon from '../../../../images/cross.svg';
 
 import './slide-panel.scss';
 
