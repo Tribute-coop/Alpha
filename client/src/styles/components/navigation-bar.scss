@@ -29,5 +29,9 @@
         border-bottom: 3px solid $primary;
       }
     }
+
+    &.is-disabled {
+      pointer-events: none;
+    }
   }
 }

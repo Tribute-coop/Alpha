@@ -4,6 +4,8 @@ import { Role } from './project/members/role.enum';
 import { AssignmentStates } from './project/contributions/assignments/assignment-status.enum';
 import { Assignment } from './project/contributions/assignments/assignment.model';
 import { Domain } from './project/contributions/assignments/domain.model';
+import { Project } from './project/project.model';
+import PoiLogo from 'images/poi_logo2.png';
 
 export const members: Member[] = [
   { id: '@zunith', name: 'Zuna G.', role: Role.Owner, jobs: 8, lastSeen: 'Today', rewards: '1,200 CTX', thumbnail: 'https://picsum.photos/id/1084/50/50' },
@@ -75,4 +77,8 @@ export const tokenOperations: TokenOperation[] = [
   { id: '0xb4bc263278d3f77a652a8d73a6bfd8ec0ba1a63923bbb4f38147fb8a943da26f', operation: TokenOperationType.Redeem, createdAt: new Date(), amount: -150, units: 'CTX', creator: members[0] },
   { id: '0xb4bc263278d3f77a652a8d73a6bfd8ec0ba1a63923bbb4f38147fb8a943da26g', operation: TokenOperationType.BudgetLegal, createdAt: new Date(), amount: 25000, units: 'CTX', creator: members[1] },
   { id: '0xb4bc263278d3f77a652a8d73a6bfd8ec0ba1a63923bbb4f38147fb8a943da26h', operation: TokenOperationType.AddFunds, createdAt: new Date(), amount: 8000, units: 'EUR', creator: members[3] }
+];
+
+export const projects: Project[] = [
+  { name: 'Poi', logo: PoiLogo, email: 'contact@poi.app', location: 'Paris, France' }
 ];

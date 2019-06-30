@@ -82,7 +82,17 @@
       "issued": "Issued"
     },
     "settings": {
-      "title": "Settings"
+      "title": "Settings",
+      "general": "General",
+      "publicSettings": "Public Settings",
+      "tokensAndFund": "Tokens & Fund",
+      "valueAccounting": "Value Accounting",
+      "projectName": "Project Name",
+      "projectContactEmail": "Project Contact Email",
+      "mainLocation": "Main Location",
+      "squareLogo": "Square Logo",
+      "archiveTheProject": "Archive the project",
+      "remove": "Remove"
     }
   },
   "my": {
