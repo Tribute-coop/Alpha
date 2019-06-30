@@ -10,4 +10,12 @@ $primary-gradient-right-color: #00EFE2;
       background: $gray-400;
     }
   }
+
+  &.btn-outline-primary {
+    border-color: #009b97;
+    
+    &:hover {
+      background-color: $white;
+    }
+  }
 }

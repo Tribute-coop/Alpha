@@ -6,24 +6,20 @@ import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
 import { useTitleFromPath } from 'app/shared/hooks';
 import { Project } from '../project.model';
 import { Contributions } from '../contributions/contributions';
+import { Settings } from '../settings/settings';
 import { Members } from '../members/members';
 import { Tokens } from '../tokens/tokens';
 
-import PoiLogo from 'images/poi_logo2.png';
+import { projects as mockProjects } from '../../mocks';
 
 import './project-layout.scss';
 
-function Settings(): JSX.Element {
-  return (<div>Settings</div>);
-}
 
 export function ProjectLayout({ match: { path }, location: { pathname } }: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
   const title = useTitleFromPath(pathname);
-  const [ project, setProject ] = useState<Project>({ name: '', logo: '' });
+  const [ project ] = useState<Project>(mockProjects[0]);
   const [ showNewContribution, setShowNewContribution ] = useState<boolean>(false);
-
-  useEffect((): void => setProject({ name: 'Poi', logo: PoiLogo }), []);
 
   useEffect((): void => {
     setShowNewContribution(pathname.includes('assignments'));
