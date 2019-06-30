@@ -6,9 +6,10 @@ import { SelectableFilters } from 'app/shared/models/selectable-filters.model';
 import { dateSeparator } from 'app/shared/utils/constants';
 import { toSelectables } from 'app/shared/utils/helpers';
 import { useSearchQuery } from 'app/shared/hooks';
-import { SearchSelect, SearchDateInput } from 'app/shared/components';
+import { SearchSelect } from 'app/shared/components';
 import { getTokenOperations } from '../token.model';
 import { Member } from '../../members/member.model';
+import { SearchDateInput } from '../shared';
 
 import { members as mockMembers } from 'app/mocks';
 

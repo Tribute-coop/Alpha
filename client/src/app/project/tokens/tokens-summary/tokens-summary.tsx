@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ethereumCurrency, euroCurrency, customCurrency } from 'app/shared/utils/currencies';
 import { toDecimal, toEuros } from 'app/shared/utils/helpers';
-import { CurrencyGroup } from '../../shared/currency-group/currency-group';
+import { CurrencyGroup } from '../shared';
 
 import './token-summary.scss';
 
