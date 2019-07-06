@@ -4,11 +4,11 @@ import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom';
 
 import { NotFound } from 'app/shared/components';
 import { MainLayout } from 'app/core/layout';
-import { ProjectLayout } from './project/layout';
-import { MyLayout } from './my/layout';
+import { ProjectLayout } from './project/project-layout';
+import { MyLayout } from './my/my-layout';
 import { Login } from './login';
 
-export function AppComponent(): JSX.Element {
+export function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Switch>

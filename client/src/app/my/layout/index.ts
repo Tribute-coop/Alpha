@@ -1,1 +1,0 @@
-export { MyLayout } from './my-layout';
