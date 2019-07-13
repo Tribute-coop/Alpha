@@ -6,10 +6,10 @@
   border: 1px solid $border-color;
   margin-bottom: $box-margin-bottom;
 
-  &--with-border {
+  &--with-hover {
     &:hover {
-      transform: translate(-2px, -1px);
-      box-shadow: 10px 10px 20px $gray-300;
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 10px $gray-300;
     }
   }
 }
