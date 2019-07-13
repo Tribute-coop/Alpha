@@ -5,9 +5,11 @@
   border-radius: $border-radius;
   border: 1px solid $border-color;
   margin-bottom: $box-margin-bottom;
-}
 
-.bordered-box:hover {
-  transform: translate(-2px, -1px);
-  box-shadow: 10px 10px 20px $gray-300;
+  &--with-border {
+    &:hover {
+      transform: translate(-2px, -1px);
+      box-shadow: 10px 10px 20px $gray-300;
+    }
+  }
 }
