@@ -6,6 +6,7 @@ import { Assignment } from './project/contributions/assignments/assignment.model
 import { Domain } from './project/contributions/assignments/domain.model';
 import { Project } from './project/project.model';
 import PoiLogo from 'images/poi_logo2.png';
+import GreenLogo from 'images/green_logo.png';
 
 export const members: Member[] = [
   { id: '@zunith', name: 'Zuna G.', role: Role.Owner, jobs: 8, lastSeen: 'Today', rewards: '1,200 CTX', thumbnail: 'https://picsum.photos/id/1084/50/50' },
@@ -15,54 +16,10 @@ export const members: Member[] = [
 ];
 
 export const assignments: Assignment[] = [
-  {
-    id: '000001',
-    title: 'Define brand guidelines',
-    status: AssignmentStates.Approved,
-    assignedOn: 'Run twitter campaign March 2019',
-    approvedOn: '',
-    startedOn: '',
-    domain: 'marketing',
-    assignedTo: [members[0]],
-    rewardAmount: 15,
-    rewardUnits: 'CTX'
-  },
-  {
-    id: '000002',
-    title: 'Update our slides deck',
-    status: AssignmentStates.Assigned,
-    assignedOn: '23/01/19',
-    approvedOn: '02/02/19',
-    startedOn: '',
-    domain: 'development',
-    assignedTo: members,
-    rewardAmount: 9,
-    rewardUnits: 'CTX'
-  },
-  {
-    id: '000003',
-    title: 'Run twitter campaign March 2019',
-    status: AssignmentStates.Assigned,
-    assignedOn: '24/01/19',
-    approvedOn: '',
-    startedOn: '',
-    domain: 'marketing',
-    assignedTo: [members[2]],
-    rewardAmount: 550,
-    rewardUnits: 'CTX'
-  },
-  {
-    id: '000004',
-    title: 'Write security paper',
-    status: AssignmentStates.InProgress,
-    assignedOn: '',
-    approvedOn: '',
-    startedOn: '12/02/19',
-    domain: 'marketing',
-    assignedTo: [members[1], members[2]],
-    rewardAmount: 18,
-    rewardUnits: 'CTX'
-  }
+  { id: '000001', title: 'Define brand guidelines', status: AssignmentStates.Approved, assignedOn: 'Run twitter campaign March 2019', approvedOn: '', startedOn: '', domain: 'marketing', assignedTo: [members[0]], rewardAmount: 15, rewardUnits: 'CTX' },
+  { id: '000002', title: 'Update our slides deck', status: AssignmentStates.Assigned, assignedOn: '23/01/19', approvedOn: '02/02/19', startedOn: '', domain: 'development', assignedTo: members, rewardAmount: 9, rewardUnits: 'CTX' },
+  { id: '000003', title: 'Run twitter campaign March 2019', status: AssignmentStates.Assigned, assignedOn: '24/01/19', approvedOn: '', startedOn: '', domain: 'marketing', assignedTo: [members[2]], rewardAmount: 550, rewardUnits: 'CTX' },
+  { id: '000004', title: 'Write security paper', status: AssignmentStates.InProgress, assignedOn: '', approvedOn: '', startedOn: '12/02/19', domain: 'marketing', assignedTo: [members[1], members[2]], rewardAmount: 18, rewardUnits: 'CTX' }
 ];
 
 export const domains: Domain[] = [
@@ -80,5 +37,6 @@ export const tokenOperations: TokenOperation[] = [
 ];
 
 export const projects: Project[] = [
-  { name: 'Poi', logo: PoiLogo, email: 'contact@poi.app', location: 'Paris, France' }
+  { name: 'Poi', logo: PoiLogo, email: 'contact@poi.app', location: 'Paris, France' },
+  { name: 'Green Crown', logo: GreenLogo, email: 'contact@green-crown.com', location: 'Barcelona, Spain' }
 ];
