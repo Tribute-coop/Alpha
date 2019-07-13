@@ -761,9 +761,15 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5":
   version "7.4.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
+"@babel/runtime@^7.3.1":
+  version "7.5.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.5.4.tgz#cb7d1ad7c6d65676e66b47186577930465b5271b"
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -4324,8 +4330,8 @@ i18next-xhr-backend@*, i18next-xhr-backend@^3.0.0:
     "@babel/runtime" "^7.4.5"
 
 i18next@^17.0.3:
-  version "17.0.4"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-17.0.4.tgz#c690b9de0c950ff8abe626562d03c4144dd75030"
+  version "17.0.6"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-17.0.6.tgz#01079cc2bcef408139ea8ce24d18ac0d512fbe85"
   dependencies:
     "@babel/runtime" "^7.3.1"
 
@@ -7440,8 +7446,8 @@ react-flatpickr@^3.9.0:
     prop-types "^15.5.10"
 
 react-i18next@^10.10.0:
-  version "10.11.2"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-10.11.2.tgz#d8bace8a6383533bd4e0f79a911012bbe5a37c7d"
+  version "10.11.4"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-10.11.4.tgz#9277a609ee640fac353087a91935ee9a9eb65f40"
   dependencies:
     "@babel/runtime" "^7.3.1"
     html-parse-stringify2 "2.0.1"
