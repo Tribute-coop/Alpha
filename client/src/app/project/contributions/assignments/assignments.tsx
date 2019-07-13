@@ -63,7 +63,7 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
   }, [history, location]);
 
   return (
-    <div>
+    <React.Fragment>
       <div className="container-fluid">
         { loaded && (
           <div className="row">
@@ -93,6 +93,6 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
           } />
         } />
       </Switch>
-    </div>
+    </React.Fragment>
   );
 }

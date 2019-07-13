@@ -10,7 +10,7 @@ export function AssignmentsList({ assignments }: AssignmentsListProps): JSX.Elem
   const { t } = useTranslation();
 
   return (
-    <div>
+    <React.Fragment>
       <div className="assignment__head uppercase-label">
         <div className="assignment__info">
           {t('project.contributions.assignment.title')}
@@ -34,6 +34,6 @@ export function AssignmentsList({ assignments }: AssignmentsListProps): JSX.Elem
           <AssignmentsRow key={assignment.id} {...assignment} />
         ))
       }
-    </div>
+    </React.Fragment>
   );
 }

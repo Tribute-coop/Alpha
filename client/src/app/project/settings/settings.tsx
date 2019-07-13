@@ -22,7 +22,7 @@ export function Settings(props: RouteComponentProps): JSX.Element {
   const { path } = props.match;
 
   return (
-    <div>
+    <React.Fragment>
       <nav className="navigation-bar">
         <NavLink className="navigation-bar__item" to={path + '/general'}
           activeClassName="is-active">{t('project.settings.general')}</NavLink>
@@ -44,6 +44,6 @@ export function Settings(props: RouteComponentProps): JSX.Element {
           <Redirect to={`${path}/general`}/>
         </Route>
       </Switch>
-    </div>
+    </React.Fragment>
   );
 }

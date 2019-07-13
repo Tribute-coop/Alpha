@@ -14,7 +14,7 @@ export function Contributions(props: RouteComponentProps): JSX.Element {
   const { path } = props.match;
 
   return (
-    <div>
+    <React.Fragment>
       <nav className="navigation-bar">
         <NavLink className="navigation-bar__item" to={path + '/assignments'}
           activeClassName="is-active">{t('project.contributions.assignments')}</NavLink>
@@ -30,6 +30,6 @@ export function Contributions(props: RouteComponentProps): JSX.Element {
           <Redirect to={`${path}/assignments`}/>
         </Route>
       </Switch>
-    </div>
+    </React.Fragment>
   );
 }
