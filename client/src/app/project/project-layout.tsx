@@ -36,21 +36,18 @@ export function ProjectLayout({ match: { path }, location: { pathname } }: Route
         <h4 className="main-layout__title">{t(title)}</h4>
 
         { showNewContribution &&
-          <Link className="btn btn-primary" to={`${path}/contributions/assignments/new`}>
+          <Link className="btn btn-primary" to={path + '/contributions/assignments/new'}>
             {t('project.contributions.newContribution')}
           </Link>
         }
       </header>
       <section className="main-layout__section">
         <Switch>
-          <Route path={`${path}/contributions`} component={Contributions} />
-          <Route path={`${path}/members`} component={Members} />
-          <Route path={`${path}/tokens`} component={Tokens} />
-          <Route path={`${path}/settings`} component={Settings} />
-
-          <Route exact path={path} >
-            <Redirect to={`${path}/contributions`}/>
-          </Route>
+          <Route path={path + '/contributions'} component={Contributions} />
+          <Route path={path + '/members'} component={Members} />
+          <Route path={path + '/tokens'} component={Tokens} />
+          <Route path={path + '/settings'} component={Settings} />
+          <Redirect to={path + '/contributions'} />
         </Switch>
       </section>
     </div>

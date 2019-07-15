@@ -23,12 +23,9 @@ export function Contributions(props: RouteComponentProps): JSX.Element {
       </nav>
 
       <Switch>
-        <Route path={`${path}/assignments`} component={Assignments} />
-        <Route path={`${path}/calls`} component={Calls} />
-
-        <Route exact path={path} >
-          <Redirect to={`${path}/assignments`}/>
-        </Route>
+        <Route path={path + '/assignments'} component={Assignments} />
+        <Route path={path + '/calls'} component={Calls} />
+        <Redirect to={path + '/assignments'} />
       </Switch>
     </React.Fragment>
   );

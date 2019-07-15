@@ -35,14 +35,11 @@ export function Settings(props: RouteComponentProps): JSX.Element {
       </nav>
 
       <Switch>
-        <Route path={`${path}/general`} component={General} />
-        <Route path={`${path}/public`} component={PublicSettings} />
-        <Route path={`${path}/tokens-and-fund`} component={TokensAndFund} />
-        <Route path={`${path}/value-accounting`} component={ValueAccounting} />
-
-        <Route exact path={path} >
-          <Redirect to={`${path}/general`}/>
-        </Route>
+        <Route path={path + '/general'} component={General} />
+        <Route path={path + '/public'} component={PublicSettings} />
+        <Route path={path + '/tokens-and-fund'} component={TokensAndFund} />
+        <Route path={path + '/value-accounting'} component={ValueAccounting} />
+        <Redirect to={path + '/general'} />
       </Switch>
     </React.Fragment>
   );
