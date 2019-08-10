@@ -4,6 +4,7 @@ import queryString from 'query-string';
 
 import { QueryFilters, applyQueryFilters } from 'app/shared/utils/filters';
 import { getParentRoute } from 'app/shared/utils/helpers';
+import { State } from 'app/shared/models/state.model';
 import { SlidePanel } from 'app/shared/components';
 import { Assignment } from './assignment.model';
 import { AssignmentsList } from './assignments-list';
@@ -31,19 +32,22 @@ const filters: QueryFilters<Assignment> = {
 };
 
 export function Assignments(props: RouteComponentProps): JSX.Element {
-  const [loaded, setLoaded] = useState<boolean>(false);
-  const [isEmpty, setIsEmpty] = useState<boolean>(false);
-  const [assignments, setAssignments] = useState<Assignment[]>([]);
+  const [assignmentsState, setAssignmentsState] = useState<State<Assignment>>({
+    loaded: false,
+    data: []
+  });
+
   const { history, location, match: { path } } = props;
 
   useEffect((): void => {
-    setLoaded(true);
-    setAssignments(mockAssignments);
-    setIsEmpty(mockAssignments.length === 0);
+    setAssignmentsState({
+      loaded: true,
+      data: mockAssignments
+    });
   }, []);
 
   useEffect((): void => {
-    if (!loaded) {
+    if (!assignmentsState.loaded) {
       return;
     }
 
@@ -54,8 +58,14 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
       filters
     );
 
-    setAssignments(filteredAssignments);
-  }, [loaded, location.search]);
+    setAssignmentsState((prevAssignmentsState): State<Assignment> => {
+      return {
+        ...prevAssignmentsState,
+        data: filteredAssignments
+      };
+    });
+
+  }, [assignmentsState.loaded, location.search]);
 
   const handleClose = useCallback((): void => {
     const parentRoute = getParentRoute(location);
@@ -65,15 +75,15 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
   return (
     <React.Fragment>
       <div className="container-fluid">
-        { loaded && (
+        { assignmentsState.loaded && (
           <div className="row">
-            { isEmpty ?
+            { assignmentsState.data.length === 0 ?
               (<div className="col-12">
                 <AssignmentsEmpty />
               </div>) :
               (<div className="col-12 col-lg-9">
                 <AssignmentsFilters {...props } />
-                <AssignmentsList assignments={assignments} />
+                <AssignmentsList assignments={assignmentsState.data} />
               </div>)
             }
           </div>

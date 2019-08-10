@@ -3,6 +3,7 @@ import { RouteComponentProps } from 'react-router';
 import queryString from 'query-string';
 
 import { QueryFilters, applyQueryFilters } from 'app/shared/utils/filters';
+import { State } from '../../shared/models/state.model';
 import { MembersFilters } from './members-filters';
 import { MembersList } from './members-list';
 import { Member } from './member.model';
@@ -23,16 +24,20 @@ const filters: QueryFilters<Member> = {
 };
 
 export function Members(props: RouteComponentProps): JSX.Element {
-  const [members, setMembers] = useState<Member[]>([]);
-  const [loaded, setLoaded] = useState<boolean>(false);
+  const [membersState, setMembersState] = useState<State<Member>>({
+    loaded: false,
+    data: []
+  });
 
   useEffect((): void => {
-    setLoaded(true);
-    setMembers(mockMembers);
+    setMembersState({
+      loaded: true,
+      data: mockMembers
+    });
   }, []);
 
   useEffect((): void => {
-    if (!loaded) {
+    if (!membersState.loaded) {
       return;
     }
 
@@ -43,16 +48,21 @@ export function Members(props: RouteComponentProps): JSX.Element {
       filters
     );
 
-    setMembers(filteredMembers);
-  }, [loaded, props.location.search]);
+    setMembersState((prevMembersState): State<Member> => {
+      return {
+        ...prevMembersState,
+        data: filteredMembers
+      };
+    });
+  }, [membersState.loaded, props.location.search]);
 
   return (
     <div className="container-fluid">
       <div className="row">
-        { loaded && (
+        { membersState.loaded && (
           <div className="col-12 col-lg-9">
             <MembersFilters {...props } />
-            <MembersList members={members} />
+            <MembersList members={membersState.data} />
           </div>
         )}
       </div>

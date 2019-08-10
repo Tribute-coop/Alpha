@@ -4,6 +4,7 @@ import queryString from 'query-string';
 
 import { QueryFilters, applyQueryFilters } from 'app/shared/utils/filters';
 import { dateSeparator } from 'app/shared/utils/constants';
+import { State } from '../../shared/models/state.model';
 import { toShortDate } from 'app/shared/utils/helpers';
 import { TokensSummary } from './tokens-summary';
 import { TokensFilters } from './tokens-filters';
@@ -28,37 +29,48 @@ const filters: QueryFilters<TokenOperation> = {
 };
 
 export function Tokens(props: RouteComponentProps): JSX.Element {
-  const [tokens, setTokens] = useState<TokenOperation[]>([]);
-  const [loaded, setLoaded] = useState<boolean>(false);
+  const [tokensState, setTokensState] = useState<State<TokenOperation>>({
+    loaded: false,
+    data: []
+  });
 
   useEffect((): void => {
-    setTokens(mockTokenOperations);
-    setLoaded(true);
+    setTokensState({
+      loaded: true,
+      data: mockTokenOperations
+    });
   }, []);
 
   useEffect((): void => {
-    if (!loaded) {
+    if (!tokensState.loaded) {
       return;
     }
 
     const search = queryString.parse(props.location.search);
-    const filteredMembers = applyQueryFilters<TokenOperation>(
+    const filteredTokensOperations = applyQueryFilters<TokenOperation>(
       mockTokenOperations,
       search,
       filters
     );
 
-    setTokens(filteredMembers);
-  }, [loaded, props.location.search]);
+    setTokensState((prevTokensState): State<TokenOperation> => {
+      return {
+        ...prevTokensState,
+        data: filteredTokensOperations
+      };
+    });
+
+
+  }, [props.location.search, tokensState.loaded]);
 
   return (
     <div className="container-fluid">
       <div className="row">
-        { loaded && (
+        { tokensState.loaded && (
           <div className="col-12 col-lg-9">
             <TokensSummary />
             <TokensFilters {...props } />
-            <TokensList tokens={tokens} />
+            <TokensList tokens={tokensState.data} />
           </div>
         )}
       </div>
