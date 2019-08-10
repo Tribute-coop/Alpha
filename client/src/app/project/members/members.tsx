@@ -2,17 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import queryString from 'query-string';
 
-import { QueryFilters, applyQueryFilters } from 'app/shared/utils/filters';
+import { QueryFilters, applyQueryFilters, contains } from 'app/shared/utils/filters';
 import { State } from '../../shared/models/state.model';
 import { MembersFilters } from './members-filters';
 import { MembersList } from './members-list';
 import { Member } from './member.model';
 
 import { members as mockMembers } from 'app/mocks';
-
-function contains(text: string, searchString: string): boolean {
-  return text.toLowerCase().includes(searchString);
-}
 
 const filters: QueryFilters<Member> = {
   q: (member: Member, q: string): boolean =>

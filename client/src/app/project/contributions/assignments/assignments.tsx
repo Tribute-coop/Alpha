@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { RouteComponentProps, Switch, Route } from 'react-router';
 import queryString from 'query-string';
 
-import { QueryFilters, applyQueryFilters } from 'app/shared/utils/filters';
+import { QueryFilters, applyQueryFilters, contains } from 'app/shared/utils/filters';
 import { getParentRoute } from 'app/shared/utils/helpers';
 import { State } from 'app/shared/models/state.model';
 import { SlidePanel } from 'app/shared/components';
@@ -19,7 +19,7 @@ import { assignments as mockAssignments } from 'app/mocks';
 
 const filters: QueryFilters<Assignment> = {
   q: (assignment: Assignment, q: string): boolean =>
-    assignment.title.toLowerCase().includes(q)
+    contains(assignment.title, q)
   ,
   domain: (assignment: Assignment, domain: string): boolean =>
     assignment.domain === domain
