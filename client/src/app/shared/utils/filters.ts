@@ -13,7 +13,3 @@ export function applyQueryFilters<T>(arr: T[], query: ParsedQuery, filters: Quer
     })
   , arr);
 }
-
-export function contains(text: string, searchString: string): boolean {
-  return text.toLowerCase().includes(searchString);
-}

@@ -46,3 +46,7 @@ export function getParentRoute(location: Location): string {
 
   return parentRoute + search;
 }
+
+export function contains(text: string, searchString: string): boolean {
+  return text.toLowerCase().includes(searchString);
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { RouteComponentProps, Switch, Route } from 'react-router';
 import queryString from 'query-string';
 
-import { QueryFilters, applyQueryFilters, contains } from 'app/shared/utils/filters';
+import { applyQueryFilters } from 'app/shared/utils/filters';
 import { getParentRoute } from 'app/shared/utils/helpers';
 import { State } from 'app/shared/models/state.model';
 import { SlidePanel } from 'app/shared/components';
@@ -12,24 +12,11 @@ import { AssignmentsFilters } from './assignments-filters';
 import { AssignmentsDetail } from './assignments-detail';
 import { AssignmentsEmpty } from './assignments-empty';
 import { AssignmentsEdit } from './assignments-edit';
+import { assignmentsQueryFilters } from './assignments-query-filters';
 
 import './assignments.scss';
 
 import { assignments as mockAssignments } from 'app/mocks';
-
-const filters: QueryFilters<Assignment> = {
-  q: (assignment: Assignment, q: string): boolean =>
-    contains(assignment.title, q)
-  ,
-  domain: (assignment: Assignment, domain: string): boolean =>
-    assignment.domain === domain
-  ,
-  status: (assignment: Assignment, status: string): boolean =>
-    assignment.status === +status
-  ,
-  who: (assignment: Assignment, userId: string): boolean =>
-    assignment.assignedTo.some((assigned): boolean => assigned.id === userId)
-};
 
 export function Assignments(props: RouteComponentProps): JSX.Element {
   const [assignmentsState, setAssignmentsState] = useState<State<Assignment>>({
@@ -55,7 +42,7 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
     const filteredAssignments = applyQueryFilters<Assignment>(
       mockAssignments,
       parsedSearch,
-      filters
+      assignmentsQueryFilters
     );
 
     setAssignmentsState((prevAssignmentsState): State<Assignment> => {
