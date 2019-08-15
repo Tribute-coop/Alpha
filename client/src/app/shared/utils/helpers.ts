@@ -1,5 +1,6 @@
-import { SelectOptions } from '../models/select-options.model';
 import { Location } from 'history';
+
+import { SelectOptions } from 'app/shared/models';
 
 export function toSelectables<T>(
   items: T[],

@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 
-import { SelectableFilters } from 'app/shared/models/selectable-filters.model';
-import { toSelectables } from 'app/shared/utils/helpers';
 import { useSearchQuery } from 'app/shared/hooks';
+import { SelectableFilters } from 'app/shared/models';
+import { toSelectables } from 'app/shared/utils/helpers';
 import { SearchSelect, SearchInput } from 'app/shared/components';
-
-import { Member } from '../../../members/member.model';
 import { Domain } from '../domain.model';
+import { Member } from '../../../members/member.model';
 import { getAssignmentStatus, AssignmentState } from '../assignment-status.enum';
 
 import {

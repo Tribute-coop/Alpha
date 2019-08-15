@@ -4,16 +4,15 @@ import { useTranslation } from 'react-i18next';
 import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
 
 import { useTitleFromPath } from 'app/shared/hooks';
-import { Project } from './project.model';
-import { Contributions } from './contributions/contributions';
-import { Settings } from './settings/settings';
-import { Members } from './members/members';
 import { Tokens } from './tokens/tokens';
+import { Project } from './project.model';
+import { Members } from './members/members';
+import { Settings } from './settings/settings';
+import { Contributions } from './contributions/contributions';
 
 import { projects as mockProjects } from '../mocks';
 
 import './project-layout.scss';
-
 
 export function ProjectLayout({ match: { path }, location: { pathname } }: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import queryString from 'query-string';
 
+import { State } from 'app/shared/models';
 import { applyQueryFilters } from 'app/shared/utils/filters';
-import { State } from '../../shared/models/state.model';
-import { TokensSummary } from './tokens-summary';
-import { TokensFilters } from './tokens-filters';
 import { TokensList } from './tokens-list';
 import { TokenOperation } from './token.model';
+import { TokensSummary } from './tokens-summary';
+import { TokensFilters } from './tokens-filters';
 import { tokenQueryFilters } from './tokens-query-filter';
 
 import { tokenOperations as mockTokenOperations } from 'app/mocks';

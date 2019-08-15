@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
 import queryString from 'query-string';
 
+import { State } from 'app/shared/models';
 import { applyQueryFilters } from 'app/shared/utils/filters';
-import { State } from 'app/shared/models/state.model';
-import { MembersFilters } from './members-filters';
-import { MembersList } from './members-list';
 import { Member } from './member.model';
+import { MembersList } from './members-list';
+import { MembersFilters } from './members-filters';
 import { membersQueryFilters } from './members-query-filters';
 
 import { members as mockMembers } from 'app/mocks';

@@ -2,16 +2,16 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { RouteComponentProps, Switch, Route } from 'react-router';
 import queryString from 'query-string';
 
-import { applyQueryFilters } from 'app/shared/utils/filters';
-import { getParentRoute } from 'app/shared/utils/helpers';
-import { State } from 'app/shared/models/state.model';
+import { State } from 'app/shared/models';
 import { SlidePanel } from 'app/shared/components';
+import { getParentRoute } from 'app/shared/utils/helpers';
+import { applyQueryFilters } from 'app/shared/utils/filters';
 import { Assignment } from './assignment.model';
 import { AssignmentsList } from './assignments-list';
-import { AssignmentsFilters } from './assignments-filters';
-import { AssignmentsDetail } from './assignments-detail';
-import { AssignmentsEmpty } from './assignments-empty';
 import { AssignmentsEdit } from './assignments-edit';
+import { AssignmentsEmpty } from './assignments-empty';
+import { AssignmentsDetail } from './assignments-detail';
+import { AssignmentsFilters } from './assignments-filters';
 import { assignmentsQueryFilters } from './assignments-query-filters';
 
 import './assignments.scss';

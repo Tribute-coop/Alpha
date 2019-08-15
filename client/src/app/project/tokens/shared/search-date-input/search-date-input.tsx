@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Flatpickr from 'react-flatpickr';
 import { BaseOptions } from 'flatpickr/dist/types/options';
 
-import { FieldProps } from 'app/shared/models/field-props.model';
+import { FieldProps } from 'app/shared/models';
 import { toShortDate } from 'app/shared/utils/helpers';
 
 import 'flatpickr/dist/themes/light.css';

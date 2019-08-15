@@ -1,4 +1,4 @@
-import { Currency } from '../models/currency.model';
+import { Currency } from 'app/shared/models';
 
 export const euroCurrency: Currency = {
   symbol: '€',
