@@ -15,7 +15,7 @@
     "react-flatpickr": "^3.9.0",
     "react-i18next": "^10.10.0",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.0",
+    "react-scripts": "3.1.1",
     "react-transition-group": "^4.2.2",
     "use-debounce": "^2.1.0"
   },
@@ -45,8 +45,8 @@
     "@types/react-flatpickr": "^3.8.0",
     "@types/react-router-dom": "^4.3.2",
     "@types/react-transition-group": "^4.2.2",
-    "@typescript-eslint/eslint-plugin": "^1.13.0",
-    "@typescript-eslint/parser": "^1.13.0",
+    "@typescript-eslint/eslint-plugin": "^2.0.0",
+    "@typescript-eslint/parser": "^2.0.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.6.0",
     "typescript": "^3.5.1"
