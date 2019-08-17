@@ -2,18 +2,20 @@ import { Location } from 'history';
 
 import { SelectOptions } from 'app/shared/models';
 
-export function toSelectables<T>(
+export function toSelectable<T>(
   items: T[],
   key: keyof T,
-  value: keyof T,
-  requireI18n: boolean = false
+  value: keyof T
 ): SelectOptions[] {
-  return items.map((item: any): SelectOptions =>
-    ({ key: item[key], value: item[value], requireI18n })
-  );
+  return items.map((item: T): SelectOptions => {
+    return {
+      key: String(item[key]),
+      value: String(item[value])
+    };
+  });
 }
 
-export function smartTrim(term: string, maxLength: number = 14): string {
+export function smartTrim(term: string, maxLength = 14): string {
   if (term.length > maxLength) {
     return term.substr(0, 6) + '...' + term.substr(term.length - 4, term.length);
   }

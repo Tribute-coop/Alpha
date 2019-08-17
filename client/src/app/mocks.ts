@@ -1,7 +1,7 @@
 import { Member } from './project/members/member.model';
 import { TokenOperation, TokenOperationType } from './project/tokens/token.model';
 import { Role } from './project/members/role.enum';
-import { AssignmentStates } from './project/contributions/assignments/assignment-status.enum';
+import { AssignmentStatus } from './project/contributions/assignments/assignment-status.enum';
 import { Assignment } from './project/contributions/assignments/assignment.model';
 import { Domain } from './project/contributions/assignments/domain.model';
 import { Project } from './project/project.model';
@@ -16,10 +16,10 @@ export const members: Member[] = [
 ];
 
 export const assignments: Assignment[] = [
-  { id: '000001', title: 'Define brand guidelines', status: AssignmentStates.Approved, assignedOn: 'Run twitter campaign March 2019', approvedOn: '', startedOn: '', domain: 'marketing', assignedTo: [members[0]], rewardAmount: 15, rewardUnits: 'CTX' },
-  { id: '000002', title: 'Update our slides deck', status: AssignmentStates.Assigned, assignedOn: '23/01/19', approvedOn: '02/02/19', startedOn: '', domain: 'development', assignedTo: members, rewardAmount: 9, rewardUnits: 'CTX' },
-  { id: '000003', title: 'Run twitter campaign March 2019', status: AssignmentStates.Assigned, assignedOn: '24/01/19', approvedOn: '', startedOn: '', domain: 'marketing', assignedTo: [members[2]], rewardAmount: 550, rewardUnits: 'CTX' },
-  { id: '000004', title: 'Write security paper', status: AssignmentStates.InProgress, assignedOn: '', approvedOn: '', startedOn: '12/02/19', domain: 'marketing', assignedTo: [members[1], members[2]], rewardAmount: 18, rewardUnits: 'CTX' }
+  { id: '000001', title: 'Define brand guidelines', status: AssignmentStatus.Approved, assignedOn: 'Run twitter campaign March 2019', approvedOn: '', startedOn: '', domain: 'marketing', assignedTo: [members[0]], rewardAmount: 15, rewardUnits: 'CTX' },
+  { id: '000002', title: 'Update our slides deck', status: AssignmentStatus.Assigned, assignedOn: '23/01/19', approvedOn: '02/02/19', startedOn: '', domain: 'development', assignedTo: members, rewardAmount: 9, rewardUnits: 'CTX' },
+  { id: '000003', title: 'Run twitter campaign March 2019', status: AssignmentStatus.Assigned, assignedOn: '24/01/19', approvedOn: '', startedOn: '', domain: 'marketing', assignedTo: [members[2]], rewardAmount: 550, rewardUnits: 'CTX' },
+  { id: '000004', title: 'Write security paper', status: AssignmentStatus.InProgress, assignedOn: '', approvedOn: '', startedOn: '12/02/19', domain: 'marketing', assignedTo: [members[1], members[2]], rewardAmount: 18, rewardUnits: 'CTX' }
 ];
 
 export const domains: Domain[] = [

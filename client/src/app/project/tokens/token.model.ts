@@ -20,16 +20,3 @@ export interface TokenOperationState {
   id: string;
   name: string;
 }
-
-export function getTokenOperations(): TokenOperationState[] {
-  const filterTrnsKey = 'project.tokens.filters';
-
-  return Object.keys(TokenOperationType)
-    .filter((s): boolean => !isNaN(+s))
-    .map((id: string): TokenOperationState => {
-      const status = TokenOperationType[+id].toLowerCase();
-      const name = filterTrnsKey + '.' + status;
-
-      return { id, name };
-    });
-}

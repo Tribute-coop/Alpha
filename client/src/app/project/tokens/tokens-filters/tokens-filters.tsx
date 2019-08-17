@@ -2,33 +2,36 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 
-import { useSearchQuery } from 'app/shared/hooks';
+
 import { SearchSelect } from 'app/shared/components';
-import { SelectableFilters } from 'app/shared/models';
+import { toSelectable } from 'app/shared/utils/helpers';
 import { dateSeparator } from 'app/shared/utils/constants';
-import { toSelectables } from 'app/shared/utils/helpers';
+import { useSearchQuery, useTranslatedEnum } from 'app/shared/hooks';
+import { SelectableFilters, TranslatedItem } from 'app/shared/models';
 import { SearchDateInput } from '../shared';
-import { getTokenOperations } from '../token.model';
 import { Member } from '../../members/member.model';
+import { TokenOperationType } from '../token.model';
 
 import { members as mockMembers } from 'app/mocks';
+
+const tokensFilterTrnskey = 'project.tokens.filters';
 
 export function TokensFilters(props: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
   const { location: { search }, history } = props;
   const [ filters, setFilters ] = useState<SelectableFilters>({ by: [], operation: [] });
   const { updateQuery, query } = useSearchQuery(search, history);
+  const operations = useTranslatedEnum(TokenOperationType, tokensFilterTrnskey);
 
   useEffect((): void => {
-    const operations = getTokenOperations();
-    const selectableMembers = toSelectables<Member>(mockMembers, 'id', 'name');
-    const selectableOperations = toSelectables<any>(operations, 'id', 'name', true);
+    const selectableMembers = toSelectable<Member>(mockMembers, 'id', 'name');
+    const selectableOperations = toSelectable<TranslatedItem>(operations, 'id', 'name');
 
     setFilters({
       by: selectableMembers,
       operation: selectableOperations
     });
-  }, []);
+  }, [operations]);
 
   return (
     <div className="row py-3">
@@ -46,8 +49,8 @@ export function TokensFilters(props: RouteComponentProps): JSX.Element {
           <SearchSelect name={filterName} onChange={updateQuery} value={query[filterName]}
             label={t(`project.tokens.${filterName}`)}>
             <option value="">{t('select.all')}</option>
-            { filters[filterName].map(({ key, value, requireI18n }): JSX.Element =>
-              <option value={key} key={key}>{ requireI18n ? t(value) : value}</option>
+            { filters[filterName].map(({ key, value }): JSX.Element =>
+              <option value={key} key={key}>{value}</option>
             )}
           </SearchSelect>
         </div>

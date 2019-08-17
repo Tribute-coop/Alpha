@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ImgHTMLAttributes } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useTranslation } from 'react-i18next';
@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { StackedRoundedImage } from 'app/shared/components';
 import { Assignment } from '../assignment.model';
 import { AssignmentsDomain } from '../assignments-domain';
-import { AssignmentStates } from '../assignment-status.enum';
+import { AssignmentStatus } from '../assignment-status.enum';
 
 import './assignments-row.scss';
 
@@ -28,7 +28,7 @@ export function AssignmentsRow(assignment: Assignment): JSX.Element {
         <div className="assignment__states">
           <span className="assignment__state">
             {t('project.contributions.assignment.row.status') + ': ' +
-              t(`project.contributions.assignment.filters.${AssignmentStates[assignment.status].toLowerCase()}`)}
+              t(`project.contributions.assignment.filters.${AssignmentStatus[assignment.status].toLowerCase()}`)}
           </span>
           { states
             .filter((state): boolean => !!assignment[state])
@@ -43,7 +43,7 @@ export function AssignmentsRow(assignment: Assignment): JSX.Element {
         <AssignmentsDomain domain={assignment.domain} />
       </div>
       <div className="assignment__assigned">
-        <StackedRoundedImage images={ assignment.assignedTo.map((user): any => {
+        <StackedRoundedImage images={ assignment.assignedTo.map((user): ImgHTMLAttributes<HTMLImageElement> => {
           return { src: user.thumbnail, alt: user.name };
         }) } />
       </div>

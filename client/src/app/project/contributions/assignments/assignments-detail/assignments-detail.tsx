@@ -2,11 +2,11 @@ import React, { useEffect, useState, FormEvent, ChangeEvent, useCallback } from 
 import { useTranslation } from 'react-i18next';
 
 import { SelectOptions } from 'app/shared/models';
-import { toSelectables } from 'app/shared/utils/helpers';
+import { toSelectable } from 'app/shared/utils/helpers';
 import { Domain } from '../domain.model';
 import { Assignment } from '../assignment.model';
 import { Member } from '../../../members/member.model';
-import { AssignmentStates } from '../assignment-status.enum';
+import { AssignmentStatus } from '../assignment-status.enum';
 import { AssignmentsDetailProps } from './assignments-detail-props';
 
 import './assignments-detail.scss';
@@ -19,7 +19,7 @@ import {
 const defaultAssignment: Partial<Assignment> = {
   title: '',
   description: '',
-  status: AssignmentStates.InProgress,
+  status: AssignmentStatus.InProgress,
   domain: '',
   assignedTo: [],
   rewardAmount: 0,
@@ -45,8 +45,8 @@ export function AssignmentsDetail(props: AssignmentsDetailProps): JSX.Element {
   }, []);
 
   useEffect((): void => {
-    const selectableMembers = toSelectables<Member>(mockMembers, 'id', 'name');
-    const selectableDomains = toSelectables<Domain>(mockDomains, 'name', 'name');
+    const selectableMembers = toSelectable<Member>(mockMembers, 'id', 'name');
+    const selectableDomains = toSelectable<Domain>(mockDomains, 'name', 'name');
 
     setDomains(selectableDomains);
     setUsers(selectableMembers);
