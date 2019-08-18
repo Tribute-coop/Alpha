@@ -21,6 +21,7 @@ import { assignments as mockAssignments } from 'app/mocks';
 export function Assignments(props: RouteComponentProps): JSX.Element {
   const [assignmentsState, setAssignmentsState] = useState<State<Assignment>>({
     loaded: false,
+    empty: true,
     data: []
   });
 
@@ -29,7 +30,8 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
   useEffect((): void => {
     setAssignmentsState({
       loaded: true,
-      data: mockAssignments
+      data: mockAssignments,
+      empty: mockAssignments.length === 0
     });
   }, []);
 
@@ -64,7 +66,7 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
       <div className="container-fluid">
         { assignmentsState.loaded && (
           <div className="row">
-            { assignmentsState.data.length === 0 ?
+            { assignmentsState.empty ?
               (<div className="col-12">
                 <AssignmentsEmpty />
               </div>) :
