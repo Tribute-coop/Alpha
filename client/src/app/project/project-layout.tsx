@@ -5,19 +5,14 @@ import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
 
 import { useTitleFromPath } from 'app/shared/hooks';
 import { Tokens } from './tokens/tokens';
-import { Project } from './project.model';
 import { Members } from './members/members';
 import { Settings } from './settings/settings';
 import { Contributions } from './contributions/contributions';
-
-import { projects as mockProjects } from '../mocks';
-
-import './project-layout.scss';
+import { ProjectSelector } from './project-selector';
 
 export function ProjectLayout({ match: { path }, location: { pathname } }: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
   const title = useTitleFromPath(pathname);
-  const [ project ] = useState<Project>(mockProjects[0]);
   const [ showNewContribution, setShowNewContribution ] = useState<boolean>(false);
 
   useEffect((): void => {
@@ -27,10 +22,7 @@ export function ProjectLayout({ match: { path }, location: { pathname } }: Route
   return (
     <div className="main-layout">
       <header className="main-layout__header">
-        <div className="project-layout">
-          <img src={project.logo} alt={project.name} />
-          <div className="project-layout__name">{project.name}</div>
-        </div>
+        <ProjectSelector />
 
         <h4 className="main-layout__title">{t(title)}</h4>
 

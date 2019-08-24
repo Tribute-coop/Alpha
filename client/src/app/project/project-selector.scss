@@ -1,0 +1,23 @@
+@import '../../styles/abstracts/variables';
+
+.project-selector {
+  &__brand {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 7rem;
+
+    &::after {
+      content: "";
+      margin-left: 2rem !important;
+      border-width: .35em !important;
+      border-top-color: $gray-500 !important;
+    }
+  }
+  
+  &__name {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-left: .75rem;
+  }
+}
