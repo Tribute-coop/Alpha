@@ -5,14 +5,12 @@ export function useTitleFromPath(pathname: Pathname): string {
   const [ title, setTitle ] = useState('');
 
   useEffect((): void => {
-    const routeChunks: string[] = pathname
+    const nextTitle: string = pathname
       .split('/')
-      .filter((subPath): boolean => !!subPath)
+      .filter((subPath): boolean => !!subPath && isNaN(+subPath))
       .slice(0, 2)
-      .concat('title');
-
-    const nextTitle = routeChunks.length < 3 ?
-      '' : routeChunks.join('.');
+      .concat('title')
+      .join('.');
 
     setTitle(nextTitle);
   }, [pathname]);
