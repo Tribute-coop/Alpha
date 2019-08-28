@@ -5,9 +5,10 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    margin-right: 7rem;
+    margin-right: 2rem;
+    min-width: 14rem;
 
-    &::after {
+    &:after {
       content: "";
       margin-left: 2rem !important;
       border-width: .35em !important;

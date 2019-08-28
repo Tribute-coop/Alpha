@@ -38,7 +38,7 @@ export const tokenOperations: TokenOperation[] = [
 ];
 
 export const projects: Project[] = [
-  { name: 'Poi', logo: PoiLogo, email: 'contact@poi.app', location: 'Paris, France' },
-  { name: 'Green Crown', logo: GreenLogo, email: 'contact@green-crown.com', location: 'Barcelona, Spain' },
-  { name: 'Illustration', logo: IllustrationLogo, email: 'contact@illustration.com', location: 'Milan, Italy' }
+  { id: '00000001', name: 'Poi', logo: PoiLogo, email: 'contact@poi.app', location: 'Paris, France' },
+  { id: '00000002', name: 'Green Crown', logo: GreenLogo, email: 'contact@green-crown.com', location: 'Barcelona, Spain' },
+  { id: '00000003', name: 'Illustration', logo: IllustrationLogo, email: 'contact@illustration.com', location: 'Milan, Italy' }
 ];

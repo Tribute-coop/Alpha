@@ -16,7 +16,7 @@ export function App(): JSX.Element {
             <Redirect to="/project" />
           </Route>
 
-          <Route path="/project" component={ProjectLayout} />
+          <Route path="/project/:id" component={ProjectLayout} />
           <Route path="/my" component={MyLayout} />
           <Route path="*" component={NotFound} />
         </Switch>
