@@ -11,14 +11,14 @@ function Calls(): JSX.Element {
 
 export function Contributions(props: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
-  const { path } = props.match;
+  const { path, url } = props.match;
 
   return (
     <React.Fragment>
       <nav className="navigation-bar">
-        <NavLink className="navigation-bar__item" to={path + '/assignments'}
+        <NavLink className="navigation-bar__item" to={url + '/assignments'}
           activeClassName="is-active">{t('project.contributions.assignments')}</NavLink>
-        <NavLink className="navigation-bar__item is-disabled" to={path + '/calls'}
+        <NavLink className="navigation-bar__item is-disabled" to={url + '/calls'}
           activeClassName="is-active">{t('project.contributions.calls')}</NavLink>
       </nav>
 

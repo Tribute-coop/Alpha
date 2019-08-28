@@ -19,13 +19,13 @@ import './assignments.scss';
 import { assignments as mockAssignments } from 'app/mocks';
 
 export function Assignments(props: RouteComponentProps): JSX.Element {
+  const { history, location, match: { path } } = props;
   const [assignmentsState, setAssignmentsState] = useState<State<Assignment>>({
     loaded: false,
     empty: true,
     data: []
   });
 
-  const { history, location, match: { path } } = props;
 
   useEffect((): void => {
     setAssignmentsState({

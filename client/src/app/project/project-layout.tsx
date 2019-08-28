@@ -10,7 +10,8 @@ import { Settings } from './settings/settings';
 import { Contributions } from './contributions/contributions';
 import { ProjectSelector } from './project-selector';
 
-export function ProjectLayout({ match: { path }, location: { pathname } }: RouteComponentProps): JSX.Element {
+export function ProjectLayout(props: RouteComponentProps): JSX.Element {
+  const { match: { path, url }, location: { pathname } } = props;
   const { t } = useTranslation();
   const title = useTitleFromPath(pathname);
   const [ showNewContribution, setShowNewContribution ] = useState<boolean>(false);
@@ -27,7 +28,7 @@ export function ProjectLayout({ match: { path }, location: { pathname } }: Route
         <h4 className="main-layout__title">{t(title)}</h4>
 
         { showNewContribution &&
-          <Link className="btn btn-primary" to={path + '/contributions/assignments/new'}>
+          <Link className="btn btn-primary" to={url + '/contributions/assignments/new'}>
             {t('project.contributions.newContribution')}
           </Link>
         }
