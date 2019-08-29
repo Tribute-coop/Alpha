@@ -9,8 +9,8 @@ export function SearchSelect(props: FieldProps<HTMLSelectElement>): JSX.Element 
 
   return (
     <div className="search-select form-group">
-      { label && <label className="search-select__label uppercase-label">{label}:</label> }
-      <select name={name} className="search-select__select form-control"
+      { label && <label htmlFor={name} className="search-select__label uppercase-label">{label}:</label> }
+      <select id={name} name={name} className="search-select__select form-control"
         onChange={onChange} value={value}>
         { children }
       </select>
