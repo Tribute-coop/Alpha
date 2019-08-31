@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router';
-import queryString from 'query-string';
 
 import { State } from 'app/shared/models';
 import { applyQueryFilters } from 'app/shared/utils/filters';
@@ -30,10 +29,9 @@ export function Tokens(props: RouteComponentProps): JSX.Element {
       return;
     }
 
-    const search = queryString.parse(props.location.search);
     const filteredTokensOperations = applyQueryFilters<TokenOperation>(
       mockTokenOperations,
-      search,
+      props.location.search,
       tokenQueryFilters
     );
 

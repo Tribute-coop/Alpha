@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { RouteComponentProps, Switch, Route } from 'react-router';
-import queryString from 'query-string';
 
 import { State } from 'app/shared/models';
 import { SlidePanel } from 'app/shared/components';
@@ -40,10 +39,9 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
       return;
     }
 
-    const parsedSearch = queryString.parse(location.search);
     const filteredAssignments = applyQueryFilters<Assignment>(
       mockAssignments,
-      parsedSearch,
+      location.search,
       assignmentsQueryFilters
     );
 
