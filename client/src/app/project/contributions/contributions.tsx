@@ -1,13 +1,9 @@
 import React from 'react';
-import { Route, Redirect, Switch, RouteComponentProps } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { NavLink, RouteComponentProps } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { Assignments } from './assignments';
-
-function Calls(): JSX.Element {
-  return (<div>Calls</div>);
-}
+import { RouterOutlet } from 'app/shared/components/router-outlet';
+import routes from './contributions.routes';
 
 export function Contributions(props: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
@@ -22,11 +18,7 @@ export function Contributions(props: RouteComponentProps): JSX.Element {
           activeClassName="is-active">{t('project.contributions.calls')}</NavLink>
       </nav>
 
-      <Switch>
-        <Route path={path + '/assignments'} component={Assignments} />
-        <Route path={path + '/calls'} component={Calls} />
-        <Redirect to={path + '/assignments'} />
-      </Switch>
+      <RouterOutlet path={path} routes={routes} />
     </React.Fragment>
   );
 }

@@ -1,21 +1,9 @@
 import React from 'react';
-import { Route, Redirect, Switch, RouteComponentProps } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { NavLink, RouteComponentProps } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { General } from './general';
-
-function PublicSettings(): JSX.Element {
-  return (<div>PublicSettings</div>);
-}
-
-function TokensAndFund(): JSX.Element {
-  return (<div>TokensAndFund</div>);
-}
-
-function ValueAccounting(): JSX.Element {
-  return (<div>ValueAccounting</div>);
-}
+import { RouterOutlet } from 'app/shared/components/router-outlet';
+import routes from './settings.routes';
 
 export function Settings(props: RouteComponentProps): JSX.Element {
   const { t } = useTranslation();
@@ -34,13 +22,7 @@ export function Settings(props: RouteComponentProps): JSX.Element {
           activeClassName="is-active">{t('project.settings.valueAccounting')}</NavLink>
       </nav>
 
-      <Switch>
-        <Route path={path + '/general'} component={General} />
-        <Route path={path + '/public'} component={PublicSettings} />
-        <Route path={path + '/tokens-and-fund'} component={TokensAndFund} />
-        <Route path={path + '/value-accounting'} component={ValueAccounting} />
-        <Redirect to={path + '/general'} />
-      </Switch>
+      <RouterOutlet path={path} routes={routes} />
     </React.Fragment>
   );
 }

@@ -1,27 +1,14 @@
 import React from 'react';
-import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
+import { RouteComponentProps } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
 import { useTitleFromPath } from 'app/shared/hooks';
-
-function Wallet(): JSX.Element {
-  return (<div>Wallet</div>);
-}
-
-function Activity(): JSX.Element {
-  return (<div>Activity</div>);
-}
-
-function Profile(): JSX.Element {
-  return (<div>Profile</div>);
-}
-
-function Notifications(): JSX.Element {
-  return (<div>Notifications</div>);
-}
+import { RouterOutlet } from 'app/shared/components/router-outlet';
+import routes from './my.routes';
 
 export function MyLayout(props: RouteComponentProps): JSX.Element {
-  const { match: { path }, location: { pathname } } = props;
+  const pathname = props.location.pathname;
+  const path = props.match.path;
   const title = useTitleFromPath(pathname);
   const { t } = useTranslation();
 
@@ -31,13 +18,7 @@ export function MyLayout(props: RouteComponentProps): JSX.Element {
         <h4 className="main-layout__title">{t(title)}</h4>
       </header>
       <section className="main-layout__section">
-        <Switch>
-          <Route path={path + '/wallet'} component={Wallet} />
-          <Route path={path + '/activity'} component={Activity} />
-          <Route path={path + '/profile'} component={Profile} />
-          <Route path={path + '/notifications'} component={Notifications} />
-          <Redirect to={path + '/wallet'} />
-        </Switch>
+        <RouterOutlet path={path} routes={routes} />
       </section>
     </div>
   );

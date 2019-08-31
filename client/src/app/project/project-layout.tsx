@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
+import { RouteComponentProps } from 'react-router';
 
+import { RouterOutlet } from 'app/shared/components/router-outlet';
 import { useTitleFromPath } from 'app/shared/hooks';
-import { Tokens } from './tokens/tokens';
 import { Project } from './project.model';
-import { Members } from './members/members';
-import { Settings } from './settings/settings';
-import { Contributions } from './contributions/contributions';
+import routes from './project.routes';
 
 import { projects as mockProjects } from '../mocks';
 
@@ -41,13 +39,7 @@ export function ProjectLayout({ match: { path }, location: { pathname } }: Route
         }
       </header>
       <section className="main-layout__section">
-        <Switch>
-          <Route path={path + '/contributions'} component={Contributions} />
-          <Route path={path + '/members'} component={Members} />
-          <Route path={path + '/tokens'} component={Tokens} />
-          <Route path={path + '/settings'} component={Settings} />
-          <Redirect to={path + '/contributions'} />
-        </Switch>
+        <RouterOutlet path={path} routes={routes} />
       </section>
     </div>
   );
