@@ -7,6 +7,14 @@ function Calls(): JSX.Element {
 }
 
 export default [
-  { path: '/assignments', component: Assignments },
-  { path: '/calls', component: Calls }
+  {
+    path: '/assignments',
+    component: Assignments,
+    trnsKey: 'project.contributions.assignments'
+  },
+  {
+    path: '/calls',
+    component: Calls,
+    trnsKey: 'project.contributions.calls'
+  }
 ];

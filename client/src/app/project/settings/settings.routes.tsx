@@ -15,8 +15,24 @@ function ValueAccounting(): JSX.Element {
 }
 
 export default [
-  { path: '/general', component: General },
-  { path: '/public', component: PublicSettings },
-  { path: '/tokens-and-fund', component: TokensAndFund },
-  { path: '/value-accounting', component: ValueAccounting }
+  {
+    path: '/general',
+    component: General,
+    trnsKey: 'project.settings.general'
+  },
+  {
+    path: '/public',
+    component: PublicSettings,
+    trnsKey: 'project.settings.publicSettings'
+  },
+  {
+    path: '/tokens-and-fund',
+    component: TokensAndFund,
+    trnsKey: 'project.settings.tokensAndFund'
+  },
+  {
+    path: '/value-accounting',
+    component: ValueAccounting,
+    trnsKey: 'project.settings.valueAccounting'
+  }
 ];
