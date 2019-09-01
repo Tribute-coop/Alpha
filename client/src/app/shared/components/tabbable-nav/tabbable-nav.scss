@@ -1,4 +1,6 @@
-.navigation-bar {
+@import '../../../../styles/abstracts/variables';
+
+.tabbable-nav {
   display: flex;
   height: $header-height * .55;
   min-height: $header-height * .55;

@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { RouteComponentProps, Switch, Route, Redirect } from 'react-router';
+import { RouteComponentProps } from 'react-router';
 
+import { RouterOutlet } from 'app/shared/components/router-outlet';
 import { useTitleFromPath } from 'app/shared/hooks';
-import { Tokens } from './tokens/tokens';
-import { Members } from './members/members';
-import { Settings } from './settings/settings';
-import { Contributions } from './contributions/contributions';
 import { ProjectSelector } from './project-selector';
+import routes from './project.routes';
 
 export function ProjectLayout(props: RouteComponentProps): JSX.Element {
-  const { match: { path, url }, location: { pathname } } = props;
+  const { match, location } = props;
   const { t } = useTranslation();
-  const title = useTitleFromPath(pathname);
+  const title = useTitleFromPath(location.pathname);
   const [ showNewContribution, setShowNewContribution ] = useState<boolean>(false);
 
   useEffect((): void => {
-    setShowNewContribution(pathname.includes('assignments'));
-  }, [pathname]);
+    setShowNewContribution(location.pathname.includes('assignments'));
+  }, [location.pathname]);
 
   return (
     <div className="main-layout">
@@ -28,19 +26,13 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
         <h4 className="main-layout__title">{t(title)}</h4>
 
         { showNewContribution &&
-          <Link className="btn btn-primary" to={url + '/contributions/assignments/new'}>
+          <Link className="btn btn-primary" to={match.url + '/contributions/assignments/new'}>
             {t('project.contributions.newContribution')}
           </Link>
         }
       </header>
       <section className="main-layout__section">
-        <Switch>
-          <Route path={path + '/contributions'} component={Contributions} />
-          <Route path={path + '/members'} component={Members} />
-          <Route path={path + '/tokens'} component={Tokens} />
-          <Route path={path + '/settings'} component={Settings} />
-          <Redirect to={path + '/contributions'} />
-        </Switch>
+        <RouterOutlet path={match.path} routes={routes} />
       </section>
     </div>
   );

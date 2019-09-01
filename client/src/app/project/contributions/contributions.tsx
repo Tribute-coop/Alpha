@@ -1,32 +1,17 @@
 import React from 'react';
-import { Route, Redirect, Switch, RouteComponentProps } from 'react-router';
-import { NavLink } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { RouteComponentProps } from 'react-router-dom';
 
-import { Assignments } from './assignments';
-
-function Calls(): JSX.Element {
-  return (<div>Calls</div>);
-}
+import { RouterOutlet } from 'app/shared/components/router-outlet';
+import { TabbableNav } from 'app/shared/components/tabbable-nav';
+import routes from './contributions.routes';
 
 export function Contributions(props: RouteComponentProps): JSX.Element {
-  const { t } = useTranslation();
   const { path, url } = props.match;
 
   return (
     <React.Fragment>
-      <nav className="navigation-bar">
-        <NavLink className="navigation-bar__item" to={url + '/assignments'}
-          activeClassName="is-active">{t('project.contributions.assignments')}</NavLink>
-        <NavLink className="navigation-bar__item is-disabled" to={url + '/calls'}
-          activeClassName="is-active">{t('project.contributions.calls')}</NavLink>
-      </nav>
-
-      <Switch>
-        <Route path={path + '/assignments'} component={Assignments} />
-        <Route path={path + '/calls'} component={Calls} />
-        <Redirect to={path + '/assignments'} />
-      </Switch>
+      <TabbableNav path={url} items={routes} />
+      <RouterOutlet path={path} routes={routes} />
     </React.Fragment>
   );
 }

@@ -40,8 +40,8 @@ export function SearchDateInput(props: FieldProps<HTMLInputElement> & { separato
 
   return (
     <div className="search-select form-group">
-      { label && <label className="search-select__label uppercase-label">{label}:</label> }
-      <Flatpickr options={{ ...options, defaultDate: searchDateRange }} className="search-date-input form-control"
+      { label && <label htmlFor={name} className="search-select__label uppercase-label">{label}:</label> }
+      <Flatpickr id={name} options={{ ...options, defaultDate: searchDateRange }} className="search-date-input form-control"
         name={name} onClose={(event): void => setSearchDateRange(event)} />
     </div>
   );
