@@ -7,13 +7,17 @@ import { MainLayout } from 'app/core/layout';
 import { ProjectLayout } from './project/project-layout';
 import { MyLayout } from './my/my-layout';
 
+import { projects as mockProjects } from './mocks';
+
 export function App(): JSX.Element {
+  const project = mockProjects[0];
+
   return (
     <BrowserRouter>
       <MainLayout>
         <Switch>
           <Route exact path="/">
-            <Redirect to="/project" />
+            <Redirect to={`/project/${project.id}`} />
           </Route>
 
           <Route path="/project/:id" component={ProjectLayout} />
