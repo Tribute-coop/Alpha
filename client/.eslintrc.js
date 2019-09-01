@@ -1,6 +1,6 @@
 module.exports =  {
   parser:  '@typescript-eslint/parser',  // Specifies the ESLint parser
-  extends:  [
+  extends: [
     'plugin:react/recommended',  // Uses the recommended rules from @eslint-plugin-react
     'plugin:@typescript-eslint/recommended',  // Uses the recommended rules from @typescript-eslint/eslint-plugin
   ],
@@ -8,10 +8,10 @@ module.exports =  {
     "react",
     "react-hooks"
   ],
-  parserOptions:  {
+  parserOptions: {
     ecmaVersion:  2018,  // Allows for the parsing of modern ECMAScript features
     sourceType:  'module',  // Allows for the use of imports
-    ecmaFeatures:  {
+    ecmaFeatures: {
       jsx:  true,  // Allows for the parsing of JSX
     },
   },
@@ -19,7 +19,7 @@ module.exports =  {
     "jest": true,
     "browser": true
   },
-  rules:  {
+  rules: {
     "comma-dangle": [
       2,
       "never"
@@ -169,7 +169,7 @@ module.exports =  {
       0,
       "declaration"
     ],
-    "indent": [2, 2],
+    "indent": [2, 2, { "SwitchCase": 1 }],
     "@typescript-eslint/indent": [2, 2],
     "key-spacing": [
       2,
@@ -294,8 +294,8 @@ module.exports =  {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   },
-  settings:  {
-    react:  {
+  settings: {
+    react: {
       version:  'detect',  // Tells eslint-plugin-react to automatically detect the version of React to use
     },
   },
