@@ -12,7 +12,7 @@ import { tokenQueryFilters } from './tokens-query-filter';
 import { tokenOperations as mockTokenOperations } from 'app/mocks';
 
 export function Tokens(props: RouteComponentProps): JSX.Element {
-  const [tokensState, setTokensState] = useState<State<TokenOperation>>({
+  const [tokensState, setTokensState] = useState<State<TokenOperation[]>>({
     loaded: false,
     data: []
   });
@@ -35,7 +35,7 @@ export function Tokens(props: RouteComponentProps): JSX.Element {
       tokenQueryFilters
     );
 
-    setTokensState((prevTokensState): State<TokenOperation> => {
+    setTokensState((prevTokensState): State<TokenOperation[]> => {
       return {
         ...prevTokensState,
         data: filteredTokensOperations

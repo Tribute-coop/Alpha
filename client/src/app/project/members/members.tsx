@@ -11,7 +11,7 @@ import { membersQueryFilters } from './members-query-filters';
 import { members as mockMembers } from 'app/mocks';
 
 export function Members(props: RouteComponentProps): JSX.Element {
-  const [membersState, setMembersState] = useState<State<Member>>({
+  const [membersState, setMembersState] = useState<State<Member[]>>({
     loaded: false,
     data: []
   });
@@ -34,7 +34,7 @@ export function Members(props: RouteComponentProps): JSX.Element {
       membersQueryFilters
     );
 
-    setMembersState((prevMembersState): State<Member> => {
+    setMembersState((prevMembersState): State<Member[]> => {
       return {
         ...prevMembersState,
         data: filteredMembers

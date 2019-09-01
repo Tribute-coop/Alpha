@@ -19,7 +19,7 @@ import { assignments as mockAssignments } from 'app/mocks';
 
 export function Assignments(props: RouteComponentProps): JSX.Element {
   const { history, location, match: { path } } = props;
-  const [assignmentsState, setAssignmentsState] = useState<State<Assignment>>({
+  const [assignmentsState, setAssignmentsState] = useState<State<Assignment[]>>({
     loaded: false,
     empty: true,
     data: []
@@ -45,7 +45,7 @@ export function Assignments(props: RouteComponentProps): JSX.Element {
       assignmentsQueryFilters
     );
 
-    setAssignmentsState((prevAssignmentsState): State<Assignment> => {
+    setAssignmentsState((prevAssignmentsState): State<Assignment[]> => {
       return {
         ...prevAssignmentsState,
         data: filteredAssignments
