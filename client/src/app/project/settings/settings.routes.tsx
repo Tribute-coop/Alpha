@@ -35,7 +35,7 @@ export default [
   {
     path: '/value-accounting',
     component: ValueAccounting,
-    trnsKey: 'pasroject.settings.valueAccounting',
+    trnsKey: 'project.settings.valueAccounting',
     disabled: true
   }
 ];
