@@ -2,5 +2,8 @@ export { StackedRoundedImage } from './stacked-rounded-image';
 export { SearchSelect } from './search-select';
 export { SearchInput } from './search-input';
 export { RoundedImage } from './rounded-image';
+export { RouterOutlet } from './router-outlet';
+export { TabbableNav } from './tabbable-nav';
 export { SlidePanel } from './slide-panel';
 export { NotFound } from './not-found';
+export { Loader } from './loader';

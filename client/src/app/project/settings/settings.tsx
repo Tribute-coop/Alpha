@@ -1,8 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 
-import { RouterOutlet } from 'app/shared/components/router-outlet';
-import { TabbableNav } from 'app/shared/components/tabbable-nav';
+import { RouterOutlet, TabbableNav } from 'app/shared/components';
 import routes from './settings.routes';
 
 export function Settings(props: RouteComponentProps): JSX.Element {

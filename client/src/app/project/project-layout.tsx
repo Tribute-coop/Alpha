@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { useEffect, useState, Suspense } from 'react';
 import { RouteComponentProps } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-import { RouterOutlet } from 'app/shared/components/router-outlet';
-import { NotFound } from 'app/shared/components';
+import { RouterOutlet, Loader, NotFound } from 'app/shared/components';
 import { useTitleFromPath } from 'app/shared/hooks';
 import { ProjectSelector } from './project-selector';
 import routes from './project.routes';
@@ -45,7 +44,9 @@ export function ProjectLayout(props: RouteComponentProps): JSX.Element {
         }
       </header>
       <section className="main-layout__section">
-        <RouterOutlet path={match.path} routes={routes} />
+        <Suspense fallback={<Loader />}>
+          <RouterOutlet path={match.path} routes={routes} />
+        </Suspense>
       </section>
     </div>
   );

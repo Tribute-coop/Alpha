@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { Project } from '../../project.model';
 
+import './general.scss';
+
 import { projects as mockProjects } from 'app/mocks';
 
 export function General(): JSX.Element {
@@ -27,7 +29,7 @@ export function General(): JSX.Element {
     <div className="container-fluid pt-3">
       <div className="row">
         <div className="col-12 col-lg-4">
-          <form className="" onSubmit={handleSubmit} autoComplete="off">
+          <form className="general-form" onSubmit={handleSubmit} autoComplete="off">
             <div className="form-group">
               <label htmlFor="name" className="uppercase-label">
                 {t('project.settings.projectName')}
