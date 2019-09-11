@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { RouteComponentProps } from 'react-router';
 
-import { RouterOutlet } from 'app/shared/components/router-outlet';
+import { RouterOutlet, Loader } from 'app/shared/components';
 import { useTitleFromPath } from 'app/shared/hooks';
 import { Project } from './project.model';
 import routes from './project.routes';
@@ -39,7 +39,9 @@ export function ProjectLayout({ match: { path }, location: { pathname } }: Route
         }
       </header>
       <section className="main-layout__section">
-        <RouterOutlet path={path} routes={routes} />
+        <Suspense fallback={<Loader />}>
+          <RouterOutlet path={path} routes={routes} />
+        </Suspense>
       </section>
     </div>
   );

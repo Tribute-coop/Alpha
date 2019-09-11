@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
 import { useTitleFromPath } from 'app/shared/hooks';
-import { RouterOutlet } from 'app/shared/components/router-outlet';
+import { RouterOutlet } from 'app/shared/components';
 import routes from './my.routes';
 
 export function MyLayout(props: RouteComponentProps): JSX.Element {
