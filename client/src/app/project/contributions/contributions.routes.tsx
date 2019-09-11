@@ -15,6 +15,7 @@ export default [
   {
     path: '/calls',
     component: Calls,
-    trnsKey: 'project.contributions.calls'
+    trnsKey: 'project.contributions.calls',
+    disabled: true
   }
 ];

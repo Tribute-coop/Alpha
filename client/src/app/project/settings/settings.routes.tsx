@@ -23,16 +23,19 @@ export default [
   {
     path: '/public',
     component: PublicSettings,
-    trnsKey: 'project.settings.publicSettings'
+    trnsKey: 'project.settings.publicSettings',
+    disabled: true
   },
   {
     path: '/tokens-and-fund',
     component: TokensAndFund,
-    trnsKey: 'project.settings.tokensAndFund'
+    trnsKey: 'project.settings.tokensAndFund',
+    disabled: true
   },
   {
     path: '/value-accounting',
     component: ValueAccounting,
-    trnsKey: 'project.settings.valueAccounting'
+    trnsKey: 'pasroject.settings.valueAccounting',
+    disabled: true
   }
 ];
