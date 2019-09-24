@@ -8,7 +8,7 @@ import { toSelectable } from 'app/shared/utils/helpers';
 import { dateSeparator } from 'app/shared/utils/constants';
 import { useSearchQuery, useTranslatedEnum } from 'app/shared/hooks';
 import { SelectableFilters, TranslatedItem } from 'app/shared/models';
-import { SearchDateInput } from '../shared';
+import { SearchDateInput } from 'app/shared/components/search-date-input';
 import { Member } from '../../members/member.model';
 import { TokenOperationType } from '../token.model';
 
