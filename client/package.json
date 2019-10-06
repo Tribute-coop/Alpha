@@ -16,8 +16,8 @@
     "react-flatpickr": "^3.9.0",
     "react-i18next": "^10.10.0",
     "react-redux": "^7.1.0",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.1.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
     "react-transition-group": "^4.2.2",
     "use-debounce": "^3.0.0"
   },
@@ -26,7 +26,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext ts,tsx src/app/",
+    "lint": "eslint --ext ts,tsx src/app/ && stylelint 'src/**/*.scss'",
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "eslintConfig": {
@@ -47,12 +47,13 @@
     "@types/react-dom": "^16.8.5",
     "@types/react-flatpickr": "^3.8.0",
     "@types/react-redux": "^7.1.1",
-    "@types/react-router-dom": "^4.3.2",
+    "@types/react-router-dom": "^5.1.0",
     "@types/react-transition-group": "^4.2.2",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.0.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
+    "stylelint": "^11.0.0",
     "typescript": "^3.5.1"
   }
 }
