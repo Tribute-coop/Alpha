@@ -902,14 +902,14 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.0":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.0", "@babel/runtime@^7.5.5":
   version "7.6.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.2.tgz#c3d6e41b304ef10dcf13777a33e7694ec4a9a6dd"
   integrity sha512-EXxN64agfUqqIGeEjI5dL5z0Sw0ZwWo1mLTi4mQowCZ42O59b7DRpZAnTC6OqdF28wMBMFKNb/4uFGrVaigSpg==
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.4.2", "@babel/runtime@^7.5.5":
+"@babel/runtime@^7.4.2":
   version "7.5.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.5.5.tgz#74fba56d35efbeca444091c7850ccd494fd2f132"
   integrity sha512-28QvEGyQyNkB0/m2B4FU7IEZGK2NUrcMtT6BZEFALTguLk+AUT6ofsHtPk5QyjAdUkpMJ+/Em+quwz4HOt30AQ==
@@ -4848,16 +4848,16 @@ i18next-xhr-backend@*:
     "@babel/runtime" "^7.4.5"
 
 i18next-xhr-backend@^3.0.0:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/i18next-xhr-backend/-/i18next-xhr-backend-3.1.2.tgz#f9da86c81981ac245325cb2dbfd4232a5b183676"
-  integrity sha512-zN+x85W5R2ezGfmRh8F7+lsXoQgCNNb1jjSfm0325VuSIZ4ewvsnq3uHFrZaXmSJ8qTwPibO9rRb3mIzncEF9g==
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/i18next-xhr-backend/-/i18next-xhr-backend-3.2.0.tgz#f2ac0792c38ca8ee653fab723fc9dcc7b0ff4d71"
+  integrity sha512-WKxC7YWqMT5CNwmnuSbFqb3pXZyDglIONO8qC8HBmP1OaT4GHc1Ox4JX42G27RQjzKK2px3ynwW9Z35LR9RoQg==
   dependencies:
     "@babel/runtime" "^7.5.5"
 
 i18next@^17.0.3:
-  version "17.0.16"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-17.0.16.tgz#4bee0f84d6c79db3095f4eca6ded7920eea6b139"
-  integrity sha512-PtPiycw8H/45AAy2nuS3Ehov1X9k5V/gTJ89Uh8VAA3dx8EbsWwyP3c25fd4PWlLUey3YbRLTNPbre/dPho8Og==
+  version "17.0.18"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-17.0.18.tgz#cca2503125af2370daa4657c5320d5ef6924c23a"
+  integrity sha512-FpLbLwzYV/qen9ZTA+mOHiNzLxESnF+sQCe5wT7UShssfDiW/df5JdXuxnPsPQiUd+M1kpB3Jaawcn9RN6atig==
   dependencies:
     "@babel/runtime" "^7.3.1"
 
@@ -8159,9 +8159,9 @@ react-flatpickr@^3.9.0:
     prop-types "^15.5.10"
 
 react-i18next@^10.10.0:
-  version "10.12.5"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-10.12.5.tgz#b52ccf76bfafddd6f006d7784b2cb802076f724f"
-  integrity sha512-bWVldjtKy5Tb7gsYF1E1Q7s1aEvTFigFZXH5wR8PYe7xPpK3ed6duGLiBRUVNCYGaydFsdVnju7A8wan/Nj3Vg==
+  version "10.13.1"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-10.13.1.tgz#4ad37e0bec5e4cf53aaa2a0c96a4e171e01ad520"
+  integrity sha512-MReJUMoYooaKZONvoewFuAwf31bQU60Xt25P5wBIPTMphY4LjDJE27rwhEKjNLL24nSIHa3Jh+z9bPwSKISAoA==
   dependencies:
     "@babel/runtime" "^7.3.1"
     html-parse-stringify2 "2.0.1"
