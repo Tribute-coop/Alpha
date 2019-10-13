@@ -7,10 +7,9 @@ import { RouterOutlet } from 'app/shared/components';
 import routes from './my.routes';
 
 export function MyLayout(props: RouteComponentProps): JSX.Element {
-  const pathname = props.location.pathname;
-  const path = props.match.path;
-  const title = useTitleFromPath(pathname);
+  const { location, match } = props;
   const { t } = useTranslation();
+  const title = useTitleFromPath(location.pathname);
 
   return (
     <div className="main-layout main-layout--green">
@@ -18,7 +17,7 @@ export function MyLayout(props: RouteComponentProps): JSX.Element {
         <h4 className="main-layout__title">{t(title)}</h4>
       </header>
       <section className="main-layout__section">
-        <RouterOutlet path={path} routes={routes} />
+        <RouterOutlet path={match.path} routes={routes} />
       </section>
     </div>
   );

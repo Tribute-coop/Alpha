@@ -7,6 +7,7 @@ import { Domain } from './project/contributions/assignments/domain.model';
 import { Project } from './project/project.model';
 import PoiLogo from 'images/poi_logo2.png';
 import GreenLogo from 'images/green_logo.png';
+import IllustrationLogo from 'images/illustration.png';
 
 export const members: Member[] = [
   { id: '@zunith', name: 'Zuna G.', role: Role.Owner, jobs: 8, lastSeen: 'Today', rewards: '1,200 CTX', thumbnail: 'https://picsum.photos/id/1084/50/50' },
@@ -37,6 +38,7 @@ export const tokenOperations: TokenOperation[] = [
 ];
 
 export const projects: Project[] = [
-  { name: 'Poi', logo: PoiLogo, email: 'contact@poi.app', location: 'Paris, France' },
-  { name: 'Green Crown', logo: GreenLogo, email: 'contact@green-crown.com', location: 'Barcelona, Spain' }
+  { id: '00000001', name: 'Poi', logo: PoiLogo, email: 'contact@poi.app', location: 'Paris, France' },
+  { id: '00000002', name: 'Green Crown', logo: GreenLogo, email: 'contact@green-crown.com', location: 'Barcelona, Spain' },
+  { id: '00000003', name: 'Illustration', logo: IllustrationLogo, email: 'contact@illustration.com', location: 'Milan, Italy' }
 ];

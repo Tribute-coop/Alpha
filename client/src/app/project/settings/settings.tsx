@@ -5,11 +5,11 @@ import { RouterOutlet, TabbableNav } from 'app/shared/components';
 import routes from './settings.routes';
 
 export function Settings(props: RouteComponentProps): JSX.Element {
-  const { path } = props.match;
+  const { path, url } = props.match;
 
   return (
     <React.Fragment>
-      <TabbableNav path={path} items={routes} />
+      <TabbableNav path={url} items={routes} />
       <RouterOutlet path={path} routes={routes} />
     </React.Fragment>
   );
